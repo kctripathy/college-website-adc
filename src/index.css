@@ -1,13 +1,143 @@
-body {
+@import 'responsive.css';
+ body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/*
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+.layout {
+  min-height: 600px;
+}
+.bg-adc {
+  /* background-color: #FFCC00; */
+  /* background: rgb(253,169,13);
+  background: -moz-linear-gradient(top, rgb(253,169,13) 3%, rgb(253,170,13) 4%, rgb(255,229,0) 49%, rgb(254,227,0) 50%, rgb(241,186,7) 76%, rgb(231,155,13) 96%);
+  background: -webkit-gradient(left top, left bottom, color-stop(3%, rgb(253,169,13)), color-stop(4%, rgb(253,170,13)), color-stop(49%, rgb(255,229,0)), color-stop(50%, rgb(254,227,0)), color-stop(76%, rgb(241,186,7)), color-stop(96%, rgb(231,155,13)));
+  background: -webkit-linear-gradient(top, rgb(253,169,13) 3%, rgb(253,170,13) 4%, rgb(255,229,0) 49%, rgb(254,227,0) 50%, rgb(241,186,7) 76%, rgb(231,155,13) 96%);
+  background: -o-linear-gradient(top, rgb(253,169,13) 3%, rgb(253,170,13) 4%, rgb(255,229,0) 49%, rgb(254,227,0) 50%, rgb(241,186,7) 76%, rgb(231,155,13) 96%);
+  background: -ms-linear-gradient(top, rgb(253,169,13) 3%, rgb(253,170,13) 4%, rgb(255,229,0) 49%, rgb(254,227,0) 50%, rgb(241,186,7) 76%, rgb(231,155,13) 96%);
+  background: linear-gradient(to bottom, rgb(253,169,13) 3%, rgb(253,170,13) 4%, rgb(255,229,0) 49%, rgb(254,227,0) 50%, rgb(241,186,7) 76%, rgb(231,155,13) 96%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fda90d', endColorstr='#e79b0d', GradientType=0 ); */
+  background: linear-gradient(to top left, yellow , orange);
+}
+
+.bg-primary,
+.btn-primary {
+  color: #000;
+  background: rgb(255,175,75);
+  background: -moz-linear-gradient(top, rgb(255,175,75) 4%, rgb(255,175,75) 12%, rgb(255,193,29) 60%, rgb(255,199,13) 76%, rgb(255,204,0) 90%);
+  background: -webkit-gradient(left top, left bottom, color-stop(4%, rgb(255,175,75)), color-stop(12%, rgb(255,175,75)), color-stop(60%, rgb(255,193,29)), color-stop(76%, rgb(255,199,13)), color-stop(90%, rgb(255,204,0)));
+  background: -webkit-linear-gradient(top, rgb(255,175,75) 4%, rgb(255,175,75) 12%, rgb(255,193,29) 60%, rgb(255,199,13) 76%, rgb(255,204,0) 90%);
+  background: -o-linear-gradient(top, rgb(255,175,75) 4%, rgb(255,175,75) 12%, rgb(255,193,29) 60%, rgb(255,199,13) 76%, rgb(255,204,0) 90%);
+  background: -ms-linear-gradient(top, rgb(255,175,75) 4%, rgb(255,175,75) 12%, rgb(255,193,29) 60%, rgb(255,199,13) 76%, rgb(255,204,0) 90%);
+  background: linear-gradient(to bottom, rgb(255,175,75) 4%, rgb(255,175,75) 12%, rgb(255,193,29) 60%, rgb(255,199,13) 76%, rgb(255,204,0) 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ffcc00', GradientType=0 );
+}
+
+.footer {
+  text-align: center;
+}
+
+.web-title {
+  font-weight: 700;
+}
+
+.web-sub-title{
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.page-title {
+  font-weight: 500;
+  font-size: 22px;
+  /* border-bottom: solid 1px #ccc; */
+  margin: 5px 0px;
+  padding: 5px 0px;
+}
+.home-section-title {
+  min-height: 30px;
+  font-size: 18px;
+}
+
+.text-wrap {
+  float: right;
+margin: 10px;
+};
+
+.tabs {
+  border: solid 1px red;
+}
+.tab-list {
+  border-bottom: 1px solid #ccc !important;
+  padding-left: 0;
+  
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ccc;
+  
+}
+
+.tab-list-active {
+  background-color: white;
+  border-bottom: solid 1px white !important;
+  border-left: solid 1px #ccc !important;
+  border-top: solid 5px #ccc !important;
+  border-right: solid 1px #ccc !important;
+  font-weight: 600;
+  color: #FFCC00;
+  /* border-width: 1px 1px 0 1px; */
+}
+
+.publ-head,
+.estb-head,
+.estb {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.publ > li,
+.estb > li {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 5px 0px 0px 0px;
+  border-bottom: solid 1px #ccc;
+  min-height: 40px;
+}
+.estb > li:first-child {
+  /* background-color: yellow; */
+  width: 17%;
+  text-align: center;
+}
+.estb > li:nth-child(2){
+  /* background-color: red; */
+  width: 82%;
+  padding-left: 10px;
+}
+
+.estb > li:last-child {
+  /* background-color: green; */
+  display: none;
+  width: 10%;
+}
+
+
+.estb-head {
+  min-height: 400px;
+  height: 100%;
+  overflow: auto;
+  /* border: solid 1px red; */
 }

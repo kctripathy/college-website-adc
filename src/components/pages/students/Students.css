@@ -1,0 +1,15 @@
+.student-name,
+.student-rollno,
+.student-class,
+.student-phone,
+.student-email{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.student-name {
+    font-size: 15px;
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 2px;
+    font-weight: bold;
+}

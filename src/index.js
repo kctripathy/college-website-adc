@@ -1,17 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { store } from './store';
+
+import MainApp from './components/pages/Main';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+
+
+
+Date.prototype.toShortFormat = function () {
+  var month_names = ["Jan", "Feb", "Mar",
+    "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep",
+    "Oct", "Nov", "Dec"];
+
+  var day = this.getDate();
+  var month_index = this.getMonth();
+  var year = this.getFullYear();
+
+  return "" + day + "-" + month_names[month_index] + "-" + year.toString().substring(2, 4);
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <BrowserRouter>
+    <Provider store={store}>
+      <MainApp />
+    </Provider>
+  </BrowserRouter>
+  // </React.StrictMode>
+  ,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

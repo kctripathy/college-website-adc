@@ -1,0 +1,12 @@
+.total {
+    float: right;
+    font-weight: 600 !important;
+    font-size: 21px !important;
+    margin-top: 2px !important;
+    padding: 13px !important;
+}
+
+.text-large {
+    font-weight: 600 !important;
+    font-size: 21px !important;    
+}

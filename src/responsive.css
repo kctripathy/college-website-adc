@@ -1,0 +1,25 @@
+
+@media only screen and (max-device-width: 480px)
+{
+    .web-logo {
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 60px;
+    }
+
+    .web-title {
+        font-weight: 700;
+        font-size: 1em;
+        margin-left: 24px;
+      }
+
+    .web-sub-title {
+        font-size: 1em;
+        text-transform: uppercase;
+    }
+
+    .estb > li:first-child,
+    .estb > li:nth-child(2) {
+        font-size: .75em;
+    }
+};

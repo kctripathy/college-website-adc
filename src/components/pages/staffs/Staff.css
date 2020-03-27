@@ -1,0 +1,42 @@
+.staff-card {
+    min-height: 150px;
+    max-height: 150px;
+    /* border: solid 1px #ccc; */
+    padding-top: 6px;
+}
+.staff-photo {
+    /* border: solid 1px red; */
+    margin: 0px auto;
+}
+
+.staff-designation,
+.staff-department,
+.staff-phone,
+.staff-email {
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    padding: 2px 0;
+    text-align: center;
+}
+.staff-name {
+    font-size: 12px;
+    text-align: center;
+    padding-right: 4px;
+}
+.staff-department {
+    font-size: 12px;
+    padding: 0px 4px 0px 0px !important;
+    margin-top: 4px;
+}
+
+.staff-designation {
+    font-size: 11px;
+    margin-top: -4px;
+    padding: 0px 4px 0px 0px !important;
+
+}
+
+.staff-phone {
+    padding-top: 5px;
+}

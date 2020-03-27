@@ -1,0 +1,15 @@
+.book-name,
+.book-rollno,
+.book-class,
+.book-phone,
+.book-email{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.book-name {
+    font-size: 15px;
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 2px;
+    font-weight: bold;
+}
