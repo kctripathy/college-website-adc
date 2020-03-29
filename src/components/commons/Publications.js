@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 //import { EstbTypeCode } from '../../commons/constants'
 //import { useHttpGet } from '../../commons/useHttpGet';
 
-import { EstbTypeCode } from '../../../constants/actionTypes'
-import { fetchEstablishments } from '../../../actionMethods/estbActionMethods'
-import Loading from '../../commons/Loading';
-import Tabs from '../../commons/Tabs';
+import { EstbTypeCode } from '../../constants/actionTypes'
+import { fetchEstablishments } from '../../actionMethods/estbActionMethods'
+import Loading from './Loading';
+import Tabs from './Tabs';
 
 
 

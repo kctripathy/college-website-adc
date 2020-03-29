@@ -46,6 +46,7 @@ code {
 
 .web-title {
   font-weight: 700;
+  text-shadow: 2px 2px #cccccc;
 }
 
 .web-sub-title{
@@ -140,4 +141,15 @@ margin: 10px;
   height: 100%;
   overflow: auto;
   /* border: solid 1px red; */
+}
+
+.caption-head {
+  font-weight: 800;
+  text-transform: capitalize;
+  text-shadow: 1px 1px #ccc;
+  -webkit-text-stroke: 1px #000;
+}
+.address-text {
+  margin: 0px;
+  padding: 0px;
 }

@@ -2,7 +2,9 @@ export const UserActionTypes = {
     fetchUserSuccess: 'fetchUserSuccess',
     fetchUserFailure: 'fetchUserFailure',
     addUserSuccess: 'addUserSuccess',
-    addUserFailure: 'addUserFailure'
+    addUserFailure: 'addUserFailure',
+    loginUserSuccess: 'loginUserSuccess',
+    loginUserFailure: 'loginUserFailure'
 };
 
 export const StudentActionTypes = {
@@ -45,7 +47,8 @@ export const EstbTypeCode = {
     BookProceeding: '3',
     AwardAchievment: '4',
     SeminarPaper: '5',
-    StudyMaterial: '6'
+    StudyMaterial: '6',
+    MediaRelease: 'Z'
 };
 
 

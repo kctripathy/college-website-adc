@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Document, Page, pdfjs } from "react-pdf";
 // import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import Layout from '../Layout';
+import { CORS_URL, DOCUMENTS_URL } from '../../../config';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -39,11 +40,13 @@ const EstablishmentDetails = (props) => {
                         <p>{establishment.EstbTitle === establishment.EstbDescription ? '' : establishment.EstbDescription}</p>
                     </div>
                 </div>
+                {/* file={{ url: `https://cors-anywhere.herokuapp.com/http://tsdcollege.in/Documents/${establishment.FileNameWithPath}` }} */}
+
                 <div className="row">
                     <div className="col-3">.</div>
-                    <div className="col-6 text-center bg-info">
+                    <div className="col-6 text-center">
                         <Document
-                            file={{ url: `https://cors-anywhere.herokuapp.com/http://tsdcollege.in/Documents/${establishment.FileNameWithPath}` }}
+                            file={{ url: `${CORS_URL}/${DOCUMENTS_URL}/${establishment.FileNameWithPath}` }}
                             onLoadSuccess={onDocumentLoadSuccess}
                             onLoadFailure={onDocumentLoadFailure}
                             onLoadError={console.error}>

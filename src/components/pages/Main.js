@@ -5,15 +5,17 @@ import NavBar from './NavBar';
 import NavRoutes from './NavRoutes';
 import Footer from './Footer';
 
+import { WEB_URL } from '../../config';
 
 function Main() {
     const [run, setRun] = useState(false);
-
     const changeHeader = () => {
-        console.log('header chaged...');
-
+        //console.log('header chaged...');
         setRun(!run);
     }
+
+    console.log('WEB_URL=', WEB_URL);
+
     return (
         <div>
             <Header onHeaderChage={changeHeader} />

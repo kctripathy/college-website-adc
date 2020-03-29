@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 //import emailjs from 'emailjs-com';
-//import sendEmail from '../common/SendEmail';
+import sendEmail from '../commons/SendEmail';
 
 import Layout from './Layout';
 
 function Contact() {
-    const [Name, setName] = useState('Kishor');
-    const [Email, setEmail] = useState('kctripathy@gmail.com');
-    const [Subject, setSubject] = useState('Subject of the mail');
-    const [Message, setMessage] = useState('Some text for body of the message will go here');
+    // const [Name, setName] = useState('Kishor');
+    // const [Email, setEmail] = useState('kctripathy@gmail.com');
+    // const [Subject, setSubject] = useState('Subject of the mail');
+    // const [Message, setMessage] = useState('Some text for body of the message will go here');
+
+    const [Name, setName] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Subject, setSubject] = useState('');
+    const [Message, setMessage] = useState('');
+
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
 
-    const sendEmail = () => {
-
-    };
 
     const handleFormSubmit = (e) => {
         //alert("e=",e);
@@ -32,7 +35,7 @@ function Contact() {
             mail_reply_to: Email
         })
             .then(res => {
-                debugger;
+                //debugger;
                 if (res.status === 200) {
                     setSuccess('Successfully sent the mail');
                     setError('');
@@ -45,7 +48,7 @@ function Contact() {
 
             })
             .catch(err => {
-                debugger;
+                //debugger;
                 setIsProcessing(false);
                 setSuccess('');
                 setError(`Failed to send email because: ${err}`);
@@ -86,17 +89,17 @@ function Contact() {
         return (
             <div>
                 <form onSubmit={handleFormSubmit}>
-                    <div className="card border-primary rounded-0 mb-4">
+                    <div className="card rounded-0 mb-4">
                         <div className="card-header p-0">
-                            <div className="bg-info text-white text-center py-2">
-                                <h3><i className="fa fa-envelope"></i> Contact</h3>
+                            <div className="bg-light text-dark py-2">
+                                <h5><i className="fa fa-envelope ml-3 pt-2"></i> Contact</h5>
                             </div>
                         </div>
                         <div className="card-body p-3">
                             <div className="form-group">
                                 <div className="input-group mb-2">
                                     <div className="input-group-prepend">
-                                        <div className="input-group-text"><i className="fa fa-user text-info"></i></div>
+                                        <div className="input-group-text"><i className="fa fa-user text-warning"></i></div>
                                     </div>
                                     <input
                                         type="text"
@@ -112,7 +115,7 @@ function Contact() {
                             <div className="form-group">
                                 <div className="input-group mb-2">
                                     <div className="input-group-prepend">
-                                        <div className="input-group-text"><i className="fa fa-envelope text-info"></i></div>
+                                        <div className="input-group-text"><i className="fa fa-envelope text-warning"></i></div>
                                     </div>
                                     <input type="email"
                                         className="form-control"
@@ -127,7 +130,7 @@ function Contact() {
                             <div className="form-group">
                                 <div className="input-group mb-2">
                                     <div className="input-group-prepend">
-                                        <div className="input-group-text"><i className="fa fa-user text-info"></i></div>
+                                        <div className="input-group-text"><i className="fa fa-user text-warning"></i></div>
                                     </div>
                                     <input
                                         type="text"
@@ -143,11 +146,12 @@ function Contact() {
                             <div className="form-group">
                                 <div className="input-group mb-2">
                                     <div className="input-group-prepend">
-                                        <div className="input-group-text"><i className="fa fa-comment text-info"></i></div>
+                                        <div className="input-group-text"><i className="fa fa-comment text-warning"></i></div>
                                     </div>
                                     <textarea className="form-control"
                                         id="mail_message"
                                         name="mail_message"
+                                        rows="4"
                                         placeholder="Please enter your message here"
                                         value={Message}
                                         onChange={(e) => setMessage(e.target.value)}
@@ -157,15 +161,18 @@ function Contact() {
                             </div>
 
                             <div className="text-center">
-                                <input type="submit" value="Submit" className="btn btn-info rounded-0 py-2" />
+                                <input type="submit" value="Send Email" className="btn btn-primary rounded-0 py-2" />
                             </div>
+                            <br />
+                            <br />
+
                         </div>
 
                     </div>
                 </form>
 
                 {/* <div className="text-center">
-                    <input type="submit" value="Send Password Reset Link" onClick={sendPasswordResestLink} className="btn btn-info rounded-0 py-2" />
+                    <input type="submit" value="Send Password Reset Link" onClick={sendPasswordResestLink} className="btn btn-warning rounded-0 py-2" />
                 </div> */}
             </div>
         )
@@ -175,16 +182,61 @@ function Contact() {
     const address = () => {
         return (
             <div className="card bg-light mb-3">
-                <div className="card-header bg-info text-white text-uppercase">
-                    <i className="fa fa-home"></i> Address
+                <div className="card-header bg-light text-dark text-uppercase">
+                    <i className="fa fa-home"></i> SNAIL MAIL (POSTAL) Address
 				</div>
-                <div className="card-body">
-                    <p>This is some address</p>
-                    <p>BANGALORE</p>
-                    <p>569001 Karnataka (India)</p>
-                    <p>Email : email@example.com</p>
-                    <p>Tel. +91 22331 11122</p>
-                    <p>Fax. +91 22331 11122</p>
+                <div className="card-body" style={{ backgroundColor: "#fff" }}>
+                    <p className="address-text">
+                        At/Po: Jagannath Prasad,
+                        Dist: Ganjam (Odisha)
+                        PIN: 761120
+                    </p>
+                    <p className="address-text">
+                        Phone: 06818 - 262087
+                    </p>
+                    <p className="address-text">
+                        Email: adc.jnprasad@gmail.com
+                    </p>
+
+                </div>
+            </div>
+        )
+    };
+
+    const address_principal = () => {
+        return (
+            <div className="card bg-light mb-3">
+                <div className="card-header bg-light text-dark text-uppercase">
+                    <i className="fa fa-id-card mr-4"></i> <b>Prof. Sanatan Sahu </b>, Principal
+				</div>
+                <div className="card-body" style={{ backgroundColor: "#fff" }}>
+
+                    <p className="address-text">
+                        Phone (Mobile): +91 - 94375 14174
+                    </p>
+                    <p className="address-text">
+                        Email: sahusanatana@yahoo.com
+                    </p>
+
+                </div>
+            </div>
+        )
+    };
+
+    const address_deo = () => {
+        return (
+            <div className="card bg-light mb-3">
+                <div className="card-header bg-light text-dark text-uppercase">
+                    <i className="fa fa-id-card mr-4"></i>  <b>Mr. Saroj Kumar Nayak </b>, D.E.O.
+				</div>
+                <div className="card-body" style={{ backgroundColor: "#fff" }}>
+                    <p className="address-text" >
+                        Phone: +91 80938 53112
+                    </p>
+                    <p className="address-text">
+                        Email: nayaksarojkumar08@gmail.com
+                    </p>
+
                 </div>
             </div>
         )
@@ -203,7 +255,7 @@ function Contact() {
     );
 
     const showProcessing = () => (
-        <div className="alert alert-info text-center" style={{ display: isProcessing ? '' : 'none' }}>
+        <div className="alert alert-warning text-center" style={{ display: isProcessing ? '' : 'none' }}>
             <b>Processing.... please wait a while!</b>
         </div>
     );
@@ -219,6 +271,8 @@ function Contact() {
                 </div>
                 <div className="col-lg-6 co-sm-12 user-contact-image">
                     {address()}
+                    {address_principal()}
+                    {address_deo()}
                 </div>
             </div>
         </Layout>

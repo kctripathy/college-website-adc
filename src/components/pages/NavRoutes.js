@@ -2,9 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 
-// import PrivateRoute from '../auth/PrivateRoute';
-// import AdminRoute from '../auth/AdminRoute';
-// import SuperAdminRoute from '../auth/SuperAdminRoute';
+import AdminRoute from '../../auth/AdminRoute'
+import StudentRoute from '../../auth/StudentRoute';
+import StaffRoute from '../../auth/StaffRoute';
+import PrivateRoute from '../../auth/PrivateRoute';
 
 import Home from "../pages/home/Home";
 import About from "../pages/about/About";
@@ -23,9 +24,20 @@ import Students from './students/Students';
 import StudentDetails from './students/StudentDetails';
 
 import Contact from './Contact';
+import Login from './users/Login';
+
+import AdminDashboard from '../admin/AdminDashboard';
+import StaffDashboard from '../pages/staffs/StaffDashboard';
+import StudentDashboard from '../pages/students/StudentDashboard';
+
+import UserProfile from '../pages/users/UserProfile';
+import MediaRelease from './MediaRelease';
+
 import PageNotFound from '../pages/PageNotFound';
 
 function NavRoutes() {
+
+
     return (
         <div>
             <Switch>
@@ -39,18 +51,27 @@ function NavRoutes() {
 
                 <Route path="/library" component={Books} exact />
                 <Route path="/staffs" component={Staffs} exact />
-                <Route path="/staffs/:id" component={StaffDetails} exact />
+                {/* <Route path="/staffdetails/:id" component={StaffDetails} exact /> */}
                 <Route path="/students" component={Students} exact />
-                <Route path="/students/:id" component={StudentDetails} exact />
+                {/* <Route path="/studentdetails/:id" component={StudentDetails} exact /> */}
 
-                {/* <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} />
+
+
+                <AdminRoute path="/admin/dashboard" component={AdminDashboard} exact />
+                <StaffRoute path="/staff/dashboard" component={StaffDashboard} exact />
+                <StudentRoute path="/student/dashboard" component={StudentDashboard} exact />
+                <PrivateRoute path="/user/profile" component={UserProfile} exact />
+
                 <Route path="/contact" component={Contact} />
+                <Route path="/login" component={Login} />
+                <Route path="/media-release" component={MediaRelease} />
+
+
+                {/*<Route path="/register" component={Register} />
                 <Route path="/user/forgot-password" component={ForgotPassword} exact />
                 <Route path="/user/change-password" component={ChangePassword} exact />
                 <Route path="/user/reset-password/:authKey" component={ResetPassword} exact />
 
-                <AdminRoute path="/admin/dashboard" component={AdminDashboard} exact />
                 <AdminRoute path="/question/add" component={QuestionAdd} exact />
                 <AdminRoute path="/questions/list" component={QuestionList} exact />
                 <AdminRoute path="/question/edit/:questionId" component={QuestionEdit} exact />

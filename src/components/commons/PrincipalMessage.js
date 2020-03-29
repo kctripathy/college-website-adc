@@ -6,33 +6,43 @@ const PrincipalMessage = (props) => {
 
     const showRestOfMessage = () => (
         <Fragment>
+
             <p className="text-justify">
-                4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget pellentesque nibh. Mauris id nisi quis metus interdum sollicitudin at id velit. Nullam eget
-            </p>
-            <p className="text-justify">
-                5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget pellentesque nibh. Mauris id nisi quis metus interdum sollicitudin at id velit. Nullam eget
-            </p>
-            <p className="text-justify">
-                6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget pellentesque nibh. Mauris id nisi quis metus interdum sollicitudin at id velit. Nullam eget
+                Together we can see new dreams and scale of new heights. Once again, I welcome to the newcomers and wish the best to all of you in your pursuit of knowledge and excellence.
             </p>
 
+            <p className="text-justify">
+                We believe that excellence is the gradual result of always striving to do better, hence our Motto “In Pursuit of Excellence!”
+            </p>
+            <p className="text-justify">
+                With a long and rewarding history of achievement in education behind us, our school community continues to move forward together with confidence, pride and enthusiasm.
+            </p>
+            <p>
+                I hope you enjoy your visit to the website and should you wish to contact us, please find details at the <Link to="/contact">contact page</Link>.
+            </p>
+            <p className="text-right">
+                <b>Prof. Sanatana Sahu</b>
+                <br /><span>Principal</span>
+            </p>
         </Fragment>
-    )
+    );
+
     return (
         <div>
             <h4 className="home-section-title">Principal's Message</h4>
             <img className="text-wrap" src={PrincipalPhoto}></img>
             <p className="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget pellentesque nibh. Mauris id nisi quis metus interdum sollicitudin at id velit. Nullam eget
+                It is with great pleasure that I welcome you to the official website of our <strong>Anchalika Degree College</strong>, Jagannath Prasad, Ganjam (Odisha)
             </p>
             <p className="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget pellentesque nibh. Mauris id nisi quis metus interdum sollicitudin at id velit. Nullam eget
+                Situating in the Block Head Quarter and Peaceful Area. It spreads knowledge to the rural students. I am conscious about the history and heritage of this pioneer institution is proud of. </p>
+            <p className="text-justify">
+                I am happy to inform you all that this institution has been expanding fast enough to meet the challenge of the changing times.
+                Our college has an outstanding reputation for establishing high expectations and achieving excellent academic results.
+                Talents too are constantly developed through sports and varied co-curricular activities.
+                This in turn results in widening the scope of education and makes it more consequential
+            </p>
 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget pellentesque nibh. Mauris id nisi quis metus interdum sollicitudin at id velit. Nullam eget
-            </p>
-            <p className="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget pellentesque nibh. Mauris id nisi quis metus interdum sollicitudin at id velit. Nullam eget  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget pellentesque nibh. Mauris id nisi quis metus interdum sollicitudin at id velit. Nullam eget
-            </p>
             {
                 props.fromHomePage ? (<Link to="/principal-message" className="text-wrap">Read more...</Link>)
                     :

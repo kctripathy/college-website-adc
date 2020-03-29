@@ -19,7 +19,32 @@
     }
 
     .estb > li:first-child,
-    .estb > li:nth-child(2) {
+    .estb > li:nth-child(2),
+    .publications > li:first-child,
+    .publications > li:nth-child(2),
+    .publications > li:last-child {
         font-size: .75em;
+    }
+
+    .publications > li:first-child
+    {
+        width: 25%;
+    }
+    .publications > li:nth-child(2)
+    {
+        width: 60%;
+    }
+    .publications > li:last-child
+    {
+        width: 15%;
+    }
+
+    .carousel {
+        margin-top: -10px;
+    }
+    .carousel-indicators,
+    .caption-sub-label,
+    .caption-label {
+        display: none
     }
 };

@@ -8,6 +8,20 @@ const fetchUserSuccess = (users) => {
         payload: users
     }
 };
+
+const userLoginSuccess = (user) => {
+    return {
+        type: UserActionTypes.loginUserSuccess,
+        payload: user
+    }
+};
+const userLoginFailure = (user) => {
+    return {
+        type: UserActionTypes.loginUserFailure,
+        payload: user
+    }
+};
+
 const fetchUserFailure = (error) => {
     return {
         type: UserActionTypes.fetchUserFailure,
@@ -33,4 +47,4 @@ const fetchUsers = () => {
 };
 
 
-export { fetchUsers }
+export { fetchUsers, userLoginSuccess, userLoginFailure }

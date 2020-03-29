@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStudents } from '../../../actionMethods/studentActionMethods';
-import { fetchStaffs } from '../../../actionMethods/staffActionMethods';
-import { fetchBooks } from '../../../actionMethods/bookActionMethods';
-import { fetchEstablishments } from '../../../actionMethods/estbActionMethods';
+import { fetchStudents } from '../../../../actionMethods/studentActionMethods';
+import { fetchStaffs } from '../../../../actionMethods/staffActionMethods';
+import { fetchBooks } from '../../../../actionMethods/bookActionMethods';
+import { fetchEstablishments } from '../../../../actionMethods/estbActionMethods';
 
-import Counter from '../../commons/Counter';
-import Spinner from '../../commons/Spinner';
+import Counter from '../../../commons/Counter';
+import Spinner from '../../../commons/Spinner';
 
 import './CollegeSummary.css';
 
@@ -60,7 +60,8 @@ const CollegeSummary = () => {
                 <i className="fa fa-book  fa-2x  mr-2  p-2"></i>
                 <strong className="text-large">Library Books</strong>
                 <span className="badge badge-warning total">
-                    {books && books.count === 0 ? (<Spinner />) : (<Counter value={books.count} />)}
+                    {books && books.count === 0 ? (<Spinner />) : (books.count)}
+                    {/* {books && books.count === 0 ? (<Spinner />) : (<Counter value={books.count} />)} */}
                 </span>
             </li>
             <li className="list-group-item list-group-item-danger  m-2 p-4">

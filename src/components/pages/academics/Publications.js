@@ -11,15 +11,11 @@ import './Publications.css';
 
 
 const Publications = () => {
-    //const [isLoading, publications] = useHttpGet('establishments')
 
     const estb = useSelector(state => state.estb);
     const dispatch = useDispatch();
 
-
-    //console.log("estb=", estb);
     useEffect(() => {
-        debugger;
         if (estb.establishments.length === 0)
             dispatch(fetchEstablishments());
     }, []);

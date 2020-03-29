@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const FooterLinks = () => {
+const HomePageLinks = () => {
 
     return (
         <div className="row">
@@ -11,4 +11,4 @@ const FooterLinks = () => {
     )
 };
 
-export default FooterLinks;
+export default HomePageLinks;
