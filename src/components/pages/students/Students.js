@@ -7,7 +7,7 @@ import Student from './Student';
 import Loading from '../../commons/Loading';
 import SelectClasses from '../../commons/SelectClasses';
 
-function Students() {
+function Students({ match }) {
     const state = useSelector(state => state.student);
     const dispatch = useDispatch();
     const [Name, setName] = useState("");
@@ -20,6 +20,8 @@ function Students() {
             dispatch(fetchStudents());
         }
     }, [])
+
+    const handleView = (currentViewMode) => setView(currentViewMode);
 
     const showCollegeStudentsListView = () => {
         return (
@@ -112,8 +114,8 @@ function Students() {
                                 onChange={(e) => setName(e.target.value)}
                                 minLength="4"
                                 placeholder="Enter name of the student to search (at least four alphabets)" required />
-                            <button type="submit" className="btn btn-primary btn-outline ml-1">Go</button>
-                            <button type="button" className="btn btn-primary btn-outline ml-1" onClick={clearSearchResult}>Clear</button>
+                            <button type="submit" className="btn btn-outline-primary ml-1"> <i className="fa fa-search"></i> Search</button>
+                            <button type="button" className="btn btn-outline-primary ml-1" onClick={clearSearchResult}>Clear</button>
                         </div>
                     </div>
                 </div>
@@ -136,8 +138,22 @@ function Students() {
         setSearchResult(filteredArray);
     };
 
+    // const redirectStudentToCorrectPage = () => {
+    //     //debugger;
+    //     if (match.params.page) {
+    //         if (match.params.page==='association') //admin
+    //             return <Redirect to="/admin/dashboard" />
+    //         else if (user && (user.RoleID === 2 || user.RoleID === 3)) //staffs
+    //             return <Redirect to="/staff/dashboard" />
+    //         else if (user && user.RoleID === 4)
+    //             return <Redirect to="/student/dashboard" />
+    //         else
+    //             return <Redirect to="/" />
+    //     }
+    // }
+
     return (
-        <Layout title="College Students">
+        <Layout title="Students" handleView={(mode) => handleView(mode)}>
             <div className="row">
                 <div className="col-lg-6 col-xs-12">
                     <SelectClasses onChange={(v) => handleClassesOnChange(v)} students={state.students} />

@@ -10,8 +10,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 
-
-
 Date.prototype.toShortFormat = function () {
   var month_names = ["Jan", "Feb", "Mar",
     "Apr", "May", "Jun",
@@ -25,6 +23,8 @@ Date.prototype.toShortFormat = function () {
   return "" + day + "-" + month_names[month_index] + "-" + year.toString().substring(2, 4);
 }
 
+
+
 ReactDOM.render(
   // <React.StrictMode>
   <BrowserRouter>
@@ -36,3 +36,4 @@ ReactDOM.render(
   ,
   document.getElementById('root')
 );
+

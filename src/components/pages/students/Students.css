@@ -13,3 +13,38 @@
     padding-bottom: 2px;
     font-weight: bold;
 }
+
+.portfolio-name,
+.portfolio-class,
+.portfolio-roll-no
+ {
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    width: 100%;
+}
+
+.portfolio-name {
+    font-size: 15px;
+    font-weight: 500;
+}
+.portfolio-card-header {
+    min-height: 325px;
+    max-height: 325px;
+    overflow: hidden;
+}
+
+.portfolio-photo {
+    height: 100%;
+}
+
+.portfolio-year {
+    padding: 4px 0px 0px 0px;
+}
+
+/* .portfolio-photo {
+    min-height: 100px;
+    max-height: 100%;
+    min-width: 100px;
+    max-width: 100px;
+} */

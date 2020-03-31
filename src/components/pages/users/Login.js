@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 
-import './Login.css'
 import Layout from '../Layout';
+import Loading from '../../commons/Loading';
+
 import { login, authenticate, isAuthenticated } from '../../../api/user';
 import { userLoginSuccess, userLoginFailure } from '../../../actionMethods/userActionMethods';
+
+import './Login.css'
 
 function Login() {
     const dispatch = useDispatch();
     const [values, setValues] = useState({
-        UserName: 'TSDC0204',
-        UserPassword: '12345',
+        UserName: '',
+        UserPassword: '',
         loading: false,
         error: '',
         redirectToReferer: ''
@@ -34,8 +37,6 @@ function Login() {
         setValues({ ...values, error: false, loading: true });
         login({ UserName, UserPassword })
             .then(data => {
-                //console.log("data:", data);
-                //debugger;
                 if (data === undefined) {
                     dispatch(userLoginFailure());
                     setValues({ ...values, error: 'Some error occured!', loading: false })
@@ -50,10 +51,10 @@ function Login() {
                         setValues({ ...values, error: data.status.message, loading: false })
                     }
                     else {
-
-                        authenticate(data, () => {
+                        debugger;
+                        authenticate(data.result, () => {
                             //debugger;
-                            dispatch(userLoginSuccess(data[0]));
+                            dispatch(userLoginSuccess(data.result));
                             setValues({
                                 ...values,
                                 redirectToReferer: "/",
@@ -75,7 +76,7 @@ function Login() {
 
     const showLoading = () => (
         <div className="alert alert-info" style={{ display: loading ? '' : 'none' }}>
-            Loading....
+            <Loading text="Processing login request.... please wait" />
         </div>
     );
 
@@ -96,7 +97,7 @@ function Login() {
 
     const loginForm = () => (
         <form onSubmit={handleFormSubmit}>
-            <div className="card border-text-muted rounded-0 mt-4">
+            <div className="card border-text-muted rounded-0 m-4 p-2">
                 <div className="card-header p-0">
                     <div className="bg-card-header text-dark text-left ml-2 pt-2">
                         <h5>Login</h5>
@@ -108,7 +109,7 @@ function Login() {
                             <div className="input-group-prepend">
                                 <div className="input-group-text user-additional-info-label">
                                     <i className="fa fa-user text-adc mr-2"></i>
-                                    User Name:
+                                    <span className="form-label">User Name</span>
                                 </div>
                             </div>
                             <input type="text" className="form-control"
@@ -139,16 +140,6 @@ function Login() {
                     <div className="col-12 text-center">
                         <input type="submit" value="LOGIN" className="btn btn-primary pl-4 pr-4 mr-2" />
                     </div>
-                    <div className="col-12">
-                        <div className="row">
-                            <div className="col-lg-6 col-xs-12 text-left">
-                                <Link className="p-4 m-4" to="/user/forgot-password">Forgot Password?</Link>
-                            </div>
-                            <div className="col-lg-6 col-xs-12 text-right">
-                                <Link className="p-4 m-4" to="/register">New User? Register</Link>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
 
@@ -168,6 +159,16 @@ function Login() {
                 </div>
                 <div className="col-lg-3 col-sm-12">
                 </div>
+            </div>
+            <div className="row">
+                <div className="col-lg-3 col-sm-12">&nbsp;</div>
+                <div className="col-lg-3 col-sm-12  text-center">
+                    <Link className="p-4 m-1 p-1" to="/user/forgot-password">Forgot Password?</Link>
+                </div>
+                <div className="col-lg-3 col-sm-12 text-center">
+                    <Link className="p-4 m-1 p-1" to="/register">New User? Register</Link>
+                </div>
+                <div className="col-lg-3 col-sm-12">&nbsp;</div>
             </div>
         </Layout>
     );

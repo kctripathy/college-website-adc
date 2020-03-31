@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 function Header(props) {
 
     return (
-        <div className="row bg-light m-0 p-1 header">
-            <div className="col-1 text-right">
+        <div className="row bg-light m-0 p-1">
+            <div className="col-lg-1 col-sm-12 text-center">
                 <Link to="/">
                     <img className="web-logo" src={CollegeLogo} />
                 </Link>
             </div>
-            <div className="col-10 text-center">
+            <div className="col-lg-10 col-sm-12 text-center">
                 <h3 className="web-title">ANCHALIKA DEGREE COLLEGE</h3>
                 <h5 className="web-sub-title">Jagannath Prasad</h5>
             </div>
-            <div className="col-1 text-right">
+            <div className="col-lg-1 col-sm-2 text-right fb-icon">
                 <a className="btn btn-info mt-4" href="https://www.facebook.com/adc.jagannathprasad" target="_blank">
-                    <i class="fab fa-facebook-f"></i>
+                    <i className="fab fa-facebook-f"></i>
                 </a>
             </div>
         </div>

@@ -1,0 +1,94 @@
+{
+    "portfolio": [
+        {
+            "year": "2019-20",
+            "president": {
+                "student_name": "Mr president Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "kishor.jpg"
+            },
+            "vice_president": {
+                "student_name": "Mr v_president Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "lalu.jpg"
+            },
+            "general_secretary": {
+                "student_name": "Mr secretary Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "KiranBhaina.jpg"
+            },
+            "assistant_general_secretary": {
+                "student_name": "Mr joint Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "bhalu.jpg"
+            },
+            "dramatic_secretary": {
+                "student_name": "Mr dramatic Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.png"
+            },
+            "athletic_secretary": {
+                "student_name": "Mr athletic Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.png"
+            },
+            "boys_common_room_secretary": {
+                "student_name": "Mr bcm Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.png"
+            },
+            "girls_common_room_secretary": {
+                "student_name": "Mr bcm Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.png"
+            }
+        },
+        {
+            "year": "2018-19",
+            "president": {
+                "student_name": "2019 president Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll-no": "BA1234",
+                "photo": "no_photo.png"
+            },
+            "vice_president": {
+                "student_name": "2019 v_president Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.jpg"
+            },
+            "general_secretary": {
+                "student_name": "2019 secretary Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.png"
+            },
+            "assistant_general_secretary": {
+                "student_name": "2019 joint Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.png"
+            },
+            "dramatic_secretary": {
+                "student_name": "2019 dramatic Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.png"
+            },
+            "athletic_secretary": {
+                "student_name": "2019 athletic Rajaram Rath",
+                "student_class": "+3 1st Year Arts",
+                "roll_no": "BA1234",
+                "photo": "no_photo.png"
+            }
+        }
+    ]
+}

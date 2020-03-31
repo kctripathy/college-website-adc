@@ -6,8 +6,6 @@ import Loading from '../../commons/Loading';
 import { fetchStaffs } from '../../../actionMethods/staffActionMethods';
 
 import SelectDepartments from '../../commons/SelectDepartments';
-import StaffsGridView from './StaffsGridView';
-import StaffsListView from './StaffsListView';
 
 
 function Staffs() {
@@ -24,9 +22,10 @@ function Staffs() {
         }
     }, []);
 
-    const handleView = (currentViewMode) => setView(currentViewMode);
 
-    const showStaffs = () => {
+
+
+    const showCollegeStaffs = () => {
         //console.log("showCollegeStaffs - state = ", state)
         return (
             <Fragment>
@@ -34,10 +33,8 @@ function Staffs() {
                     (<Loading text="Retriving staffs..." />)
                     :
                     (
-                        view === 'list' ?
-                            (<StaffsListView staffs={state.staffs} />) :
-                            (<StaffsGridView staffs={state.staffs} />)
-
+                        state.staffs && state.staffs.length > 0 &&
+                        state.staffs.map(s => <Staff key={s.EmployeeID} staff={s} />)
                     )
                 }
             </Fragment >
@@ -62,9 +59,18 @@ function Staffs() {
                             minLength="4"
                             placeholder="Enter name of the staff to search (minimum 4 alphabets)" required />
 
-                        <button className="btn btn-outline-primary ml-1" onClick={searchStaff}> <i className="fa fa-search"></i> Search</button>
-                        <button type="button" className="btn btn-outline-primary ml-1" onClick={clearSearchResult}>Clear</button>
+                        <button className="btn btn-primary"
+                            onClick={searchStaff}>
+                            <i className="fa fa-search"></i>  GO
+                        </button>
+                        <button type="button"
+                            className="btn btn-primary btn-outline ml-1"
+                            onClick={clearSearchResult}>
+                            Clear
+                        </button>
+
                     </div>
+
                 </div>
             </div>
         )
@@ -127,7 +133,7 @@ function Staffs() {
     };
 
     return (
-        <Layout title="Staffs" handleView={(mode) => handleView(mode)}>
+        <Layout title="College Staffs">
             <div className="row">
                 <div className="col-lg-6 col-xs-12">
                     <SelectDepartments onChange={(v) => handleDepartmentOnChange(v)} staffs={state.staffs} />
@@ -144,7 +150,7 @@ function Staffs() {
                 {showSearchResult()}
             </div>
             <div className="row m-1 p-1">
-                {showStaffs()}
+                {showCollegeStaffs()}
             </div>
         </Layout>
     );

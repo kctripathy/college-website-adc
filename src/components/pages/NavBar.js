@@ -1,9 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
 import { isAuthenticated, logout } from '../../api/user';
-
-// import { getAllMenuItems } from '../api';
+import { APP_WEB_URL } from '../../config';
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -105,40 +103,143 @@ function NavBar({ history }) {
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/publications">Publications</Link>
+                                <Link className="dropdown-item" to="/academic/publications">Research Publications</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/courses">Courses</Link>
+                                <Link className="dropdown-item" to="/academic/internal-quality-assurance-cell">Quality Assurance Cell (IQAC)</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/academic/carrer-counselling">Carrer Counselling Cell</Link>
                             </li>
                         </ul>
                     </li>
+                    <li className="nav-item ml-2 dropdown">
+                        <Link className="nav-link nav-link-topmenu dropdown-toggle text-left"
+                            to="/"
+                            id="navbarDropdown"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i className="fas fa-tasks"></i> Activities
+                        </Link>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/academic/academic-activities">Academic Activities</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/academic/curricular-activities">Curricular Activities</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/academic/>Co_Curricular-activities">Co-Curricular Activities</Link>
+                            </li>
+
+
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/activities/college-associations">College Associations</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/activities/college-cells">College Cells</Link>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    {/* ================================= STUDENTS ===============================================
+                    
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/students")} to="/students"><i className="fa fa-user-graduate"></i> Students</Link>
+                    </li> */}
+                    <li className="nav-item ml-2 dropdown">
+                        <Link className="nav-link nav-link-topmenu dropdown-toggle text-left"
+                            to="/"
+                            id="navbarDropdown"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i className="fas fa-user-graduate"></i> Students
+                        </Link>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/students">Current Students</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/students/alumni">Forment Students (Alumni)</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/students/union">Students Union</Link>
+                            </li>
+                            {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/students/registration">Students Registration</Link>
+                            </li> */}
+                        </ul>
                     </li>
+
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/staffs")} to="/staffs"><i className="fa fa-chalkboard-teacher"></i> Staffs</Link>
                     </li>
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/library")} to="/library"><i className="fa fa-book"></i> Library</Link>
                     </li>
-                    <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+
+                    {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/admin")} to="/admin"><i className="fa fa-user-cog"></i> Admin</Link>
+                    </li> */}
+                    <li className="nav-item ml-2 dropdown">
+                        <Link className="nav-link nav-link-topmenu dropdown-toggle text-left"
+                            to="/"
+                            id="navbarDropdown"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i className="fa fa-user-cog"></i> Admin
+                        </Link>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
+                            <li className="nav-item m-1" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/admin/governing-body"><i className="fa fa-user-tie"></i> Governing Body</Link>
+                            </li>
+                            <li className="nav-item m-1" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/admin/holiday-list"><i className="fa fa-list-alt"></i> Holiday List</Link>
+                            </li>
+                            <li className="nav-item m-1" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/media-release"><i className="fa fa-newspaper"></i> Media Release</Link>
+                            </li>
+                            <li className="nav-item ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/rti"><i className="fa fa-question-circle"></i> RTI</Link>
+                            </li>
+                        </ul>
                     </li>
+
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/downloads")} to="/downloads"><i className="fa fa-download"></i> Downloads</Link>
                     </li>
-                    <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+
+                    {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/gallery")} to="/gallery"><i className="fa fa-images"></i> Gallery</Link>
+                    </li> */}
+                    <li className="nav-item ml-2 dropdown">
+                        <Link className="nav-link nav-link-topmenu dropdown-toggle text-left"
+                            to="/"
+                            id="navbarDropdown"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i className="fa fa-images"></i> Gallery
+                        </Link>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/gallery/photo">Photo Gallery</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/gallery/video">Video Gallery</Link>
+                            </li>
+
+                        </ul>
                     </li>
-                    <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className={isActive(history, "/rti")} to="/rti"><i className="fa fa-question-circle"></i> RTI</Link>
-                    </li>
-                    <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className={isActive(history, "/media-release")} to="/media-release"><i className="fa fa-newspaper"></i> Media</Link>
-                    </li>
+
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/conact")} to="/contact"><i className="fa fa-id-card"></i> Contact</Link>
                     </li>
+
                 </ul>
                 <ul className="navbar-nav ml-auto navbar-right">
                     {/* {showLinks()} */}
@@ -148,7 +249,9 @@ function NavBar({ history }) {
                                 <Link className={isActive(history, "/login")} to="/login"><i className="fa fa-sign-in-alt mr-2"></i>Login</Link>
                             </li>
                             <li className="nav-item  m-0" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className={isActive(history, "/register")} to="/register"><i className="fa fa-user-plus mr-2"></i>Register</Link>
+                                <a className={isActive(history, "/register")}
+                                    href={`${APP_WEB_URL}/register`}
+                                    target="_blank"><i className="fa fa-user-plus mr-2"></i>Register</a>
                             </li>
                         </Fragment>
                     )}

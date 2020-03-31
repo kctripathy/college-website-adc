@@ -8,41 +8,49 @@ export default function SlideShow() {
     useEffect(() => {
         const images = [
             {
+                id: 1,
                 source: './slides/slide_1_women_empowerment.jpg',
-                captionHead: 'UGC Funded Workshop on Women Empowerment',
+                captionHead: 'Workshop on Women Empowerment',
                 captionLabel: ''
             },
             {
+                id: 2,
                 source: './slides/slide_2_independence_day_celebration.jpg',
                 captionHead: 'Independece Day Celebration',
                 captionLabel: '73rd Independece Day has been celebrated at our College '
             },
             {
+                id: 3,
                 source: './slides/slide_3_pt_meeting.jpg',
                 captionHead: 'Parent and Teachers Meeting',
                 captionLabel: ''
             },
             {
+                id: 4,
                 source: './slides/slide_4_seminar.jpg',
                 captionHead: 'Seminar on Indo Pak Relation',
                 captionLabel: ''
             },
             {
+                id: 5,
                 source: './slides/slide_5_college_library.jpg',
                 captionHead: 'Library of the College',
                 captionLabel: ''
             },
             {
+                id: 6,
                 source: './slides/slide_6_self_defence.jpg',
                 captionHead: 'Self Defence Training for Girls',
                 captionLabel: ''
             },
             {
+                id: 7,
                 source: './slides/slide_7_redcross.jpg',
-                captionHead: 'College Red Cross Team Participated in State Level Training',
+                captionHead: 'Red Cross Team in State Level Training',
                 captionLabel: ''
             },
             {
+                id: 8,
                 source: './slides/slide_8_athletic_meet_odia.jpg',
                 captionHead: 'Annual Athletic Meet & Odia Seminar',
                 captionLabel: ''
@@ -56,9 +64,9 @@ export default function SlideShow() {
             <Carousel>
                 {
                     slideImages.map(i => {
-                        return <Carousel.Item>
+                        return <Carousel.Item key={i.id}>
                             <img
-                                className="img-fluid d-block w-100 m-0 p-0 rounded"
+                                className="img-fluid d-block h-100 m-0 p-0 rounded"
                                 src={i.source}
                                 alt={i.captionHead}
                             />

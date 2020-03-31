@@ -51,7 +51,7 @@ export const logout = (next) => {
 export const authenticate = (data, next) => {
     //debugger;
     if (typeof window !== "undefined") {
-        localStorage.setItem('accessToken', JSON.stringify(data[0]));
+        localStorage.setItem('accessToken', JSON.stringify(data));
         next();
     }
 };
