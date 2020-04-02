@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import PrincipalPhoto from '../../assets/images/principal-photo-175.jpg';
+import PrincipalPhoto from '../../assets/images/principal-photo-100.jpg';
 import { Link } from 'react-router-dom';
 
 const PrincipalMessage = (props) => {
@@ -30,12 +30,12 @@ const PrincipalMessage = (props) => {
     return (
         <div>
             <h4 className="home-section-title">Principal's Message</h4>
-            <img className="text-wrap" src={PrincipalPhoto}></img>
+            <img className="text-wrap m-0 ml-2 pt-2" src={PrincipalPhoto}></img>
             <p className="text-justify">
                 It is with great pleasure that I welcome you to the official website of our <strong>Anchalika Degree College</strong>, Jagannath Prasad, Ganjam (Odisha)
             </p>
             <p className="text-justify">
-                Situating in the Block Head Quarter and Peaceful Area. It spreads knowledge to the rural students. I am conscious about the history and heritage of this pioneer institution is proud of. </p>
+                Situating in the block head quarter and a peaceful area, the college has been spreading the knowledge to the near by rural students. I am conscious about the history and heritage of this pioneer institution is proud of. </p>
             <p className="text-justify">
                 I am happy to inform you all that this institution has been expanding fast enough to meet the challenge of the changing times.
                 Our college has an outstanding reputation for establishing high expectations and achieving excellent academic results.

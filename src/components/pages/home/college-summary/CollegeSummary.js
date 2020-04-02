@@ -29,9 +29,11 @@ const CollegeSummary = () => {
         if (estb && estb.establishments.length === 0) {
             return (<Spinner />);
         };
+        debugger;
+        console.log("estb.establishments=", estb.establishments);
 
         const publCodes = ['1', '2', '3', '4', '5', '6'];
-        const filteredArray = estb.establishments.filter(array =>
+        const filteredArray = estb.establishments && estb.establishments.filter(array =>
             publCodes.some(filter => filter === array.EstbTypeCode)
         );
         //console.log('filteredArray=', filteredArray)

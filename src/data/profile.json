@@ -1,0 +1,53 @@
+{
+    "profile": {
+        "Principal_cum_Secratary": {
+            "name": "Prof. Sanatan Sahu",
+            "designation": "HOD",
+            "department": "Political Science",
+            "photo": ""
+        },
+        "Academic_Bursar": {
+            "name": "Prof. Pramod Kumar Chauduri",
+            "designation": "HOD",
+            "department": "History",
+            "photo": "/images/profile/no_photo.png"
+        },
+        "Account_Bursar": {
+            "name": "Prof. Binod Kumar Dash",
+            "designation": "HOD",
+            "department": "Economics",
+            "photo": "/images/profile/no_photo.png"
+        }
+    },
+    "SAMS": {
+        "Principal": {
+            "name": "Prof. Sanatan Sahu",
+            "designation": "HOD",
+            "department": "Political Science",
+            "photo": "/images/profile/no_photo.png"
+        },
+        "Admission_in_Charge": {
+            "name": "Prof. Pramod Chaudhuri",
+            "designation": "HOD",
+            "department": "History",
+            "photo": "/images/profile/no_photo.png"
+        },
+        "Data_Entry_Operator": {
+            "name": "Mr. Saroj Kumar Nayak",
+            "designation": "DEO",
+            "department": "Administration",
+            "photo": "/images/profile/no_photo.png"
+        }
+    },
+    "Library": {
+        "Library_in_Charge": {
+            "name": "Sri Raghunath Pani",
+            "designation": "Asst. Librarian",
+            "department": "Administration"
+        },
+        "Summary": {
+            "Total_Books": "4687",
+            "Total_Journals": "08"
+        }
+    }
+}

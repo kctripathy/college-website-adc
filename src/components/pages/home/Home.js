@@ -16,10 +16,10 @@ function Home() {
             </div>
             <div className="jumbotron m-0 pt-4 pr-4 pl-4 pb-1">
                 {/* <h2 className="display-8">Welcome to our college website</h2> */}
-                <p className="lead">The <b>Anchalika Degree College</b> established in the year <b>1996</b> in Jagannath Prasad, Ganjam</p>
+                <p className="lead">The <b>Anchalika Degree College</b> established in the year <b>1996</b> in Jagannath Prasad, Ganjam (Odisha)</p>
                 {/* <hr className="my-4" /> */}
                 <p>
-                    Anchalika Degree College affiliated by Berhampur University. the college sustained the highest global standards and best practices in higher education.
+                    Anchalika Degree College is affiliated by Berhampur University. The college has sustained the global standards and best practices in higher education.
                     It is a premier college in for highest academic standards, different educational programs, grand faculty, and various co-curricular activities and modern infrastructure.
                     <Link className="btn btn-outline-primary btn-sm m-2" to="/about">Learn more</Link>
                 </p>

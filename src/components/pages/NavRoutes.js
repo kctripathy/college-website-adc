@@ -9,6 +9,7 @@ import PrivateRoute from '../../auth/PrivateRoute';
 
 import Home from "../pages/home/Home";
 import About from "../pages/about/About";
+import Profile from '../pages/about/Profile';
 import Academics from "../pages/academics/Academics";
 import Activities from "../pages/activities/Activtities";
 import PrincipalMessage from '../pages/PrincipalMessage'
@@ -53,11 +54,13 @@ function NavRoutes() {
             <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/home" component={Home} />
-                <Route path="/about" component={About} />
+                <Route path="/about" component={About} exact />
+                <Route path="/about/profile" component={Profile} exact />
+                <Route path="/about/principal-message" component={PrincipalMessage} exact />
+
                 <Route path="/academic/:page" component={Academics} />
                 <Route path="/activities/:page" component={Activities} />
 
-                <Route path="/principal-message" component={PrincipalMessage} />
                 <Route path="/establishments/:estbTypeCode" component={AllEstablishments} />
                 <Route path="/establishmentdetails" component={EstablishmentDetails} />
                 <Route path="/publications" component={Publications} exact />

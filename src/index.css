@@ -1,19 +1,34 @@
 @import 'responsive.css';
- body {
+
+body {
   margin: 0;
   font-family: 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: #BBB url('/assets/images/damask.png') repeat-x center 143px; */
 }
-/*
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
+}
+
+/* .navbar-light .navbar-nav .nav-link {
+  color: black;
 } */
+.active {
+  color: darkred !important;
+  font-weight: 500;
+}
+
+.inactive {
+  color: black !important;
+}
 
 .layout {
   min-height: 600px;
-}
+} 
+
 .bg-adc {
   /* background-color: #FFCC00; */
   /* background: rgb(253,169,13);
@@ -89,13 +104,13 @@ margin: 10px;
 }
 
 .tab-list-active {
-  background-color: white;
+  background-color: transparent;
   border-bottom: solid 1px white !important;
   border-left: solid 1px #ccc !important;
   border-top: solid 5px #ccc !important;
   border-right: solid 1px #ccc !important;
   font-weight: 600;
-  color: #FFCC00;
+  color: darkred;
   /* border-width: 1px 1px 0 1px; */
 }
 
@@ -120,12 +135,12 @@ margin: 10px;
 }
 .estb > li:first-child {
   /* background-color: yellow; */
-  width: 17%;
+  width: 19%;
   text-align: center;
 }
 .estb > li:nth-child(2){
   /* background-color: red; */
-  width: 82%;
+  width: 80%;
   padding-left: 10px;
 }
 
@@ -152,4 +167,8 @@ margin: 10px;
 .address-text {
   margin: 0px;
   padding: 0px;
+}
+.card-title {
+  font-size: 19px;
+  font-weight: 500;
 }

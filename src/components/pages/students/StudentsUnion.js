@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Layout from '../Layout';
 import Loading from '../../commons/Loading'
 import StudentsUnionCard from './StudentUnionCard';
-
-import titleCase from '../../commons/CommonFunctions';
-import { loadJsonData } from '../../../api/data';
+import union from '../../../data/union.json'
+//import titleCase from '../../commons/CommonFunctions';
+//import { loadJsonData } from '../../../api/data';
 
 export default function StudentsUnion() {
-    const [union, setUnion] = useState(null);
+    const portfolio = union.portfolio;
+    //console.log("union", union);
+    //console.log("portfolio", portfolio);
+    //debugger;
+    //const [union, setUnion] = useState(null);
 
-    useEffect(() => {
-        loadJsonData("students-union")
-            .then(data => {
-                setUnion(data);
-            })
-    }, []);
+    // useEffect(() => {
+    //     // loadJsonData("students-union")
+    //     //     .then(data => {
+    //     //         setUnion(data);
+    //     //     })
+    // }, []);
 
     const showContent = () => (
         <ul className="list-group mb-4">
@@ -33,8 +37,8 @@ export default function StudentsUnion() {
 
     const showStudentsUnion = () => {
         return (
-            union === null ? (<Loading text="Loading students union.." />) :
-                (union.portfolio.map(p => <StudentsUnionCard key={p.year} portfolio={p} />))
+            portfolio && portfolio.lenght === 0 ? (<Loading text="Loading students union.." />) :
+                (portfolio.map(p => <StudentsUnionCard key={p.year} portfolio={p} />))
         )
     }
     return (

@@ -24,6 +24,7 @@ const Establishments = (props) => {
         return estb.loading ? (<Loading text="Data retrival in progress..." />) : (
             <ul className="estb-head">
                 {
+                    estb.establishments &&
                     estb.establishments
                         .filter((e) => e.EstbTypeCode === typecode)
                         .map(estb => {
