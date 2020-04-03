@@ -40,9 +40,9 @@ export default function Student(props) {
                 </div>
                 <div className="card-body p-2">
                     <h6 className="student-name">{StudentName}</h6>
-                    <h6 className="student-rollno">Roll# {RollNo}</h6>
                     <h6 className="student-class">{ClassName}</h6>
-                    <h6 className="student-phone">{Mobile && Mobile.length > 0 ? ("Ph.: " + Mobile) : ("")}</h6>
+                    <h6 className="student-rollno">Roll# {RollNo}</h6>
+                    {/* <h6 className="student-phone">{Mobile && Mobile.length > 0 ? ("Ph.: " + Mobile) : ("")}</h6> */}
                     <h6 className="student-email">&nbsp;{EmailID && EmailID.length > 0 ? ("Email: " + EmailID) : ("")}</h6>
                 </div>
             </div>

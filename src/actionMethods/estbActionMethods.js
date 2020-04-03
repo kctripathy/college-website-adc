@@ -18,6 +18,7 @@ const fetchEstablishmentFailure = (error) => {
 const fetchEstablishments = () => {
     return (dispatch) => loadAllEstablishments()
         .then(data => {
+            //debugger;
             if (data === undefined)
                 dispatch(fetchEstablishmentFailure('Some error occured'));
             else

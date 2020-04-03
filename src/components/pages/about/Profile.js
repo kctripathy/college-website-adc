@@ -82,7 +82,7 @@ function Profile() {
                     <li className="list-group-item">
                         <div className="row m-0 p-0">
                             <div className="col-4 font-weight-bold p-2">Principal-cum-Chairman</div>
-                            <div className="col-8 p-2">Prof. Sanatana Sahu, HOD of Podivtical Science</div>
+                            <div className="col-8 p-2">Prof. Sanatana Sahu, HOD of Political Science</div>
 
                             <div className="col-4 font-weight-bold p-2">Director</div>
                             <div className="col-8 p-2">Prof. Pramod Kumar Chaudhuri, HOD of History </div>

@@ -20,7 +20,7 @@ export default function Staff(props) {
                 <div className="card-body p-2">
                     <h6 className="staff-name">{Salutation} {EmployeeName}</h6>
                     <h6 className="staff-designation">{DesignationDescription}</h6>
-                    <h6 className="staff-department">{DepartmentDescription}</h6>
+                    <h6 className="staff-department">DEPT.: {DepartmentDescription}</h6>
                     <h6 className="staff-phone">{Mobile && Mobile.length > 0 ? ("Ph.: " + Mobile) : ("")}</h6>
                     <h6 className="staff-email">&nbsp;{EmailID && EmailID.length > 0 ? ("Email: " + EmailID) : ("")}</h6>
                 </div>

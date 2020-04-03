@@ -29,7 +29,7 @@ const CollegeSummary = () => {
         if (estb && estb.establishments.length === 0) {
             return (<Spinner />);
         };
-        debugger;
+        //debugger;
         console.log("estb.establishments=", estb.establishments);
 
         const publCodes = ['1', '2', '3', '4', '5', '6'];

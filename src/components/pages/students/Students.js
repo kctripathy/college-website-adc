@@ -114,8 +114,12 @@ function Students({ match }) {
                                 onChange={(e) => setName(e.target.value)}
                                 minLength="4"
                                 placeholder="Enter name of the student to search (at least four alphabets)" required />
-                            <button type="submit" className="btn btn-outline-primary ml-1"> <i className="fa fa-search"></i> Search</button>
-                            <button type="button" className="btn btn-outline-primary ml-1" onClick={clearSearchResult}>Clear</button>
+                            <button type="submit" className="btn btn-outline-primary ml-1">
+                                <i className="fa fa-search"></i>
+                            </button>
+                            <button type="button" className="btn btn-outline-primary ml-1" onClick={clearSearchResult}>
+                                X
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,7 @@ const establishmentReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case EstablishmentActionTypes.fetchEstablishmentSuccess:
+            //debugger;
             return {
                 ...state,
                 establishments: action.payload,

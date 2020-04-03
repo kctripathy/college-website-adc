@@ -48,7 +48,9 @@ export const EstbTypeCode = {
     AwardAchievment: '4',
     SeminarPaper: '5',
     StudyMaterial: '6',
-    MediaRelease: 'Z'
+    MediaRelease: 'Z',
+    IMAGE: 'I',
+    VIDEO: 'V'
 };
 
 

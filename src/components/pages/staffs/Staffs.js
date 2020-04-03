@@ -62,8 +62,12 @@ function Staffs() {
                             minLength="4"
                             placeholder="Enter name of the staff to search (minimum 4 alphabets)" required />
 
-                        <button className="btn btn-outline-primary ml-1" onClick={searchStaff}> <i className="fa fa-search"></i> Search</button>
-                        <button type="button" className="btn btn-outline-primary ml-1" onClick={clearSearchResult}>Clear</button>
+                        <button className="btn btn-outline-primary ml-1" onClick={searchStaff}>
+                            <i className="fa fa-search"></i>
+                        </button>
+                        <button type="button" className="btn btn-outline-primary ml-1" onClick={clearSearchResult}>
+                            X
+                        </button>
                     </div>
                 </div>
             </div>
@@ -129,10 +133,10 @@ function Staffs() {
     return (
         <Layout title="Staffs" handleView={(mode) => handleView(mode)}>
             <div className="row">
-                <div className="col-lg-6 col-xs-12">
+                <div className="col-lg-6 col-sm-5">
                     <SelectDepartments onChange={(v) => handleDepartmentOnChange(v)} staffs={state.staffs} />
                 </div>
-                <div className="col-lg-6 col-xs-12">
+                <div className="col-lg-6 col-sm-7">
                     {showSearchForm()}
                 </div>
 
