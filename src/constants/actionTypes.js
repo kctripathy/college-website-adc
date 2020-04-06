@@ -43,14 +43,17 @@ export const EstbTypeCode = {
     Circular: 'C',
     RecentActivities: 'R',
     Article: '1',
+    Syllabus: 'S',
     ProjectPaper: '2',
     BookProceeding: '3',
     AwardAchievment: '4',
     SeminarPaper: '5',
     StudyMaterial: '6',
-    MediaRelease: 'Z',
-    IMAGE: 'I',
-    VIDEO: 'V'
+    Downloadable: '9',
+    MinutesOfMeeting: 'MoM',
+    MediaRelease: 'M',
+    IMAGE: 'IMG',
+    VIDEO: 'VDO'
 };
 
 

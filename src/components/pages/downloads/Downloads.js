@@ -1,24 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Loading from '../../commons/Loading';
+import { fetchEstablishments } from '../../../actionMethods/estbActionMethods';
+import { EstbTypeCode } from '../../../constants/actionTypes';
+import Download from './Download';
 import Layout from '../Layout';
-import WorkinProgress from '../WorkInProgress';
+
 
 function Downloads() {
+    const state = useSelector(state => state.estb);
+    const dispatch = useDispatch();
 
-    const show_card = () => {
+    useEffect(() => {
+        if (state.establishments.length === 0) {
+            dispatch(fetchEstablishments());
+        }
+    }, []);
+
+
+    const showDownload = (estbTypeCode, estbTypeCodeDesc) => {
         return (
-            <div className="card bg-light mb-3">
-                <div className="card-header bg-light text-dark text-uppercase">
-                    <i className="fa fa-id-card mr-4"></i> <b>Prof. Sanatan Sahu </b>, Principal
-				</div>
+            <div className="card bg-light col-12 m-0 p-0">
+                <div className="card-header bg-dark text-light text-uppercase">
+                    <b>{estbTypeCodeDesc}</b>
+                </div>
                 <div className="card-body" style={{ backgroundColor: "#fff" }}>
-
-                    <p className="address-text">
-                        Phone (Mobile): +91 - 94375 14174
-                    </p>
-                    <p className="address-text">
-                        Email: sahusanatana@yahoo.com
-                    </p>
-
+                    <div className="row m-0 p-0">
+                        {
+                            state.establishments
+                                .filter(f => f.EstbTypeCode === estbTypeCode)
+                                .map(e => <Download key={e.EstbID} data={e} />)
+                        }
+                    </div>
                 </div>
             </div>
         )
@@ -26,19 +39,19 @@ function Downloads() {
 
     return (
         <Layout title="Downloads">
-            <div className="row" style={{ paddingBottom: "20px" }}>
-                <WorkinProgress />
-                <div className="col-lg-4 col-sm-12">
-                    {/* {show_card()} */}
+            {state.loading ? (<Loading text="Retriving downloads..." />) : (
+                <div className="row m-0 p-0">
+                    {showDownload(EstbTypeCode.Syllabus, 'Syllabus')}
+                    {showDownload(EstbTypeCode.MinutesOfMeeting, 'Minutes Of Meetings')}
+                    {showDownload(EstbTypeCode.ProjectPaper, 'Project Papers')}
+                    {showDownload(EstbTypeCode.SeminarPaper, 'Seminar Papers')}
+                    {showDownload(EstbTypeCode.BookProceeding, 'Book / Proceedings')}
+                    {showDownload(EstbTypeCode.StudyMaterial, 'Study Materials')}
+                    {showDownload(EstbTypeCode.AwardAchievment, 'Award / Achievments')}
+                    {showDownload(EstbTypeCode.Downloadable, 'Downloadables')}
                 </div>
-                <div className="col-lg-4 col-sm-12">
-                    {/* {show_card()} */}
-                </div>
-                <div className="col-lg-4 col-sm-12">
-                    {/* {show_card()} */}
-                </div>
-
-            </div>
+            )
+            }
         </Layout>
     );
 }

@@ -72,7 +72,12 @@ export default function PhotoGallery() {
             {
                 images && images.length === 0 ? (<Loading text="Retriving photos..." />) :
                     (
-                        <ImageGallery items={images} thumbnailPosition="top" autoPlay={true} showBullets={true} />
+                        <ImageGallery
+                            items={images}
+                            thumbnailPosition="top"
+                            disableThumbnailScroll={false}
+                            autoPlay={true}
+                            showBullets={true} />
 
                     )
             }
