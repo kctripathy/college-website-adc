@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../Layout';
 import college_profile from "../../../data/profile.json";
+import { API_URL } from '../../../config';
 
 function Profile() {
 
@@ -13,7 +14,9 @@ function Profile() {
                     <div className="card-header">
                         <h5 className="card-title">Principal cum Secratary</h5>
                     </div>
-                    <img className="card-img-top img-circle" src={profile.Academic_Bursar.photo} alt="Card image cap" />
+                    <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
+                        src={`${API_URL}/staffprofile/${profile.Principal_cum_Secratary.EmployeeID}`}
+                        alt={profile.Principal_cum_Secratary.name} />
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Principal_cum_Secratary.name}</h6>
                         <p className="card-text">{profile.Principal_cum_Secratary.designation} - {profile.Principal_cum_Secratary.department}</p>
@@ -26,7 +29,9 @@ function Profile() {
                     <div className="card-header">
                         <h5 className="card-title">Academic Bursar</h5>
                     </div>
-                    <img className="card-img-top img-circle" src={profile.Academic_Bursar.photo} alt="Card image cap" />
+                    <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
+                        src={`${API_URL}/staffprofile/${profile.Academic_Bursar.EmployeeID}`}
+                        alt={profile.Academic_Bursar.name} />
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Academic_Bursar.name}</h6>
                         <p className="card-text">{profile.Academic_Bursar.designation} - {profile.Academic_Bursar.department}</p>
@@ -39,7 +44,9 @@ function Profile() {
                     <div className="card-header">
                         <h5 className="card-title">Account Bursar</h5>
                     </div>
-                    <img className="card-img-top img-circle" src={profile.Account_Bursar.photo} alt="Card image cap" />
+                    <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
+                        src={`${API_URL}/staffprofile/${profile.Account_Bursar.EmployeeID}`}
+                        alt={profile.Account_Bursar.name} />
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Account_Bursar.name}</h6>
                         <p className="card-text">{profile.Account_Bursar.designation} - {profile.Account_Bursar.department}</p>
@@ -54,7 +61,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">SAMS (Students Academic Management System)</h4>
                     </li>
                     <li className="list-group-item">
@@ -76,7 +83,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark text-light">
+                    <li className="list-group-item list-group-header bg-section text-dark">
                         <h4 className="card-title m-0 p-0">IQAC (Internal Quality Accessment Cell)</h4>
                     </li>
                     <li className="list-group-item">
@@ -108,7 +115,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">National Assessment and Accreditation Council (NAAC)</h4>
                     </li>
                     <li className="list-group-item">
@@ -129,7 +136,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">Public Information Officer (PIO)</h4>
                     </li>
                     <li className="list-group-item">
@@ -154,7 +161,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">Anti Ragging Cell</h4>
                     </li>
                     <li className="list-group-item">
@@ -179,7 +186,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">National Service Scheme (NSS)</h4>
                     </li>
                     <li className="list-group-item">
@@ -205,7 +212,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">Youth Red Cross (YRC)  &  Red Ribbon Club (RCC) - (Boys & Girls) </h4>
                     </li>
                     <li className="list-group-item">
@@ -225,7 +232,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">The Bharat Scout & Guide (Boys & Girls)</h4>
                     </li>
                     <li className="list-group-item">
@@ -245,7 +252,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">Student's Union </h4>
                     </li>
                     <li className="list-group-item">
@@ -265,7 +272,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">Athletic Association</h4>
                     </li>
                     <li className="list-group-item">
@@ -285,7 +292,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">Dramatic Association</h4>
                     </li>
                     <li className="list-group-item">
@@ -306,7 +313,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-dark border-dark text-light">
+                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
                         <h4 className="card-title m-0 p-0">Cultural Association</h4>
                     </li>
                     <li className="list-group-item">

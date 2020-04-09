@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Document, Page, pdfjs } from "react-pdf";
 // import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import Layout from '../Layout';
-import { CORS_URL, APP_WEB_URL } from '../../../config';
+import { CORS_URL, WEB_URL } from '../../../config';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -46,7 +46,7 @@ const EstablishmentDetails = (props) => {
                     <div className="col-3">.</div>
                     <div className="col-6 text-center">
                         <Document
-                            file={{ url: `${CORS_URL}/${APP_WEB_URL}/Documents/${establishment.FileNameWithPath}` }}
+                            file={{ url: `${CORS_URL}/${WEB_URL}/Documents/${establishment.FileNameWithPath}` }}
                             onLoadSuccess={onDocumentLoadSuccess}
                             onLoadFailure={onDocumentLoadFailure}
                             onLoadError={console.error}>

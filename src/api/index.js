@@ -87,6 +87,30 @@ export const loadAllStaffs = () => {
 };
 
 //===================================
+// Staffs
+//===================================
+export const loadStaffPhoto = (id) => {
+    //debugger;
+    let url = `${API_URL}/staffprofile/${id}`;
+    return fetch(url, {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            return data
+        })
+        .catch(err => {
+            return (err)
+        })
+};
+
+//===================================
 // Books
 //===================================
 export const loadAllBooks = () => {

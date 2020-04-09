@@ -2,91 +2,105 @@
         "portfolio": [
             {
                 "year": "2019-20",
+                "description": "Election for student union was not held due to Natural Calamity and as per the order by government",
+                "election_date": null
+            },
+            {
+                "year": "2018-19",
+                "description": "Election for student union was not held as per the order by government order. ",
+                "election_date": null
+            },
+            {
+                "year": "2017-18",
+                "description": "Election for student union was held in accordance with government order. ",
+                "election_date": "10-Jun-2017",
                 "president": {
-                    "student_name": "Mr president Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
-                    "photo": "kishor.jpg"
+                    "student_name": "Mr president",
+                    "student_class": "",
+                    "roll_no": "--",
+                    "photo": "no_photo.png"
                 },
                 "vice_president": {
-                    "student_name": "Mr v_president Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
-                    "photo": "lalu.jpg"
+                    "student_name": "Mr v_president",
+                    "student_class": "",
+                    "roll_no": "--",
+                    "photo": "no_photo.png"
                 },
                 "general_secretary": {
-                    "student_name": "Mr secretary Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
-                    "photo": "KiranBhaina.jpg"
+                    "student_name": "Mr secretary",
+                    "student_class": "",
+                    "roll_no": "--",
+                    "photo": "no_photo.png"
                 },
                 "assistant_general_secretary": {
-                    "student_name": "Mr joint Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
-                    "photo": "bhalu.jpg"
+                    "student_name": "Mr joint",
+                    "student_class": "",
+                    "roll_no": "--",
+                    "photo": "no_photo.png"
                 },
                 "dramatic_secretary": {
-                    "student_name": "Mr dramatic Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "Mr dramatic",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.png"
                 },
                 "athletic_secretary": {
-                    "student_name": "Mr athletic Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "Mr athletic",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.png"
                 },
                 "boys_common_room_secretary": {
-                    "student_name": "Mr bcm Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "Mr bcm",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.png"
                 },
                 "girls_common_room_secretary": {
-                    "student_name": "Mr bcm Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "Mr bcm",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.png"
                 }
             },
             {
-                "year": "2018-19",
+                "year": "2016-17",
+                "description": "Election for student union was held in accordance with government order.",
+                "election_date": "10-Jun-2017",
                 "president": {
-                    "student_name": "2019 president Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll-no": "BA1234",
+                    "student_name": "2019 president",
+                    "student_class": "",
+                    "roll-no": "--",
                     "photo": "no_photo.png"
                 },
                 "vice_president": {
-                    "student_name": "2019 v_president Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "2019 v_president",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.jpg"
                 },
                 "general_secretary": {
-                    "student_name": "2019 secretary Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "2019 secretary",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.png"
                 },
                 "assistant_general_secretary": {
-                    "student_name": "2019 joint Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "2019 joint",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.png"
                 },
                 "dramatic_secretary": {
-                    "student_name": "2019 dramatic Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "2019 dramatic",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.png"
                 },
                 "athletic_secretary": {
-                    "student_name": "2019 athletic Rajaram Rath",
-                    "student_class": "+3 1st Year Arts",
-                    "roll_no": "BA1234",
+                    "student_name": "2019 athletic",
+                    "student_class": "",
+                    "roll_no": "--",
                     "photo": "no_photo.png"
                 }
             }

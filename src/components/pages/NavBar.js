@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isAuthenticated, logout } from '../../api/user';
-import { APP_WEB_URL } from '../../config';
+import { WEB_URL } from '../../config';
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -290,7 +290,7 @@ function NavBar({ history }) {
                             </li>
                             <li className="nav-item  m-0" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <a className={isActive(history, "/register")}
-                                    href={`${APP_WEB_URL}/register`}
+                                    href={`${WEB_URL}/register`}
                                     target="_blank"><i className="fa fa-user-plus mr-2"></i>Register</a>
                             </li>
                         </Fragment>

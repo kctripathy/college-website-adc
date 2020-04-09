@@ -42,6 +42,9 @@ code {
   background: linear-gradient(to top left, yellow , orange);
 }
 
+.bg-section {
+  background:linear-gradient(#57555385 13%, rgba(143, 125, 19, 0.45098039215686275) 23%, #a4ae223d);
+}
 .bg-primary,
 .btn-primary {
   color: #000;
@@ -61,12 +64,12 @@ code {
 
 .web-title {
   font-weight: 700;
-  text-shadow: 2px 2px #cccccc;
+  text-shadow: 2px 2px #dddddd
 }
 
 .web-sub-title{
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 500;
 }
 .page-title {
   font-weight: 500;

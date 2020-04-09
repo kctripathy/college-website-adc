@@ -37,7 +37,7 @@ export default function StudentsUnion() {
 
     const showStudentsUnion = () => {
         return (
-            portfolio && portfolio.lenght === 0 ? (<Loading text="Loading students union.." />) :
+            portfolio && portfolio.length === 0 ? (<Loading text="Loading students union.." />) :
                 (portfolio.map(p => <StudentsUnionCard key={p.year} portfolio={p} />))
         )
     }

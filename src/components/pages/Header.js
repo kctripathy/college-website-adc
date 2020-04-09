@@ -13,7 +13,7 @@ function Header(props) {
             </div>
             <div className="col-lg-10 col-sm-12 text-center">
                 <h3 className="web-title">ANCHALIKA DEGREE COLLEGE</h3>
-                <h5 className="web-sub-title">Jagannath Prasad</h5>
+                <h5 className="web-sub-title">Jagannath Prasad, Ganjam (Odisha)</h5>
             </div>
             <div className="col-lg-1 col-sm-2 text-right fb-icon">
                 <a className="btn btn-info mt-4" href="https://www.facebook.com/adc.jagannathprasad" target="_blank">

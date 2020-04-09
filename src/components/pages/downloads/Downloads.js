@@ -20,8 +20,8 @@ function Downloads() {
 
     const showDownload = (estbTypeCode, estbTypeCodeDesc) => {
         return (
-            <div className="card bg-light col-12 m-0 p-0">
-                <div className="card-header bg-dark text-light text-uppercase">
+            <div className="card bg-light col-12 m-0 p-0 mb-2">
+                <div className="card-header bg-section text-dark text-uppercase">
                     <b>{estbTypeCodeDesc}</b>
                 </div>
                 <div className="card-body" style={{ backgroundColor: "#fff" }}>

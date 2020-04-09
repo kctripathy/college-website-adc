@@ -19,13 +19,21 @@ function SelectDepartments(props) {
     const [options, setOptions] = useState();
 
     useEffect(() => {
-        var options = props.staffs.map(cs => {
-            return {
-                value: cs.DepartmentID,
-                label: cs.DepartmentDescription
-            }
-        })
-        setOptions(getUnique(options, 'value'));
+        var options = props.staffs &&
+            props.staffs.length > 0 &&
+            props.staffs.map(cs => {
+                return {
+                    value: cs.DepartmentID,
+                    label: cs.DepartmentDescription
+                }
+            })
+        if (options.length > 0) {
+
+            setOptions(getUnique(options, 'value'));
+        }
+        else {
+            setOptions([]);
+        }
     }, [props.staffs])
 
     const handleChange = selectedOption => {

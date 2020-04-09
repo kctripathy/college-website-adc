@@ -13,25 +13,25 @@
 .staff-department,
 .staff-phone,
 .staff-email {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     margin: 0;
     padding: 2px 0;
     text-align: center;
 }
 .staff-name {
-    font-size: 12px;
+    font-size: 17px;
     text-align: center;
     padding-right: 4px;
 }
 .staff-department {
-    font-size: 12px;
+    font-size: 14px;
     padding: 0px 4px 0px 0px !important;
     margin-top: 4px;
 }
 
 .staff-designation {
-    font-size: 11px;
+    font-size: 15px;
     margin-top: -4px;
     padding: 0px 4px 0px 0px !important;
 

@@ -25,6 +25,7 @@ const Establishments = (props) => {
             <ul className="estb-head">
                 {
                     estb.establishments &&
+                    estb.establishments.length > 0 &&
                     estb.establishments
                         .filter((e) => e.EstbTypeCode === typecode)
                         .map(estb => {

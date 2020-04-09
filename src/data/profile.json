@@ -1,18 +1,21 @@
 {
     "profile": {
         "Principal_cum_Secratary": {
+            "EmployeeID": 3,
             "name": "Prof. Sanatan Sahu",
             "designation": "HOD",
             "department": "Political Science",
             "photo": ""
         },
         "Academic_Bursar": {
+            "EmployeeID": 4,
             "name": "Prof. Pramod Kumar Chauduri",
             "designation": "HOD",
             "department": "History",
             "photo": "/images/profile/no_photo.png"
         },
         "Account_Bursar": {
+            "EmployeeID": 5,
             "name": "Prof. Binod Kumar Dash",
             "designation": "HOD",
             "department": "Economics",
