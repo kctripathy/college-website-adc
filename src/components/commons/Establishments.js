@@ -27,7 +27,7 @@ const Establishments = (props) => {
                     estb.establishments &&
                     estb.establishments.length > 0 &&
                     estb.establishments
-                        .filter((e) => e.EstbTypeCode === typecode)
+                        .filter((e) => e.EstbTypeCode === typecode && e.EstbStatusFlag !== 'P')
                         .map(estb => {
                             counter = counter + 1;
                             if (counter > 10 && props.fromHomePage == true) return false;

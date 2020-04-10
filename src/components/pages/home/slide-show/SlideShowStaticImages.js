@@ -2,22 +2,28 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 
 
-export default function SlideShow() {
+export default function SlideShowStaticImages() {
     const [slideImages, setSlideImages] = useState([]);
 
     useEffect(() => {
         const images = [
             {
                 id: 1,
-                source: './slides/slide_1_women_empowerment.jpg',
-                captionHead: 'Workshop on Women Empowerment',
+                source: './slides/slide_0_principal_with_minister.jpg',
+                captionHead: '',
                 captionLabel: ''
             },
+            // {
+            //     id: 2,
+            //     source: './slides/slide_2_independence_day_celebration.jpg',
+            //     captionHead: 'Independece Day Celebration',
+            //     captionLabel: '73rd Independece Day has been celebrated at our College '
+            // },
             {
-                id: 2,
-                source: './slides/slide_2_independence_day_celebration.jpg',
-                captionHead: 'Independece Day Celebration',
-                captionLabel: '73rd Independece Day has been celebrated at our College '
+                id: 5,
+                source: './slides/slide_5_college_library.jpg',
+                captionHead: 'Library of the College',
+                captionLabel: ''
             },
             {
                 id: 3,
@@ -25,18 +31,12 @@ export default function SlideShow() {
                 captionHead: 'Parent and Teachers Meeting',
                 captionLabel: ''
             },
-            {
-                id: 4,
-                source: './slides/slide_4_seminar.jpg',
-                captionHead: 'Seminar on Indo Pak Relation',
-                captionLabel: ''
-            },
-            {
-                id: 5,
-                source: './slides/slide_5_college_library.jpg',
-                captionHead: 'Library of the College',
-                captionLabel: ''
-            },
+            // {
+            //     id: 4,
+            //     source: './slides/slide_4_seminar.jpg',
+            //     captionHead: 'Seminar on Indo Pak Relation',
+            //     captionLabel: ''
+            // },
             {
                 id: 6,
                 source: './slides/slide_6_self_defence.jpg',
@@ -48,13 +48,13 @@ export default function SlideShow() {
                 source: './slides/slide_7_redcross.jpg',
                 captionHead: 'Red Cross Team in State Level Training',
                 captionLabel: ''
-            },
-            {
-                id: 8,
-                source: './slides/slide_8_athletic_meet_odia.jpg',
-                captionHead: 'Annual Athletic Meet & Odia Seminar',
-                captionLabel: ''
             }
+            // ,{
+            //     id: 8,
+            //     source: './slides/slide_8_athletic_meet_odia.jpg',
+            //     captionHead: 'Annual Athletic Meet & Odia Seminar',
+            //     captionLabel: ''
+            // }
         ];
 
         setSlideImages(images);

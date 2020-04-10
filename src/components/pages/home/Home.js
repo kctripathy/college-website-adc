@@ -5,15 +5,15 @@ import Establishments from '../../commons/Establishments';
 import PrincipalMessage from '../../commons/PrincipalMessage';
 import HomePageLinks from './home-page-links/HomePageLinks';
 import CollegeSummary from './college-summary/CollegeSummary';
-import SlideShow from './SlideShow';
+import SlideShow from './slide-show/SlideShowStaticImages';
 
 
 function Home() {
     return (
         <Layout title="">
-            <SlideShow />
-            <div className="row fluid m-0 p-0">
-            </div>
+            <Link to="/gallery/photo">
+                <SlideShow />
+            </Link>
             <div className="jumbotron m-0 pt-4 pr-4 pl-4 pb-1">
                 {/* <h2 className="display-8">Welcome to our college website</h2> */}
                 <p className="lead">The <b>Anchalika Degree College</b> established in the year <b>1996</b> in Jagannath Prasad, Ganjam (Odisha)</p>
