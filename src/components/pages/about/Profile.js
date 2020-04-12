@@ -61,7 +61,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">SAMS (Students Academic Management System)</h4>
                     </li>
                     <li className="list-group-item">
@@ -115,7 +115,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">National Assessment and Accreditation Council (NAAC)</h4>
                     </li>
                     <li className="list-group-item">
@@ -136,7 +136,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">Public Information Officer (PIO)</h4>
                     </li>
                     <li className="list-group-item">
@@ -161,7 +161,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">Anti Ragging Cell</h4>
                     </li>
                     <li className="list-group-item">
@@ -186,7 +186,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">National Service Scheme (NSS)</h4>
                     </li>
                     <li className="list-group-item">
@@ -212,7 +212,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">Youth Red Cross (YRC)  &  Red Ribbon Club (RCC) - (Boys & Girls) </h4>
                     </li>
                     <li className="list-group-item">
@@ -232,7 +232,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">The Bharat Scout & Guide (Boys & Girls)</h4>
                     </li>
                     <li className="list-group-item">
@@ -252,7 +252,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">Student's Union </h4>
                     </li>
                     <li className="list-group-item">
@@ -272,7 +272,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">Athletic Association</h4>
                     </li>
                     <li className="list-group-item">
@@ -292,7 +292,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">Dramatic Association</h4>
                     </li>
                     <li className="list-group-item">
@@ -313,7 +313,7 @@ function Profile() {
         <div className="row mt-4 p-0">
             <div className="col-lg-12 col-sm-12">
                 <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section border-dark text-dark">
+                    <li className="list-group-item list-group-header bg-section border-text-muted text-dark">
                         <h4 className="card-title m-0 p-0">Cultural Association</h4>
                     </li>
                     <li className="list-group-item">

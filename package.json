@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "ag-grid-community": "^23.0.1",
     "ag-grid-react": "^23.0.0",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "emailjs-com": "^2.4.1",
     "moment": "^2.24.0",

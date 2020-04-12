@@ -1,58 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import DashboardLayout from '../LayoutDashboard';
 import { isAuthenticated } from '../../../api/user';
-//import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchStaffByUserName } from '../../../actionMethods/staffActionMethods';
+import { API_URL } from '../../../config';
+
 
 export default function StaffDashboard() {
+    const [employee, setEmployee] = useState({})
+    const state = useSelector(state => state.staff);
+    const dispatch = useDispatch();
+
+    const { UserID, UserName, UserType, UserFirstName, UserReferenceID, UserReferenceName, RoleID, RoleDescription } = isAuthenticated();
+    useEffect(() => {
+        if (state && state.staffs && state.staffs.length === 0) {
+            dispatch(fetchStaffByUserName(UserName))
+        }
+        // else {
+        //     //debugger;
+        //     const emp = state.staffs.filter(s => s.EmployeeCode === UserName);
+        //     setEmployee(emp);
+        // }
+    }, []);
 
     //const state = useSelector(state => state.user);
     //const { UserID, UserName, UserType, UserFirstName, UserReferenceName, RoleID, RoleDescription } = state.loggedOnUser;
 
-    const { UserID, UserName, UserType, UserFirstName, UserReferenceName, RoleID, RoleDescription } = isAuthenticated();
 
-    //console.log('state=', state);
+    console.log('staff->state=', state);
+    //console.log('staff->employee=', employee);
     //console.log('UserName=', UserName);
 
     return (
         <DashboardLayout title={`Staff's Dashboard`}>
             <div className="row">
-                <div className="col-3">
-                    <ul className="list-group">
-                        <li className="list-group-item text-center">
-                            <h5>{UserReferenceName}</h5>
-                            <b>{UserName}</b>
-                        </li>
-                        <li className="list-group-item">
-                            <Link to={`/user/profile`}>View My Profile</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to={`/user/profile/${UserID}`}>Add Recent Activities</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to={`/user/profile/${UserID}`}>Add Publications (Articles, Thesis,etc.)</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to={`/user/profile/${UserID}`}>Submit Attendence of Students</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to={`/user/profile/${UserID}`}>Apply for Leave</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to="/change-password">Change Password</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to="/logout">Logout</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="col-9 text-center">
+                <div className="col-12 text-center">
                     <div className="row">
                         <div className="col-12">Chart</div>
                     </div>

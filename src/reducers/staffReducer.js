@@ -2,6 +2,7 @@ import { StaffActionTypes } from '../constants/actionTypes';
 
 let initialState = {
     staffs: [],
+    employee: [],
     loading: true,
     count: 0,
     error: '',
@@ -9,6 +10,7 @@ let initialState = {
 };
 
 const staffReducer = (state = initialState, action) => {
+    //debugger;
     switch (action.type) {
         case StaffActionTypes.fetchStaffSuccess:
             return {
@@ -26,10 +28,19 @@ const staffReducer = (state = initialState, action) => {
                 error: action.payload
             }
         case StaffActionTypes.searchStaff:
-            const newArray = state.staffs.filter(s => s.StudentName.includes(action.payload));
+            const newArray = state.staffs.filter(s => s.UserReferenceName.includes(action.payload));
             return {
                 ...state,
                 staffs: newArray,
+                loading: false,
+                error: ''
+            }
+        case StaffActionTypes.getStaffByUserName:
+            debugger;
+            const emp = state.staffs.filter(s => s.EmployeeCode === action.payload);
+            return {
+                ...state,
+                employee: emp,
                 loading: false,
                 error: ''
             }

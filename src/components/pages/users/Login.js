@@ -13,8 +13,8 @@ import './Login.css'
 function Login() {
     const dispatch = useDispatch();
     const [values, setValues] = useState({
-        UserName: '',
-        UserPassword: '',
+        UserName: 'ADC0004',
+        UserPassword: '12345',
         loading: false,
         error: '',
         redirectToReferer: ''
@@ -86,7 +86,8 @@ function Login() {
             if (user && user.RoleID === 1) //admin
                 return <Redirect to="/admin/dashboard" />
             else if (user && (user.RoleID === 2 || user.RoleID === 3)) //staffs
-                return <Redirect to="/staff/dashboard" />
+                // return <Redirect to="/staff/dashboard" />
+                return <Redirect to="/user/profile" />
             else if (user && user.RoleID === 4)
                 return <Redirect to="/student/dashboard" />
             else
@@ -97,52 +98,52 @@ function Login() {
 
     const loginForm = () => (
         <form onSubmit={handleFormSubmit}>
-            <div className="card border-text-muted rounded-0 m-4 p-2">
-                <div className="card-header p-0">
-                    <div className="bg-card-header text-dark text-left ml-2 pt-2">
-                        <h5>Login</h5>
-                    </div>
-                </div>
-                <div className="card-body p-3">
-                    <div className="form-group">
-                        <div className="input-group mb-2">
-                            <div className="input-group-prepend">
-                                <div className="input-group-text user-additional-info-label">
-                                    <i className="fa fa-user text-adc mr-2"></i>
-                                    <span className="form-label">User Name</span>
-                                </div>
-                            </div>
-                            <input type="text" className="form-control"
-                                id="UserName"
-                                name="UserName"
-                                value={UserName}
-                                onChange={handleOnChange('UserName')}
-                                placeholder="Enter your user name" required />
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div className="card border-text-muted rounded-0 m-4 p-2 shadow-lg p-3 mb-5 bg-white rounded">
+                    <div className="card-header p-0">
+                        <div className="bg-card-header text-dark text-left ml-2 pt-2">
+                            <h5>Login</h5>
                         </div>
                     </div>
+                    <div className="card-body p-3">
+                        <div className="form-group">
+                            <div className="input-group mb-2">
+                                <div className="input-group-prepend">
+                                    <div className="input-group-text user-additional-info-label">
+                                        <i className="fa fa-user text-adc mr-2"></i>
+                                        <span className="form-label">User Name</span>
+                                    </div>
+                                </div>
+                                <input type="text" className="form-control"
+                                    id="UserName"
+                                    name="UserName"
+                                    value={UserName}
+                                    onChange={handleOnChange('UserName')}
+                                    placeholder="Enter your user name" required />
+                            </div>
+                        </div>
 
-                    <div className="form-group">
-                        <div className="input-group mb-2">
-                            <div className="input-group-prepend">
-                                <div className="input-group-text user-additional-info-label">
-                                    <i className="fa fa-key text-adc mr-2"></i>
+                        <div className="form-group">
+                            <div className="input-group mb-2">
+                                <div className="input-group-prepend">
+                                    <div className="input-group-text user-additional-info-label">
+                                        <i className="fa fa-key text-adc mr-2"></i>
                                     Password:
                                 </div>
+                                </div>
+                                <input type="password" className="form-control"
+                                    id="UserPassword"
+                                    name="UserPassword"
+                                    value={UserPassword}
+                                    onChange={handleOnChange('UserPassword')}
+                                    placeholder="Enter your password" required />
                             </div>
-                            <input type="password" className="form-control"
-                                id="UserPassword"
-                                name="UserPassword"
-                                value={UserPassword}
-                                onChange={handleOnChange('UserPassword')}
-                                placeholder="Enter your password" required />
+                        </div>
+                        <div className="col-12 text-center">
+                            <input type="submit" value="LOGIN" className="btn btn-primary pl-4 pr-4 mr-2" />
                         </div>
                     </div>
-                    <div className="col-12 text-center">
-                        <input type="submit" value="LOGIN" className="btn btn-primary pl-4 pr-4 mr-2" />
-                    </div>
-
                 </div>
-
             </div>
         </form>
     );
@@ -152,9 +153,9 @@ function Login() {
                 <div className="col-lg-3 col-sm-12">
                 </div>
                 <div className="col-lg-6 col-sm-12 col-xs-12">
+                    {loginForm()}
                     {showError()}
                     {showLoading()}
-                    {loginForm()}
                     {redirectUser()}
                 </div>
                 <div className="col-lg-3 col-sm-12">

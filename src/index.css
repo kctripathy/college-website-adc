@@ -19,6 +19,20 @@ code {
 .active {
   color: darkred !important;
   font-weight: 500;
+  /* color: darkred !important;
+  font-weight: 500;
+  display: inline-block;
+  height: 2.5em;
+  line-height: 1em;
+  color: #262626;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+  border-left: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(0,0,0,0.2);
+  background: #858585;
+  background: linear-gradient(to bottom,#e6e573 0,#ccd932 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#73abe6',endColorstr='#334c66',GradientType=0);
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4); */
 }
 
 .inactive {
@@ -43,8 +57,40 @@ code {
 }
 
 .bg-section {
-  background:linear-gradient(#57555385 13%, rgba(143, 125, 19, 0.45098039215686275) 23%, #a4ae223d);
+   background:linear-gradient(to bottom right, #eee , #fff);
+   /* background:linear-gradient(to right,#fad110 0,rgb(254, 242, 159) 100%); */
+
+  /* padding: .2em 1em .2em 22%;
+    border: 3px solid #fff;
+    border-left: 0;
+    text-align: left;
+    color: #356494;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+    -moz-border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0 4px 4px 0;
+    -khtml-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+    -moz-box-shadow: 5px 5px 30px rgba(0,0,0,0.17);
+    -webkit-box-shadow: 5px 5px 30px rgba(0,0,0,0.17);
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.17); */
+    
 }
+
+
+.bg-page-title {
+  padding-left: 10px !important;
+    border: 2px solid #fff;
+    border-left: 0;
+    text-align: left;
+    color: darkred;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.17);
+    background: linear-gradient(to right,#ffdc00 0,#fffb0000 100%);
+    margin-left: -22px !important;
+    margin-top: 10px !important;
+}
+
 .bg-primary,
 .btn-primary {
   color: #000;
@@ -56,6 +102,17 @@ code {
   background: -ms-linear-gradient(top, rgb(255,175,75) 4%, rgb(255,175,75) 12%, rgb(255,193,29) 60%, rgb(255,199,13) 76%, rgb(255,204,0) 90%);
   background: linear-gradient(to bottom, rgb(255,175,75) 4%, rgb(255,175,75) 12%, rgb(255,193,29) 60%, rgb(255,199,13) 76%, rgb(255,204,0) 90%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ffcc00', GradientType=0 );
+}
+
+.active-left-menu {
+  background-color: #f8f9fa;
+  border-right: 10px solid #fd7e14;
+  /* text-align: right; */
+}
+
+.active-left-menu > a {
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 .footer {

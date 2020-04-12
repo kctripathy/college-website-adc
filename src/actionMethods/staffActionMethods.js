@@ -21,6 +21,13 @@ const fetchStaffSearch = (searchText) => {
     }
 }
 
+const fetchStaffByUserName = (username) => {
+    return {
+        type: StaffActionTypes.getStaffByUserName,
+        payload: username
+    }
+}
+
 const fetchStaffs = () => {
     //debugger;
     return (dispatch) => loadAllStaffs()
@@ -36,4 +43,4 @@ const fetchStaffs = () => {
 };
 
 
-export { fetchStaffs, fetchStaffSearch }
+export { fetchStaffs, fetchStaffSearch, fetchStaffByUserName }

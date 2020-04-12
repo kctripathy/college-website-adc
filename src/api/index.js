@@ -132,3 +132,46 @@ export const loadAllBooks = () => {
 };
 
 
+//===================================
+// Districts
+//===================================
+export const loadAllDistricts = () => {
+    //debugger;
+    let url = `${API_URL}/common/districts`;
+    return fetch(url, {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => {
+            return (err)
+        })
+};
+
+//=============================
+export const updateStaff = (employee) => {
+    const url = `${API_URL}/staff/update`;
+
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(employee)
+    })
+        .then(response => {
+            //console.log('response=', response);
+            debugger;
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+        })
+};
+

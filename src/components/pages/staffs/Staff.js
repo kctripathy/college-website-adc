@@ -13,7 +13,7 @@ export default function Staff(props) {
                 <div className="card-header p-0 text-center">
                     <div className="bg-muted text-dark p-0 text-center">
                         <div className="row m-0 p-1 text-center">
-                            <img src={`${API_URL}/staffprofile/${EmployeeID}`}
+                            <img src={`${API_URL}/user/photo/employee/${EmployeeID}/${Math.random().toString(36).slice(2)}`}
                                 className="img-fluid img-thumbnail rounded text-center w-auto staff-photo"
                                 style={{ height: "250px" }} />
                         </div>

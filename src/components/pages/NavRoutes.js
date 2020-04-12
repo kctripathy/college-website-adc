@@ -21,6 +21,7 @@ import EstablishmentDetails from './establishments/EstablismentDetails';
 
 import Books from './library/Books';
 import Staffs from './staffs/Staffs'
+import UploadProfilePhoto from './staffs/UploadProfilePhoto'
 import StaffDetails from './staffs/StaffDetails'
 
 import Students from './students/Students';
@@ -43,6 +44,10 @@ import StudentDashboard from '../pages/students/StudentDashboard';
 import UserProfile from '../pages/users/UserProfile';
 import MediaRelease from './MediaRelease';
 import RTI from './RTI';
+
+import UserAddActivity from './users/UserAddActivity';
+import UserSubmitFeedback from './users/UserSubmitFeedback';
+import UserChangePassword from './users/UserChangePassword';
 
 import PageNotFound from '../pages/PageNotFound';
 
@@ -69,6 +74,7 @@ function NavRoutes() {
                 <Route path="/students/:page" component={StudentPages} exact />
 
                 <Route path="/staffs" component={Staffs} exact />
+
                 <Route path="/library" component={Books} exact />
                 <Route path="/admin/:section" component={CollegeAdmin} />
                 <Route path="/downloads" component={UsefullDownloads} />
@@ -81,8 +87,14 @@ function NavRoutes() {
 
                 <AdminRoute path="/admin/dashboard" component={AdminDashboard} exact />
                 <StaffRoute path="/staff/dashboard" component={StaffDashboard} exact />
+
+
                 <StudentRoute path="/student/dashboard" component={StudentDashboard} exact />
                 <PrivateRoute path="/user/profile" component={UserProfile} exact />
+                <PrivateRoute path="/user/upload-profile-photo" component={UploadProfilePhoto} exact />
+                <PrivateRoute path="/user/add-activity" component={UserAddActivity} exact />
+                <PrivateRoute path="/user/submit-feedback" component={UserSubmitFeedback} exact />
+                <PrivateRoute path="/user/change-password" component={UserChangePassword} exact />
 
                 <Route component={PageNotFound} />
 

@@ -20,7 +20,8 @@ export const StaffActionTypes = {
     fetchStaffFailure: 'fetchStaffFailure',
     addStaffSuccess: 'addStaffSuccess',
     addStaffFailure: 'addStaffFailure',
-    searchStaff: 'searchStaff'
+    searchStaff: 'searchStaff',
+    getStaffByUserName: 'getStaffByUserName'
 };
 
 export const BookActionTypes = {
