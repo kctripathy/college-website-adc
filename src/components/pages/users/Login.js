@@ -89,7 +89,7 @@ function Login() {
                 // return <Redirect to="/staff/dashboard" />
                 return <Redirect to="/user/profile" />
             else if (user && user.RoleID === 4)
-                return <Redirect to="/student/dashboard" />
+                return <Redirect to="/user/profile" />
             else
                 return <Redirect to="/" />
         }

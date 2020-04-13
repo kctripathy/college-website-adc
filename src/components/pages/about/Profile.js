@@ -15,7 +15,7 @@ function Profile() {
                         <h5 className="card-title">Principal cum Secratary</h5>
                     </div>
                     <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
-                        src={`${API_URL}/staffprofile/${profile.Principal_cum_Secratary.EmployeeID}`}
+                        src={`${API_URL}/user/photo/employee/${profile.Principal_cum_Secratary.EmployeeID}/1`}
                         alt={profile.Principal_cum_Secratary.name} />
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Principal_cum_Secratary.name}</h6>
@@ -30,7 +30,7 @@ function Profile() {
                         <h5 className="card-title">Academic Bursar</h5>
                     </div>
                     <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
-                        src={`${API_URL}/staffprofile/${profile.Academic_Bursar.EmployeeID}`}
+                        src={`${API_URL}/user/photo/employee/${profile.Academic_Bursar.EmployeeID}/1`}
                         alt={profile.Academic_Bursar.name} />
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Academic_Bursar.name}</h6>
@@ -45,7 +45,7 @@ function Profile() {
                         <h5 className="card-title">Account Bursar</h5>
                     </div>
                     <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
-                        src={`${API_URL}/staffprofile/${profile.Account_Bursar.EmployeeID}`}
+                        src={`${API_URL}/user/photo/employee/${profile.Account_Bursar.EmployeeID}/1`}
                         alt={profile.Account_Bursar.name} />
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Account_Bursar.name}</h6>
@@ -71,7 +71,7 @@ function Profile() {
                             <div className="col-4 font-weight-bold p-2">Admission in Charge</div>
                             <div className="col-8 p-2">{SAMS.Admission_in_Charge.name}, {SAMS.Admission_in_Charge.designation} of  {SAMS.Principal.department} </div>
                             <div className="col-4 font-weight-bold p-2">Data Entry Operator</div>
-                            <div className="col-8 p-2">{SAMS.Admission_in_Charge.name}, {SAMS.Admission_in_Charge.designation} ({SAMS.Data_Entry_Operator.department})</div>
+                            <div className="col-8 p-2">{SAMS.Data_Entry_Operator.name}, {SAMS.Data_Entry_Operator.designation} ({SAMS.Data_Entry_Operator.department})</div>
                         </div>
                     </li>
                 </ul>

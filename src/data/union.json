@@ -12,95 +12,148 @@
             },
             {
                 "year": "2017-18",
-                "description": "Election for student union was held in accordance with government order. The following candidates are declared to have been elected provisionally to the various Offices of the Students’ Union and Other Associations / Club / Societies in the University Elections held on said date for the session.",
-                "election_date": "10-Jun-2017",
+                "description": "After Counting the following candidates are Declared Elected to various post of Students Union, Anchalika Degree College, Jagannath Prasad,Ganjam for the year  2017-18",
+                "election_date": "",
                 "president": {
-                    "student_name": "Mr president",
-                    "student_class": "",
-                    "roll_no": "--",
+                    "student_name": "BIBHUTI BHUSAN NAYAK",
+                    "student_class": "+3 2nd Year Arts",
+                    "roll_no": "BA16-086",
                     "photo": "no_photo.png"
                 },
                 "vice_president": {
-                    "student_name": "Mr v_president",
-                    "student_class": "",
-                    "roll_no": "--",
+                    "student_name": "JAGANNATH MARTHA",
+                    "student_class": "+3 1st Year Arts",
+                    "roll_no": "BA17-044",
                     "photo": "no_photo.png"
                 },
-                "general_secretary": {
-                    "student_name": "Mr secretary",
-                    "student_class": "",
-                    "roll_no": "--",
+                "secretary": {
+                    "student_name": "BIBHUTI BHUSAN SAHU",
+                    "student_class": "+3 3rd Year  Arts",
+                    "roll_no": "BA15-103",
                     "photo": "no_photo.png"
                 },
-                "assistant_general_secretary": {
-                    "student_name": "Mr joint",
-                    "student_class": "",
-                    "roll_no": "--",
+                "joint_secretary": {
+                    "student_name": "MINATI BARIK",
+                    "student_class": "+3 3rd Year  Arts",
+                    "roll_no": "BA15-049",
                     "photo": "no_photo.png"
                 },
                 "dramatic_secretary": {
-                    "student_name": "Mr dramatic",
-                    "student_class": "",
-                    "roll_no": "--",
+                    "student_name": "DILLIP KU. MAHAPATRA",
+                    "student_class": "+3 1st Year  Arts",
+                    "roll_no": "BA17-043",
+                    "photo": "no_photo.png"
+                },
+                "asst_dramatic_secretary": {
+                    "student_name": "SANTOSINI NAYAK",
+                    "student_class": "+3 1st Year  Arts",
+                    "roll_no": "BA17-020",
                     "photo": "no_photo.png"
                 },
                 "athletic_secretary": {
-                    "student_name": "Mr athletic",
-                    "student_class": "",
-                    "roll_no": "--",
+                    "student_name": "PABITRA GOUDA",
+                    "student_class": "+3 1st Year  Arts",
+                    "roll_no": "BA17-036",
                     "photo": "no_photo.png"
                 },
-                "boys_common_room_secretary": {
-                    "student_name": "Mr bcm",
-                    "student_class": "",
-                    "roll_no": "--",
-                    "photo": "no_photo.png"
-                },
-                "girls_common_room_secretary": {
-                    "student_name": "Mr bcm",
-                    "student_class": "",
-                    "roll_no": "--",
+                "class_representative": {
+                    "student_name": "SUBHASHREE PRADHAN",
+                    "student_class": "+3 1st Year  Arts",
+                    "roll_no": "BA17-017",
                     "photo": "no_photo.png"
                 }
             },
             {
                 "year": "2016-17",
                 "description": "The following candidates are declared to have been elected provisionally to the various Offices of the Students’ Union and Other Associations / Club / Societies in the College Elections held on 05.10.2016 for the session 2016 -2017",
-                "election_date": "10-Jun-2017",
+                "election_date": "",
                 "president": {
-                    "student_name": "2019 president",
-                    "student_class": "",
-                    "roll-no": "--",
+                    "student_name": "Kahnu Charan Pradhan",
+                    "student_class": "+3 3rd Year Arts",
+                    "roll-no": "BA14-047 ",
                     "photo": "no_photo.png"
                 },
                 "vice_president": {
-                    "student_name": "2019 v_president",
-                    "student_class": "",
-                    "roll_no": "--",
-                    "photo": "no_photo.jpg"
-                },
-                "general_secretary": {
-                    "student_name": "2019 secretary",
-                    "student_class": "",
-                    "roll_no": "--",
+                    "student_name": "Mrutyunjaya Parida",
+                    "student_class": "+3 3rd Year Arts",
+                    "roll_no": "BA14-081",
                     "photo": "no_photo.png"
                 },
-                "assistant_general_secretary": {
-                    "student_name": "2019 joint",
-                    "student_class": "",
-                    "roll_no": "--",
+                "joint_secretary": {
+                    "student_name": "Kanhu Charan Pradhan",
+                    "student_class": "+3 3rd Year Arts",
+                    "roll_no": "BA14-082 ",
+                    "photo": "no_photo.png"
+                },
+                "secretary": {
+                    "student_name": "Nabaghana Senapati",
+                    "student_class": "+3 3rd Year Arts",
+                    "roll_no": "BA14-058 ",
                     "photo": "no_photo.png"
                 },
                 "dramatic_secretary": {
-                    "student_name": "2019 dramatic",
-                    "student_class": "",
-                    "roll_no": "--",
+                    "student_name": "Fakir Mohan Behera",
+                    "student_class": "+3 2nd Year Arts",
+                    "roll_no": "BA15-160 ",
                     "photo": "no_photo.png"
                 },
                 "athletic_secretary": {
-                    "student_name": "2019 athletic",
-                    "student_class": "",
-                    "roll_no": "--",
+                    "student_name": "Rinku Pradhan",
+                    "student_class": "+3 1st Year Arts",
+                    "roll_no": "BA16-006 ",
+                    "photo": "no_photo.png"
+                },
+                "class_representative": {
+                    "student_name": "Bhikari Pradhan",
+                    "student_class": "+3 3rd Year  Arts",
+                    "roll_no": "BA14-103",
+                    "photo": "no_photo.png"
+                }
+            },
+            {
+                "year": "2015-16",
+                "description": "After withdrawn the following candidates are contesting to various post of students union, Anchalika Degree College, Jagannath Prasad,Ganjam for the year 2015-16",
+                "election_date": "",
+                "president": {
+                    "student_name": "Gadadhar Pradhan",
+                    "student_class": "+3 2nd Year Arts",
+                    "roll-no": "51 ",
+                    "photo": "no_photo.png"
+                },
+                "vice_president": {
+                    "student_name": "Maheswar Pani",
+                    "student_class": "+3 1st Year Arts",
+                    "roll_no": "22",
+                    "photo": "no_photo.png"
+                },
+                "joint_secretary": {
+                    "student_name": "Jitu Pradhan",
+                    "student_class": "+3 3rd Year Arts",
+                    "roll_no": "72",
+                    "photo": "no_photo.png"
+                },
+                "secretary": {
+                    "student_name": "Jagannath Nayak",
+                    "student_class": "+3 3rd Year Arts",
+                    "roll_no": "119",
+                    "photo": "no_photo.png"
+                },
+                "dramatic_secretary": {
+                    "student_name": "Subala Senapati",
+                    "student_class": "+3 1st Year Arts",
+                    "roll_no": "101",
+                    "photo": "no_photo.png"
+                },
+                "athletic_secretary": {
+                    "student_name": "Alok Kumar Majhi",
+                    "student_class": "+3 2nd Year Arts",
+                    "roll_no": "61",
+                    "photo": "no_photo.png"
+                },
+                "class_representative": {
+                    "student_name": "Surya Narayan Panda",
+                    "student_class": "+3 3rd Year  Arts",
+                    "roll_no": "43",
                     "photo": "no_photo.png"
                 }
             }

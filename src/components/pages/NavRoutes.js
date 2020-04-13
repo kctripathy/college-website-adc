@@ -21,7 +21,7 @@ import EstablishmentDetails from './establishments/EstablismentDetails';
 
 import Books from './library/Books';
 import Staffs from './staffs/Staffs'
-import UploadProfilePhoto from './staffs/UploadProfilePhoto'
+import UserProfilePhotoUpload from './users/UserProfilePhotoUpload'
 import StaffDetails from './staffs/StaffDetails'
 
 import Students from './students/Students';
@@ -91,7 +91,7 @@ function NavRoutes() {
 
                 <StudentRoute path="/student/dashboard" component={StudentDashboard} exact />
                 <PrivateRoute path="/user/profile" component={UserProfile} exact />
-                <PrivateRoute path="/user/upload-profile-photo" component={UploadProfilePhoto} exact />
+                <PrivateRoute path="/user/upload-profile-photo" component={UserProfilePhotoUpload} exact />
                 <PrivateRoute path="/user/add-activity" component={UserAddActivity} exact />
                 <PrivateRoute path="/user/submit-feedback" component={UserSubmitFeedback} exact />
                 <PrivateRoute path="/user/change-password" component={UserChangePassword} exact />

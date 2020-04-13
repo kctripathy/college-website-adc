@@ -49,7 +49,7 @@ function LayoutDashboard(props) {
             profilePhotoUrl = `${API_URL}/user/photo/employee/${UserReferenceID}/${Math.random().toString(36).slice(2)}`
         }
         else if (RoleID === 4) {
-            profilePhotoUrl = `${API_URL}/studentprofile/${UserReferenceID}`
+            profilePhotoUrl = `${API_URL}/user/photo/student/${UserReferenceID}/${Math.random().toString(36).slice(2)}`
         }
         return <Fragment>
             <li className="list-group-item m-0 p-0">

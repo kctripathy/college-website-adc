@@ -189,13 +189,13 @@ function Contact() {
                     <p className="address-text">
                         At/Po: Jagannath Prasad,
                         Dist: Ganjam (Odisha)
-                        PIN: 761120
+                        PIN: 761121
                     </p>
                     <p className="address-text">
                         Phone: 06818 - 262087
                     </p>
                     <p className="address-text">
-                        Email: adc.jnprasad@gmail.com
+                        Email: <a href='mailto:adc.jnprasad@gmail.com'>adc.jnprasad@gmail.com</a>
                     </p>
 
                 </div>
@@ -215,7 +215,7 @@ function Contact() {
                         Phone (Mobile): +91 - 94375 14174
                     </p>
                     <p className="address-text">
-                        Email: sahusanatana@yahoo.com
+                        Email: <a href='mailto:sahusanatana@yahoo.com'>sahusanatana@yahoo.com</a>
                     </p>
 
                 </div>
@@ -234,9 +234,8 @@ function Contact() {
                         Phone: +91 80938 53112
                     </p>
                     <p className="address-text">
-                        Email: nayaksarojkumar08@gmail.com
+                        Email: <a href='mailto:nayaksarojkumar08@gmail.com'>nayaksarojkumar08@gmail.com</a>
                     </p>
-
                 </div>
             </div>
         )

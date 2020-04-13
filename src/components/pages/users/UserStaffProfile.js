@@ -95,7 +95,7 @@ export default function UserStaffProfile(props) {
                     }
                 })
                 .catch(err => {
-                    console.log(err);
+                    //console.log(err);
                     setSuccess('');
                     setError('');
                 })

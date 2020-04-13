@@ -89,6 +89,7 @@ code {
     background: linear-gradient(to right,#ffdc00 0,#fffb0000 100%);
     margin-left: -22px !important;
     margin-top: 10px !important;
+
 }
 
 .bg-primary,
@@ -120,20 +121,26 @@ code {
 }
 
 .web-title {
-  font-weight: 700;
-  text-shadow: 2px 2px #dddddd
+  font-family: 'Merriweather', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif;
+  font-weight: 800;
+  text-shadow: 2px 2px #dddddd;
+  /* text-transform: uppercase; */
+
 }
 
 .web-sub-title{
   text-transform: uppercase;
   font-weight: 500;
+  /* font-family: 'Merriweather', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif; */
+
 }
 .page-title {
-  font-weight: 500;
-  font-size: 22px;
   /* border-bottom: solid 1px #ccc; */
   margin: 5px 0px;
   padding: 5px 0px;
+  /* font-family: 'Merriweather', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif; */
+  font-weight: 500;
+  font-size: 22px;
 }
 .home-section-title {
   min-height: 30px;

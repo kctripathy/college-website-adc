@@ -3,18 +3,18 @@ import './Staff.css';
 import { API_URL } from '../../../config';
 
 export default function Staff(props) {
-    console.log(props);
-    debugger;
+    //console.log(props);
+    //debugger;
     const { EmployeeID, EmployeeCode, Salutation, EmployeeName, DesignationDescription, DepartmentDescription, Mobile, EmailID, TeachingOrNonTeaching } = props.staff;
     return (
 
         <div className="col-lg-3 col-sm-12 d-flex">
-            <div className="card border-secondary rounded-0 mb-4 text-center">
+            <div className="card border-text-muted rounded-0 mb-4 text-center">
                 <div className="card-header p-0 text-center">
                     <div className="bg-muted text-dark p-0 text-center">
                         <div className="row m-0 p-1 text-center">
                             <img src={`${API_URL}/user/photo/employee/${EmployeeID}/${Math.random().toString(36).slice(2)}`}
-                                className="img-fluid img-thumbnail rounded text-center w-auto staff-photo"
+                                className="img-fluid img-thumbnail rounded-circle text-center w-auto staff-photo"
                                 style={{ height: "250px" }} />
                         </div>
                     </div>
@@ -24,10 +24,15 @@ export default function Staff(props) {
                     <h6 className="staff-designation">{DesignationDescription} ({DepartmentDescription})</h6>
                     {/* <h6 className="staff-department">{}</h6> */}
                     <h6 className="staff-phone">{Mobile && Mobile.length > 0 ? (
-                        <Fragment><i className="fa fa-phone mr-1 pt-1"></i>{Mobile}</Fragment>
+                        <Fragment>
+                            <i className="fa fa-phone mr-1 pt-1"></i>
+                            <a href={`tel:${Mobile}`}>{Mobile}</a>
+                        </Fragment>
                     ) : ("")}</h6>
                     <h6 className="staff-email">&nbsp;{EmailID && EmailID.length > 0 ? (
-                        <Fragment><i className="fa fa-envelope mr-1 pt-1"></i>{EmailID}</Fragment>
+                        <Fragment><i className="fa fa-envelope mr-1 pt-1"></i>
+                            <a href={`mailto:${EmailID}`}>{EmailID}</a>
+                        </Fragment>
                     ) : ("")}</h6>
                 </div>
                 <div className="card-footer">

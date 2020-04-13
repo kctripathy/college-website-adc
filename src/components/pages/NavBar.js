@@ -144,13 +144,18 @@ function NavBar({ history }) {
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/academic/publications">Research Publications</Link>
+                                <Link className="dropdown-item" to="/staffs">Faculties / College Staffs</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/academic/internal-quality-assurance-cell">Quality Assurance Cell (IQAC)</Link>
+                                <Link className="dropdown-item" to="/academic/publications">Research & Publications</Link>
                             </li>
+
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/academic/carrer-counselling">Carrer Counselling Cell</Link>
+                            </li>
+
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/academic/internal-quality-assurance-cell">Internal Quality Assurance Cell (IQAC)</Link>
                             </li>
                         </ul>
                     </li>
@@ -168,18 +173,29 @@ function NavBar({ history }) {
                                 <Link className="dropdown-item" to="/activities/academics-activities">Academic Activities</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/curricular-activities">Curricular Activities</Link>
+                                <Link className="dropdown-item" to="/activities/sports-activities">Sports Activities</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/>Co_Curricular-activities">Co-Curricular Activities</Link>
+                                <Link className="dropdown-item" to="/activities/cultural-activites">Cultural Activities</Link>
+                            </li>
+                            {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/activities/social-activites">Social Activities</Link>
+                            </li> */}
+                            <li style={{ padding: "0px" }}><hr /></li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/activities/youth-red-cross">Youth Red Cross (YRC)</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/activities/red-ribbon-club">Red Ribbon Club (RCC)</Link>
                             </li>
 
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/college-associations">College Associations</Link>
+                                <Link className="dropdown-item" to="/activities/the-bharat-scout-&-guide">The Bharat Scout & Guide</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/college-cells">College Cells</Link>
+                                <Link className="dropdown-item" to="/activities/national-Service-Scheme">National Service Scheme (NSS)</Link>
                             </li>
+
                         </ul>
                     </li>
 
@@ -200,11 +216,11 @@ function NavBar({ history }) {
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/students">Current Students</Link>
+                                <Link className="dropdown-item" to="/students">College Students</Link>
                             </li>
-                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                            {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/students/alumni">Forment Students (Alumni)</Link>
-                            </li>
+                            </li> */}
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/students/union">Students Union</Link>
                             </li>
@@ -311,10 +327,11 @@ function NavBar({ history }) {
                                 <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                     {
                                         RoleID === 1 ? (<Link className="dropdown-item" to="/admin/dashboard">Dashboard</Link>) : (
-                                            (RoleID === 2 || RoleID === 3) ? (<Link className="dropdown-item" to="/staff/dashboard">Dashboard</Link>) :
+                                            (RoleID === 2 || RoleID === 3) ?
+                                                (<Link className="dropdown-item" to="/user/profile">My Profile</Link>) :
                                                 (
                                                     <Fragment>
-                                                        <Link className="dropdown-item" to="/student/dashboard">Dashboard</Link>
+                                                        <Link className="dropdown-item" to="/user/profile">My Profile</Link>
                                                         <Link className="dropdown-item" to="/student/feedback">Feedback</Link>
                                                     </Fragment>
                                                 )

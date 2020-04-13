@@ -175,3 +175,25 @@ export const updateStaff = (employee) => {
         })
 };
 
+//=============================
+export const updateStudent = (student) => {
+    const url = `${API_URL}/student/update`;
+
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(student)
+    })
+        .then(response => {
+            //console.log('response=', response);
+            debugger;
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+        })
+};
+

@@ -4,7 +4,7 @@ import Layout from '../Layout';
 
 export default function GoverningBody() {
     return (
-        <Layout title="Governing Body of the College">
+        <Layout title="">
             <WorkinProgress />
         </Layout>
     );

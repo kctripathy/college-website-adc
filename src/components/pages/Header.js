@@ -12,7 +12,7 @@ function Header(props) {
                 </Link>
             </div>
             <div className="col-lg-10 col-sm-12 text-center">
-                <h3 className="web-title">ANCHALIKA DEGREE COLLEGE</h3>
+                <h3 className="web-title">Anchalika Degree College</h3>
                 <h5 className="web-sub-title">Jagannath Prasad, Ganjam (Odisha)</h5>
             </div>
             <div className="col-lg-1 col-sm-2 text-right fb-icon">

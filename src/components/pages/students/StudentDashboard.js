@@ -10,47 +10,9 @@ export default function StudentDashboard() {
 
     return (
         <DashboardLayout title={`Student's Dashboard`}>
-            <div className="row">
-                <div className="col-3">
-                    <ul className="list-group">
-                        <li className="list-group-item text-center">
-                            <h5>{UserReferenceName}</h5>
-                            <b>{UserName}</b>
-                        </li>
-                        <li className="list-group-item">
-                            <Link to={`/user/profile/${UserID}`}>View My Profile</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to={`/user/profile/${UserID}`}>Add Recent Activities</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to={`/user/feedback/${UserID}`}>Submit Feedback</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to="/change-password">Change Password</Link>
-                        </li>
-
-                        <li className="list-group-item">
-                            <Link to="/logout">Logout</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="col-9 text-center">
-                    <div className="row">
-                        <div className="col-12">Chart</div>
-                    </div>
-                    <div className="row">
-                        <div className="col-4">1</div>
-                        <div className="col-4">2</div>
-                        <div className="col-4">3</div>
-                    </div>
-                    <div className="row">
-                        <div className="col-6">A</div>
-                        <div className="col-6">B</div>
-                    </div>
+            <div className="row d-flex text-left pl-4">
+                <div className="col-12 p-1 m-0 mb-2 w-50 bg-page-title" style={{ marginLeft: "-20px !important" }}>
+                    <b>Student's Dashboard</b>
                 </div>
             </div>
         </DashboardLayout>

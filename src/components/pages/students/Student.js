@@ -1,49 +1,39 @@
 import React from 'react';
 import './Students.css';
-//import StaffPhoto from '../../../assets/images/logo-50.png'
+import { API_URL } from '../../../config';
 
 export default function Student(props) {
-    //console.log(props);
-    //debugger;
-    const { StudentName, RollNo, ClassName, Mobile, EmailID } = props.student;
-
-    // const GetClassName = (classid) => {
-
-    //     var class_name = '';
-    //     switch (classid) {
-    //         case 9: class_name = "+2 ARTS (FIRST YEAR)"; break;
-    //         case 2: class_name = "+2 SCIENCE (FIRST YEAR)"; break;
-    //         case 10: class_name = "+2 ARTS (SECOND YEAR)"; break;
-    //         case 3: class_name = "+2 SCIENCE (SECOND YEAR)"; break;
-    //         case 12: class_name = "+3 ARTS (FIRST YEAR)"; break;
-    //         case 5: class_name = "+3 SCIENCE (FIRST YEAR)"; break;
-    //         case 13: class_name = "+3 ARTS (SECOND YEAR)"; break;
-    //         case 6: class_name = "+3 SCIENCE (SECOND YEAR)"; break;
-    //         case 14: class_name = "+3 ARTS (THIRD YEAR)"; break;
-    //         case 7: class_name = "+3 SCIENCE (THIRD YEAR)"; break;
-    //     }
-    //     return class_name;
-    // }
-
-
+    const { StudentID, Salutation, StudentName, RollNo, ClassName, SubjectName, BloodGroup, Mobile, EmailID } = props.student;
 
     return (
 
-        <div className="col-lg-2 col-md-4 col-sm-6 col-xs-12 student-card mb-4">
-            <div className="card border-secondary rounded-0 mb-4 text-center">
+        <div className="col-lg-2 col-md-4 col-sm-6 col-xs-12 student-card mb-2 ">
+            <div className="card border-text-muted rounded-0 mb-4 text-center shadow-sm">
                 <div className="card-header p-0 text-center">
                     <div className="bg-muted text-dark p-0 text-center">
                         <div className="row m-0 p-1 text-center">
-                            {/* <img src={studentPhoto} className="text-center student-photo" /> */}
+                            <img src={`${API_URL}/user/photo/student/${StudentID}/${Math.random().toString(36).slice(2)}`}
+                                className="img-fluid img-thumbnail text-center"
+                                style={{ height: "150px", width: "100%" }} />
                         </div>
                     </div>
                 </div>
                 <div className="card-body p-2">
-                    <h6 className="student-name">{StudentName}</h6>
+                    <h6 className="student-name">{Salutation.toUpperCase()} {StudentName}</h6>
                     <h6 className="student-class">{ClassName}</h6>
-                    <h6 className="student-rollno">Roll# {RollNo}</h6>
+                    <h6 className="student-class">{SubjectName}</h6>
+                    <h6 className="student-email">{EmailID}</h6>
                     {/* <h6 className="student-phone">{Mobile && Mobile.length > 0 ? ("Ph.: " + Mobile) : ("")}</h6> */}
-                    <h6 className="student-email">&nbsp;{EmailID && EmailID.length > 0 ? ("Email: " + EmailID) : ("")}</h6>
+                </div>
+                <div className="card-body p-0 m-0">
+                    <div className="row m-0 p-0">
+                        <div className="col-8 text-left m-0 p-0 pl-2">
+                            {RollNo}
+                        </div>
+                        <div className="col-4 text-right m-0 p-0 pr-2">
+                            {BloodGroup && BloodGroup.length > 0 ? BloodGroup : 'N/A'}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

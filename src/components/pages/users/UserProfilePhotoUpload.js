@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import LayoutDashboard from '../LayoutDashboard';
-import Fileuplod from '../../commons/Fileupload';
+import UploadFile from '../../commons/UploadFile';
+// import UploadImage from '../../commons/UploadImage';
 
-export default function UploadProfilePhoto(props) {
+export default function UserProfilePhotoUpload(props) {
     const [toggle, setToggle] = useState(true);
 
     //This function has been created to refresh the layout page after uploading the photo
@@ -13,7 +14,8 @@ export default function UploadProfilePhoto(props) {
 
     return (
         <LayoutDashboard title="Upload Profile Photo" refreshStatus={toggle}>
-            <Fileuplod title="Upload Profile Photo" onRun={setRun} />
+            <UploadFile title="Upload Profile Photo" onRun={setRun} />
+            {/* <UploadImage /> */}
         </LayoutDashboard>
     );
 }
