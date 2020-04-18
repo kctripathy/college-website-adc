@@ -2,7 +2,8 @@ import React from 'react';
 import Layout from '../Layout';
 import college_profile from "../../../data/profile.json";
 import { API_URL } from '../../../config';
-
+import ProfileIQAC from './ProfileIQAC';
+import ProfileImage from '../../commons/PersonImage'
 function Profile() {
 
     const { profile, SAMS } = college_profile;
@@ -13,10 +14,11 @@ function Profile() {
                 <div className="card text-center">
                     <div className="card-header">
                         <h5 className="card-title">Principal cum Secratary</h5>
+                        <ProfileImage usertype="employee" id={profile.Principal_cum_Secratary.EmployeeID} height="250px" width="250px" />
                     </div>
-                    <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
+                    {/* <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
                         src={`${API_URL}/user/photo/employee/${profile.Principal_cum_Secratary.EmployeeID}/1`}
-                        alt={profile.Principal_cum_Secratary.name} />
+                        alt={profile.Principal_cum_Secratary.name} /> */}
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Principal_cum_Secratary.name}</h6>
                         <p className="card-text">{profile.Principal_cum_Secratary.designation} - {profile.Principal_cum_Secratary.department}</p>
@@ -28,10 +30,11 @@ function Profile() {
                 <div className="card text-center">
                     <div className="card-header">
                         <h5 className="card-title">Academic Bursar</h5>
+                        <ProfileImage usertype="employee" id={profile.Academic_Bursar.EmployeeID} height="250px" width="300px" photo_url="" />
                     </div>
-                    <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
+                    {/* <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
                         src={`${API_URL}/user/photo/employee/${profile.Academic_Bursar.EmployeeID}/1`}
-                        alt={profile.Academic_Bursar.name} />
+                        alt={profile.Academic_Bursar.name} /> */}
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Academic_Bursar.name}</h6>
                         <p className="card-text">{profile.Academic_Bursar.designation} - {profile.Academic_Bursar.department}</p>
@@ -43,10 +46,11 @@ function Profile() {
                 <div className="card text-center">
                     <div className="card-header">
                         <h5 className="card-title">Account Bursar</h5>
+                        <ProfileImage usertype="employee" id={profile.Account_Bursar.EmployeeID} height="250px" width="250px" />
                     </div>
-                    <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
+                    {/* <img className="img-fluid img-thumbnail rounded-circle p-1 m-1"
                         src={`${API_URL}/user/photo/employee/${profile.Account_Bursar.EmployeeID}/1`}
-                        alt={profile.Account_Bursar.name} />
+                        alt={profile.Account_Bursar.name} /> */}
                     <div className="card-body">
                         <h6 className="card-subtitle">{profile.Account_Bursar.name}</h6>
                         <p className="card-text">{profile.Account_Bursar.designation} - {profile.Account_Bursar.department}</p>
@@ -80,35 +84,36 @@ function Profile() {
     );
 
     const showData_ICAQ = () => (
-        <div className="row mt-4 p-0">
-            <div className="col-lg-12 col-sm-12">
-                <ul className="list-group  m-0 p-0">
-                    <li className="list-group-item list-group-header bg-section text-dark">
-                        <h4 className="card-title m-0 p-0">IQAC (Internal Quality Accessment Cell)</h4>
-                    </li>
-                    <li className="list-group-item">
-                        <div className="row m-0 p-0">
-                            <div className="col-4 font-weight-bold p-2">Principal-cum-Chairman</div>
-                            <div className="col-8 p-2">Prof. Sanatana Sahu, HOD of Political Science</div>
+        <ProfileIQAC />
+        // <div className="row mt-4 p-0">
+        //     <div className="col-lg-12 col-sm-12">
+        //         <ul className="list-group  m-0 p-0">
+        //             <li className="list-group-item list-group-header bg-section text-dark">
+        //                 <h4 className="card-title m-0 p-0">IQAC (Internal Quality Accessment Cell)</h4>
+        //             </li>
+        //             <li className="list-group-item">
+        //                 <div className="row m-0 p-0">
+        //                     <div className="col-4 font-weight-bold p-2">Principal-cum-Chairman</div>
+        //                     <div className="col-8 p-2">Prof. Sanatana Sahu, HOD of Political Science</div>
 
-                            <div className="col-4 font-weight-bold p-2">Director</div>
-                            <div className="col-8 p-2">Prof. Pramod Kumar Chaudhuri, HOD of History </div>
+        //                     <div className="col-4 font-weight-bold p-2">Director</div>
+        //                     <div className="col-8 p-2">Prof. Pramod Kumar Chaudhuri, HOD of History </div>
 
-                            <div className="col-4 font-weight-bold p-2">Members</div>
-                            <div className="col-8 p-2">
-                                <ul className="list-group-x" style={{ listStyleType: "upper-roman", margin: "0px 0px 0px 5px", padding: "0px 0px 0px 15px" }}>
-                                    <li className="list-item-1">Prof. Binod Kumar Dash, HOD of Economics</li>
-                                    <li className="list-item-1">Prof. Niranjan Satapathy, HOD of Odia</li>
-                                    <li className="list-item-1">Prof. Sucharita Kar, HOD of English</li>
-                                    <li className="list-item-1">Prof. Bibhuti Bhushan Pradhan, Lect. In. History</li>
-                                    <li className="list-item-1">Sri. Raghunath Pani, Asst. Librarian</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        //                     <div className="col-4 font-weight-bold p-2">Members</div>
+        //                     <div className="col-8 p-2">
+        //                         <ul className="list-group-x" style={{ listStyleType: "upper-roman", margin: "0px 0px 0px 5px", padding: "0px 0px 0px 15px" }}>
+        //                             <li className="list-item-1">Prof. Binod Kumar Dash, HOD of Economics</li>
+        //                             <li className="list-item-1">Prof. Niranjan Satapathy, HOD of Odia</li>
+        //                             <li className="list-item-1">Prof. Sucharita Kar, HOD of English</li>
+        //                             <li className="list-item-1">Prof. Bibhuti Bhushan Pradhan, Lect. In. History</li>
+        //                             <li className="list-item-1">Sri. Raghunath Pani, Asst. Librarian</li>
+        //                         </ul>
+        //                     </div>
+        //                 </div>
+        //             </li>
+        //         </ul>
+        //     </div>
+        // </div>
     );
 
     const showData_NAAC = () => (

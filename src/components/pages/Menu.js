@@ -21,7 +21,7 @@ const Menu = () => {
         if (activeTab !== tab) setActiveTab(tab);
     }
     useEffect(() => {
-        console.log('Menu...');
+        //console.log('Menu...');
     }, []);
 
     return (

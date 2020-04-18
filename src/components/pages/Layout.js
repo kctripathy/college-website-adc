@@ -4,8 +4,9 @@ function Layout(props) {
     return (
         <div className="container-fluid layout">
             <div className="row m-0 p-0">
-                <div className="col-lg-6 col-sm-6 m-0 p-0">
-                    <h2 className="page-title ml-10">{props.title && props.title.length > 0 ? props.title : ''}</h2>
+                <div className="col-lg-12 col-sm-12 m-0 p-0 bg-page-title text-center"
+                    style={{ display: props.title && props.title.length > 0 ? '' : 'none' }}>
+                    <h5 className="m-0 p-1">{props.title}</h5>
                 </div>
                 <div className="col-lg-6 col-sm-6 text-right m-0 p-0 pt-2 pr-3" style={{ display: "none" }}>
                     {props.handleView ? (
@@ -17,7 +18,7 @@ function Layout(props) {
                 </div>
             </div>
 
-            <div className="row">
+            <div className="row m-0 mt-1 p-0">
                 <div className="col-12">
                     {props.children}
                 </div>

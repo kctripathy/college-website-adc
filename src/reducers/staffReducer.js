@@ -36,7 +36,7 @@ const staffReducer = (state = initialState, action) => {
                 error: ''
             }
         case StaffActionTypes.getStaffByUserName:
-            debugger;
+            //debugger;
             const emp = state.staffs.filter(s => s.EmployeeCode === action.payload);
             return {
                 ...state,

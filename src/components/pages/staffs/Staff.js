@@ -1,21 +1,20 @@
 import React, { Fragment } from 'react';
 import './Staff.css';
-import { API_URL } from '../../../config';
+//import { API_URL } from '../../../config';
+import ProfileImage from '../../commons/PersonImage';
 
 export default function Staff(props) {
-    //console.log(props);
-    //debugger;
     const { EmployeeID, EmployeeCode, Salutation, EmployeeName, DesignationDescription, DepartmentDescription, Mobile, EmailID, TeachingOrNonTeaching } = props.staff;
     return (
-
         <div className="col-lg-3 col-sm-12 d-flex">
             <div className="card border-text-muted rounded-0 mb-4 text-center">
                 <div className="card-header p-0 text-center">
                     <div className="bg-muted text-dark p-0 text-center">
-                        <div className="row m-0 p-1 text-center">
-                            <img src={`${API_URL}/user/photo/employee/${EmployeeID}/${Math.random().toString(36).slice(2)}`}
+                        <div className="row m-0 p-1 text-center d-flex">
+                            <ProfileImage usertype="employee" id={EmployeeID} width="300px" height="300px" />
+                            {/* <img src={`${API_URL}/user/photo/employee/${EmployeeID}/${Math.random().toString(36).slice(2)}`}
                                 className="img-fluid img-thumbnail rounded-circle text-center w-auto staff-photo"
-                                style={{ height: "250px" }} />
+                                style={{ height: "250px" }} /> */}
                         </div>
                     </div>
                 </div>

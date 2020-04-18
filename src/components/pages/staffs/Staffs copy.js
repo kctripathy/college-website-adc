@@ -123,7 +123,7 @@ function Staffs() {
             setSearchResult([]);
             return;
         }
-        console.log("selected depts ", selectedOptions);
+        //console.log("selected depts ", selectedOptions);
 
         const filteredArray = state.staffs.filter(array =>
             selectedOptions.some(filter => filter.value === array.DepartmentID)

@@ -116,5 +116,131 @@ export const loadAllUsers = () => {
 
 
 //===================================
-// loadUsers
+// changePassword
 //===================================
+export const changePassword = (user) => {
+    const url = `${API_URL}/user/changePassword`;
+
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(response => {
+            //console.log('response=', response);
+            //debugger;
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+            return err;
+        })
+};
+
+
+//===================================
+// changePassword
+//===================================
+export const forgotPassword = (user) => {
+    const url = `${API_URL}/user/forgotPassword`;
+
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(response => {
+            //console.log('response=', response);
+            //debugger;
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+            return err;
+        })
+};
+
+
+
+//===================================
+// submitFeedback
+//===================================
+export const submitFeedback = (feedback) => {
+    const url = `${API_URL}/user/submitFeedback`;
+    debugger;
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(feedback)
+    })
+        .then(response => {
+            //console.log('response=', response);
+            //debugger;
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+            return err;
+        })
+};
+
+//===================================
+// addEstablishment
+//===================================
+export const addEstablishment = (userid, estb) => {
+    const url = `${API_URL}/establishment/add/${userid}`;
+    //debugger;
+    console.log("addEstablishment=> estb", estb);
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(estb)
+    })
+        .then(response => {
+            //console.log('response=', response);
+            //debugger;
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+            return err;
+        })
+};
+
+
+//===================================
+// updateEstablishments
+//===================================
+export const updateEstablishments = (establishments) => {
+    const url = `${API_URL}/establishments/update`;
+    //debugger;
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(establishments)
+    })
+        .then(response => {
+            //console.log('response=', response);
+            //debugger;
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+            return err;
+        })
+};

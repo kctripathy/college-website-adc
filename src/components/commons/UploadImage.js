@@ -1,125 +1,138 @@
-// import React, { Component } from 'react';
-// import ReactCrop from 'react-image-crop';
-// import 'react-image-crop/dist/ReactCrop.css';
-// //courtesy: https://levelup.gitconnected.com/crop-images-on-upload-in-your-react-app-with-react-image-crop-5f3cd0ad2b35
+import React from 'react';
+import { post } from 'axios';
+import { Redirect } from 'react-router-dom'
+import { API_URL } from '../../config';
+import { isAuthenticated } from '../../api/user';
 
-// export default class UploadImage extends Component {
+class UploadImage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            file: '',
+            previewFile: '',
+            imageHeight: 0,
+            imageWidth: 0,
+            user: isAuthenticated(),
+            processing: true,
+            error: '',
+            success: ''
+        };
+    }
 
-//     constructor() {
-//         super()
-//         this.state = {
-//             src: null,
-//             crop: {
-//                 unit: "%",
-//                 width: 30,
-//                 aspect: 1 / 1
-//             },
-//             croppedImageUrl: null,
-//         }
-//     }
+    validateForm = () => {
 
-//     handleFile = e => {
-//         debugger;
-//         const fileReader = new FileReader()
-//         fileReader.onloadend = () => {
-//             this.setState({ src: fileReader.result })
-//         }
-//         fileReader.readAsDataURL(e.target.files[0])
-//     }
+        return true;
+    }
 
-//     handleSubmit = e => {
-//         e.preventDefault()
-//         const user = this.props.currentUser
-//         const formData = new FormData()
+    async submit(e) {
+        //debugger;
+        e.preventDefault();
+        if (this.state.file.length === 0) {
+            this.setState({
+                ...this.state,
+                error: 'Please choose a file'
+            });
+            return;
+        }
 
-//         formData.append('user[id]', user.id)
-//         formData.append('user[profile_pic]', this.state.croppedImage)
+        const url = `${API_URL}/user/UploadPhoto/${this.state.user.UserType}/${this.state.user.UserReferenceID}`;
+        const formData = new FormData();
+        formData.append('body', this.state.file);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        };
+        return post(url, formData, config)
+            .then(response => {
+                //debugger;
+                this.setState({
+                    ...this.state,
+                    file: '',
+                    success: response.data.Message,
+                    error: '',
+                    processing: false
+                })
+                //console.log(data);
+                this.props.onRun();
+            })
+            .catch(err => {
+                this.setState({
+                    ...this.state,
+                    success: '',
+                    error: 'unable to upload the file',
+                    processing: false
+                })
+                console.log(err);
+            });
+    }
 
-//         this.addPhotoToUser(user, formData)
-//     }
 
-//     addPhotoToUser = (user, data) => {
-//         console.log("user=", user);
-//         console.log("data=", data);
-//     }
+    setFile(e) {
+        this.setState({
+            ...this.state,
+            file: e.target.files[0],
+            previewFile: URL.createObjectURL(e.target.files[0]),
+            error: '',
+            success: ''
+        });
+    };
 
-//     onImageLoaded = image => {
-//         this.imageRef = image
-//     }
+    showSuccessMessage = () => {
+        //return this.state.success.length > 0 ? <Redirect to="/user/profile" /> : ""
+        return this.state.success.length > 0 ? <div className="alert alert-success">{this.state.success}</div> : ""
+    };
 
-//     onCropChange = (crop) => {
-//         this.setState({ crop });
-//     }
+    showFailureMessage = () => {
+        return this.state.error.length > 0 ? <div className="alert alert-danger">{this.state.error}</div> : ""
+    };
 
-//     onCropComplete = crop => {
-//         if (this.imageRef && crop.width && crop.height) {
-//             const croppedImageUrl = this.getCroppedImg(this.imageRef, crop)
-//             this.setState({ croppedImageUrl })
-//         }
-//     }
-
-//     getCroppedImg(image, crop) {
-//         const canvas = document.createElement("canvas");
-//         const scaleX = image.naturalWidth / image.width;
-//         const scaleY = image.naturalHeight / image.height;
-//         canvas.width = crop.width;
-//         canvas.height = crop.height;
-//         const ctx = canvas.getContext("2d");
-
-//         ctx.drawImage(
-//             image,
-//             crop.x * scaleX,
-//             crop.y * scaleY,
-//             crop.width * scaleX,
-//             crop.height * scaleY,
-//             0,
-//             0,
-//             crop.width,
-//             crop.height
-//         )
-
-//         const reader = new FileReader()
-//         canvas.toBlob(blob => {
-//             reader.readAsDataURL(blob)
-//             reader.onloadend = () => {
-//                 this.dataURLtoFile(reader.result, 'cropped.jpg')
-//             }
-//         })
-//     }
-
-//     dataURLtoFile(dataurl, filename) {
-//         let arr = dataurl.split(','),
-//             mime = arr[0].match(/:(.*?);/)[1],
-//             bstr = atob(arr[1]),
-//             n = bstr.length,
-//             u8arr = new Uint8Array(n);
-
-//         while (n--) {
-//             u8arr[n] = bstr.charCodeAt(n);
-//         }
-//         let croppedImage = new File([u8arr], filename, { type: mime });
-//         this.setState({ croppedImage: croppedImage })
-//     }
-
-//     render() {
-//         const { crop, profile_pic, src } = this.state
-
-//         return (
-//             <form onSubmit={this.handleSubmit}>
-//                 <label htmlFor="profile_pic">Profile Picture:</label>
-//                 <input type='file' id='profile_pic' value={profile_pic}
-//                     onChange={this.handleFile} />
-//                 {src && (
-//                     <ReactCrop
-//                         src={src}
-//                         crop={crop}
-//                         onImageLoaded={this.onImageLoaded}
-//                         onComplete={this.onCropComplete}
-//                         onChange={this.onCropChange}
-//                     />
-//                 )}
-//                 <button>save</button>
-//             </form>
-//         )
-//     }
-// }
+    handleSize = (image) => {
+        // debugger
+        // if (image !== null) {
+        //     //console.log(image.offsetWidth, image.offsetHeight)
+        //     // this.setState({
+        //     //     ...this.state,
+        //     //     imageHeight: image.height,
+        //     //     imageWidth: image.width,
+        //     // });
+        //     //console.log(image);
+        //     if (image.height > 150 || image.height < 100) {
+        //         alert('Please choose an image height between 125px to 150px');
+        //     }
+        // }
+    }
+    render() {
+        return (
+            <div className="container-fluid">
+                <form onSubmit={e => this.submit(e)}>
+                    <div className="row" style={{ display: this.state.processing ? 'block' : 'none' }}>
+                        <div className="col-12 bg-page-title mb-4">
+                            <b>{this.props.title}</b>
+                            <em className="ml-4">(please choose a profile photo with width of 200px to 250px and height between 125px to 150px)</em>
+                        </div>
+                        <div className="col-12 mb-4">
+                            <input type="file" onChange={e => this.setFile(e)} />
+                            <button className="btn btn-primary m-2" type="submit">UPLOAD PROFILE PHOTO</button>
+                        </div>
+                        <div className="col-12 m-2">
+                            {this.showSuccessMessage()}
+                            {this.showFailureMessage()}
+                        </div>
+                        <div className="col-12 m-2" style={{ marginRight: "-20px", height: "600px", overflow: "auto" }}>
+                            <img src={this.state.previewFile}
+                                ref={image => {
+                                    this.handleSize(image);
+                                }}
+                            />
+                        </div>
+                        <pre>
+                            {JSON.stringify(this.state, null, 4)}
+                        </pre>
+                    </div>
+                </form>
+            </div>
+        )
+    }
+}
+export default UploadImage    

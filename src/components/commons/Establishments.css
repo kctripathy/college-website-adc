@@ -1,0 +1,37 @@
+/* .pending-records {
+    background-color: #3498DB;
+  }
+  .approved-records {
+    background-color: green;
+  }
+  .rejected-records {
+    background-color: lightcoral;
+  } */
+  
+  .btn-width-150,
+  .button-width {
+    width: 150px !important;
+  }
+  .pending-records-text {
+  color: blue;
+    /* font-weight: bold; */
+    /* text-transform: uppercase; */
+  }
+  .approved-records-text {
+    color: green;
+  }
+  .rejected-records-text {
+    color: red;
+  }
+
+  .pending-records-row {
+    background-color: yellow;
+      /* font-weight: bold; */
+      /* text-transform: uppercase; */
+    }
+    .approved-records-row {
+      background-color: lightgreen;
+    }
+    .rejected-records-row {
+      background-color: rosybrown;
+    }

@@ -11,7 +11,13 @@ let initialState = {
 const establishmentReducer = (state = initialState, action) => {
 
     switch (action.type) {
-
+        case EstablishmentActionTypes.fetchEstablishmentStart:
+            //debugger;
+            return {
+                ...state,
+                establishments: [],
+                loading: true
+            }
         case EstablishmentActionTypes.fetchEstablishmentSuccess:
             //debugger;
             return {

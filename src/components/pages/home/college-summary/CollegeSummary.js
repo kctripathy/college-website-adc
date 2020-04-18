@@ -31,13 +31,13 @@ const CollegeSummary = () => {
             return (<Spinner />);
         };
         //debugger;
-        console.log("estb.establishments=", estb.establishments);
+        //console.log("estb.establishments=", estb.establishments);
 
         const publCodes = ['1', '2', '3', '4', '5', '6'];
         const filteredArray = estb.establishments
             && estb.establishments.length > 0
             && estb.establishments.filter(array =>
-                publCodes.some(filter => filter === array.EstbTypeCode)
+                publCodes.some(filter => (filter === array.EstbTypeCode || array.EstbTypeCode.substring(0, 1) === 'P'))
             );
         //console.log('filteredArray=', filteredArray)
         //debugger;

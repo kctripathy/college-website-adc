@@ -57,7 +57,7 @@ export default function UserStudentProfile(props) {
         let message = '';
         setSuccess('');
         setError('');
-        debugger;
+        //debugger;
         if ((MobileNumber) && (MobileNumber.length > 0 && MobileNumber.length !== 10)) {
             isSuccess = false;
             message = "Mobile Number should be 10 digit"

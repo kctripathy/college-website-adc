@@ -42,6 +42,107 @@
             "photo": "/images/profile/no_photo.png"
         }
     },
+    "IQAC": {
+        "Principal": {
+            "id": 3,
+            "name": "Prof. Sanatan Sahu",
+            "designation": "HOD",
+            "department": "Political Science",
+            "photo": "/images/profile/no_photo.png"
+        },
+        "Director": {
+            "id": 4,
+            "name": "Prof. Pramod Chaudhuri",
+            "designation": "HOD",
+            "department": "History",
+            "photo": "/images/profile/no_photo.png"
+        },
+        "Members": [
+            {
+                "id": 5,
+                "name": "Prof. Binod Kumar Dash",
+                "designation": "HOD",
+                "department": "Economics",
+                "photo": "/images/profile/no_photo.png"
+            },
+            {
+                "id": 6,
+                "name": "Prof. Nirajan Satapathy",
+                "designation": "HOD",
+                "department": "Odia",
+                "photo": "/images/profile/no_photo.png"
+            },
+            {
+                "id": 9,
+                "name": "Prof. Suchitra Kar",
+                "designation": "HOD",
+                "department": "English",
+                "photo": "/images/profile/no_photo.png"
+            },
+            {
+                "id": 7,
+                "name": "Prof. Bibhuti Bhushan Pradhan",
+                "designation": "Lecture",
+                "department": "History",
+                "photo": "/images/profile/no_photo.png"
+            },
+            {
+                "id": 10,
+                "name": "Sri Raghunath Pani",
+                "designation": "Asst. Librarian",
+                "department": "Administration",
+                "photo": "/images/profile/no_photo.png"
+            }
+        ]
+    },
+    "Cultural_Association": {
+        "Advisor": {
+            "id": 6,
+            "name": "Mr. Saroj Kumar Nayak",
+            "designation": "DEO",
+            "department": "Administration",
+            "photo": "/images/profile/no_photo.png"
+        },
+        "Asst_Advisor": {
+            "id": 7,
+            "name": "Mr. Saroj Kumar Nayak",
+            "designation": "DEO",
+            "department": "Administration",
+            "photo": "/images/profile/no_photo.png"
+        }
+    },
+    "Dramatic_Association": {
+        "Advisor": {
+            "id": 6,
+            "name": "Mr. Saroj Kumar Nayak",
+            "designation": "DEO",
+            "department": "Administration",
+            "photo": "/images/profile/no_photo.png"
+        },
+        "Asst_Advisor": {
+            "id": 7,
+            "name": "Mr. Saroj Kumar Nayak",
+            "designation": "DEO",
+            "department": "Administration",
+            "photo": "/images/profile/no_photo.png"
+        }
+    },
+    "Athletic_Association": {
+        "Advisor": {
+            "id": 6,
+            "name": "Mr. Saroj Kumar Nayak",
+            "designation": "DEO",
+            "department": "Administration",
+            "photo": "/images/profile/no_photo.png"
+        },
+        "Asst_Advisor": {
+            "id": 7,
+            "name": "Mr. Saroj Kumar Nayak",
+            "designation": "DEO",
+            "department": "Administration",
+            "photo": "/images/profile/no_photo.png"
+        }
+    },
     "Library": {
         "Library_in_Charge": {
             "name": "Sri Raghunath Pani",

@@ -28,7 +28,7 @@ const bookReducer = (state = initialState, action) => {
                 error: action.payload
             }
         case BookActionTypes.searchBook:
-            debugger;
+            //debugger;
             const newArray = state.Books.filter(s => s.Title.includes(action.payload));
             return {
                 ...state,

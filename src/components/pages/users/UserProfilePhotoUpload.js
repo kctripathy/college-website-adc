@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import LayoutDashboard from '../LayoutDashboard';
-import UploadFile from '../../commons/UploadFile';
-// import UploadImage from '../../commons/UploadImage';
+import UploadImage from '../../commons/UploadImage';
 
 export default function UserProfilePhotoUpload(props) {
     const [toggle, setToggle] = useState(true);
@@ -14,7 +13,7 @@ export default function UserProfilePhotoUpload(props) {
 
     return (
         <LayoutDashboard title="Upload Profile Photo" refreshStatus={toggle}>
-            <UploadFile title="Upload Profile Photo" onRun={setRun} />
+            <UploadImage title="Upload Profile Photo" onRun={setRun} />
             {/* <UploadImage /> */}
         </LayoutDashboard>
     );

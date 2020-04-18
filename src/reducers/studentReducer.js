@@ -28,7 +28,7 @@ const studentReducer = (state = initialState, action) => {
                 error: action.payload
             }
         case StudentActionTypes.searchStudent:
-            debugger;
+            //debugger;
             const newArray = state.students.filter(s => s.StudentName.includes(action.payload));
             return {
                 ...state,

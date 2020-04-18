@@ -4,7 +4,7 @@ const Library = () => {
     const [establishments, setEstablishments] = useState([]);
 
     useEffect(() => {
-        console.log('establishments...');
+        //console.log('establishments...');
     }, []);
 
     return (

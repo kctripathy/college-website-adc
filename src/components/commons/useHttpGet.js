@@ -9,7 +9,7 @@ export const useHttpGet = (methodName) => {
     const url = `${API_URL}/${methodName}`;
     //debugger;
     useEffect(() => {
-        console.log(url);
+        //console.log(url);
         fetch(url)
             .then(response => {
                 if (!response.ok) {

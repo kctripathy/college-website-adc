@@ -51,7 +51,7 @@ function Login() {
                         setValues({ ...values, error: data.status.message, loading: false })
                     }
                     else {
-                        debugger;
+                        //debugger;
                         authenticate(data.result, () => {
                             //debugger;
                             dispatch(userLoginSuccess(data.result));
@@ -84,7 +84,7 @@ function Login() {
         //debugger;
         if (redirectToReferer) {
             if (user && user.RoleID === 1) //admin
-                return <Redirect to="/admin/dashboard" />
+                return <Redirect to="/administration/dashboard" />
             else if (user && (user.RoleID === 2 || user.RoleID === 3)) //staffs
                 // return <Redirect to="/staff/dashboard" />
                 return <Redirect to="/user/profile" />
@@ -98,7 +98,7 @@ function Login() {
 
     const loginForm = () => (
         <form onSubmit={handleFormSubmit}>
-            <div class="shadow-sm p-3 mb-5 bg-white rounded">
+            <div className="shadow-sm p-3 mt-5 mb-5 bg-white rounded">
                 <div className="card border-text-muted rounded-0 m-4 p-2 shadow-lg p-3 mb-5 bg-white rounded">
                     <div className="card-header p-0">
                         <div className="bg-card-header text-dark text-left ml-2 pt-2">

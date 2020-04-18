@@ -38,6 +38,9 @@ import Contact from './Contact';
 import Login from './users/Login';
 
 import AdminDashboard from '../admin/AdminDashboard';
+import AdminManageEstablishments from '../admin/AdminManageEstablishments';
+import AdminAddEstablishment from '../admin/AdminAddEstablishent';
+
 import StaffDashboard from '../pages/staffs/StaffDashboard';
 import StudentDashboard from '../pages/students/StudentDashboard';
 
@@ -46,8 +49,13 @@ import MediaRelease from './MediaRelease';
 import RTI from './RTI';
 
 import UserAddActivity from './users/UserAddActivity';
+import UserAddPublication from './users/UserAddPublication';
+import UserViewActivities from './users/UserViewActivities';
+import UserViewPublications from './users/UserViewPublications';
+
 import UserSubmitFeedback from './users/UserSubmitFeedback';
 import UserChangePassword from './users/UserChangePassword';
+import UserForgotPassword from './users/UserForgotPassword';
 
 import PageNotFound from '../pages/PageNotFound';
 
@@ -76,25 +84,34 @@ function NavRoutes() {
                 <Route path="/staffs" component={Staffs} exact />
 
                 <Route path="/library" component={Books} exact />
-                <Route path="/admin/:section" component={CollegeAdmin} />
-                <Route path="/downloads" component={UsefullDownloads} />
-                <Route path="/gallery/photo" component={PhotoGallery} />
-                <Route path="/gallery/video" component={VideoGallery} />
-                <Route path="/media-release" component={MediaRelease} />
+                <Route path="/admin/:section" component={CollegeAdmin} exact />
+                <Route path="/downloads" component={UsefullDownloads} exact />
+                <Route path="/gallery/photo" component={PhotoGallery} exact />
+                <Route path="/gallery/video" component={VideoGallery} exact />
+                <Route path="/gallery/media" component={MediaRelease} exact />
                 <Route path="/contact" component={Contact} />
                 <Route path="/rti" component={RTI} />
                 <Route path="/login" component={Login} />
 
-                <AdminRoute path="/admin/dashboard" component={AdminDashboard} exact />
+                <AdminRoute path="/administration/dashboard" component={AdminDashboard} exact />
+                <AdminRoute path="/administration/establishment/:page" component={AdminAddEstablishment} exact />
+                <AdminRoute path="/administration/establishments/manage" component={AdminManageEstablishments} exact />
+
                 <StaffRoute path="/staff/dashboard" component={StaffDashboard} exact />
 
 
                 <StudentRoute path="/student/dashboard" component={StudentDashboard} exact />
                 <PrivateRoute path="/user/profile" component={UserProfile} exact />
                 <PrivateRoute path="/user/upload-profile-photo" component={UserProfilePhotoUpload} exact />
-                <PrivateRoute path="/user/add-activity" component={UserAddActivity} exact />
-                <PrivateRoute path="/user/submit-feedback" component={UserSubmitFeedback} exact />
+
+                <PrivateRoute path="/user/add-activity/:UserType/:UserReferenceID" component={UserAddActivity} exact />
+                <PrivateRoute path="/user/add-publication/:UserType/:UserReferenceID" component={UserAddPublication} exact />
+                <PrivateRoute path="/user/view-activities/:UserType/:UserReferenceID" component={UserViewActivities} exact />
+                <PrivateRoute path="/user/view-publications/:UserType/:UserReferenceID" component={UserViewPublications} exact />
+
+                <PrivateRoute path="/user/feedback/:UserType/:UserReferenceID" component={UserSubmitFeedback} exact />
                 <PrivateRoute path="/user/change-password" component={UserChangePassword} exact />
+                <Route path="/user/forgot-password" component={UserForgotPassword} exact />
 
                 <Route component={PageNotFound} />
 

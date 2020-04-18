@@ -28,7 +28,7 @@ export default function StaffDashboard() {
     //const { UserID, UserName, UserType, UserFirstName, UserReferenceName, RoleID, RoleDescription } = state.loggedOnUser;
 
 
-    console.log('staff->state=', state);
+    //console.log('staff->state=', state);
     //console.log('staff->employee=', employee);
     //console.log('UserName=', UserName);
 

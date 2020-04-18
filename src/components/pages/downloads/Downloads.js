@@ -43,10 +43,11 @@ function Downloads() {
                 <div className="row m-0 p-0">
                     {showDownload(EstbTypeCode.Syllabus, 'Syllabus')}
                     {showDownload(EstbTypeCode.MinutesOfMeeting, 'Minutes Of Meetings')}
-                    {showDownload(EstbTypeCode.ProjectPaper, 'Project Papers')}
-                    {showDownload(EstbTypeCode.SeminarPaper, 'Seminar Papers')}
-                    {showDownload(EstbTypeCode.BookProceeding, 'Book / Proceedings')}
-                    {showDownload(EstbTypeCode.StudyMaterial, 'Study Materials')}
+                    {showDownload(EstbTypeCode.PUBLICATION_ARTICLE_COLUMN, 'Aricles or Columns')}
+                    {showDownload(EstbTypeCode.PUBLICATION_PROJECT_PAPER, 'Project Papers')}
+                    {showDownload(EstbTypeCode.PUBLICATION_SEMINAR_PAPER, 'Seminar Papers')}
+                    {showDownload(EstbTypeCode.PUBLICATION_BOOK_PROCEEDINGS, 'Book / Proceedings')}
+                    {showDownload(EstbTypeCode.PUBLICATION_STUDY_MATERIAL, 'Study Materials')}
                     {showDownload(EstbTypeCode.AwardAchievment, 'Award / Achievments')}
                     {showDownload(EstbTypeCode.Downloadable, 'Downloadables')}
                 </div>

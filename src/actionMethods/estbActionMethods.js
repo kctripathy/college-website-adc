@@ -14,8 +14,16 @@ const fetchEstablishmentFailure = (error) => {
     }
 };
 
+const fetchEstablishmentStarted = () => {
+    return {
+        type: EstablishmentActionTypes.fetchEstablishmentStart
+    }
+};
+
 
 const fetchEstablishments = () => {
+    //dispatch(fetchEstablishmentStarted());
+
     return (dispatch) => loadAllEstablishments()
         .then(data => {
             //debugger;
@@ -30,4 +38,4 @@ const fetchEstablishments = () => {
 };
 
 
-export { fetchEstablishments }
+export { fetchEstablishments, fetchEstablishmentStarted }

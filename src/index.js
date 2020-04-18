@@ -5,7 +5,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from './store';
 
+import ErrorBoundary from './components/commons/ErrorBoundary';
 import MainApp from './components/pages/Main';
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
@@ -24,12 +26,13 @@ Date.prototype.toShortFormat = function () {
 }
 
 
-
 ReactDOM.render(
   // <React.StrictMode>
   <BrowserRouter>
     <Provider store={store}>
-      <MainApp />
+      <ErrorBoundary>
+        <MainApp />
+      </ErrorBoundary>
     </Provider>
   </BrowserRouter>
   // </React.StrictMode>

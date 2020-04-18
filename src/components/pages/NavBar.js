@@ -144,7 +144,10 @@ function NavBar({ history }) {
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/staffs">Faculties / College Staffs</Link>
+                                <Link className="dropdown-item" to="/staffs">College Staffs</Link>
+                            </li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/academic/subject-strength">Subject Strength</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/academic/publications">Research & Publications</Link>
@@ -170,30 +173,31 @@ function NavBar({ history }) {
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/academics-activities">Academic Activities</Link>
+                                <Link className="dropdown-item" to="/activities/academic-activities">Academic Activities</Link>
+                            </li>
+                            <li style={{ padding: "0px" }}><hr /></li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/activities/social-activities">Social Activities</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/activities/sports-activities">Sports Activities</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/cultural-activites">Cultural Activities</Link>
+                                <Link className="dropdown-item" to="/activities/cultural-activities">Cultural Activities</Link>
                             </li>
-                            {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/social-activites">Social Activities</Link>
-                            </li> */}
                             <li style={{ padding: "0px" }}><hr /></li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/youth-red-cross">Youth Red Cross (YRC)</Link>
+                                <Link className="dropdown-item" to="/activities/youth-red-cross-activities">Youth Red Cross (YRC)</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/red-ribbon-club">Red Ribbon Club (RCC)</Link>
+                                <Link className="dropdown-item" to="/activities/red-ribbon-club-activities">Red Ribbon Club (RCC)</Link>
                             </li>
 
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/the-bharat-scout-&-guide">The Bharat Scout & Guide</Link>
+                                <Link className="dropdown-item" to="/activities/the-bharat-scout-&-guide-activities">The Bharat Scout & Guide</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                                <Link className="dropdown-item" to="/activities/national-Service-Scheme">National Service Scheme (NSS)</Link>
+                                <Link className="dropdown-item" to="/activities/national-service-scheme-activities">National Service Scheme (NSS)</Link>
                             </li>
 
                         </ul>
@@ -326,7 +330,7 @@ function NavBar({ history }) {
 
                                 <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                     {
-                                        RoleID === 1 ? (<Link className="dropdown-item" to="/admin/dashboard">Dashboard</Link>) : (
+                                        RoleID === 1 ? (<Link className="dropdown-item" to="/administration/dashboard">Dashboard</Link>) : (
                                             (RoleID === 2 || RoleID === 3) ?
                                                 (<Link className="dropdown-item" to="/user/profile">My Profile</Link>) :
                                                 (
