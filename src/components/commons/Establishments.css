@@ -1,17 +1,48 @@
-/* .pending-records {
-    background-color: #3498DB;
-  }
-  .approved-records {
-    background-color: green;
-  }
-  .rejected-records {
-    background-color: lightcoral;
-  } */
-  
-  .btn-width-150,
-  .button-width {
-    width: 150px !important;
-  }
+.publ-head,
+.estb-head,
+.estb {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.publ > li,
+.estb > li {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 5px 0px 0px 0px;
+  border-bottom: solid 1px #ccc;
+  min-height: 40px;
+}
+.estb > li:first-child {
+  /* background-color: yellow; */
+  width: 19%;
+  text-align: center;
+}
+.estb > li:nth-child(2){
+  /* background-color: red; */
+  width: 80%;
+  padding-left: 10px;
+}
+
+.estb > li:last-child {
+  /* background-color: green; */
+  display: none;
+  width: 10%;
+}
+
+
+.estb-head {
+  min-height: 400px;
+  height: 100%;
+  overflow: auto;
+  /* border: solid 1px red; */
+}
+
+
   .pending-records-text {
   color: blue;
     /* font-weight: bold; */

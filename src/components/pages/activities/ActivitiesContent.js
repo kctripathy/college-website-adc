@@ -22,6 +22,7 @@ export default function ActivitiesContent({ page }) {
         let typeCode;
         switch (page) {
             case "academic-activities": typeCode = EstbTypeCode.RECENT_ACADEMIC_ACTIVITY; break;
+            case "cultural-activities": typeCode = EstbTypeCode.RECENT_CULTURAL_ACTIVITY; break;
             case "social-activities": typeCode = EstbTypeCode.RECENT_SOCIAL_ACTIVITY; break;
             case "sports-activities": typeCode = EstbTypeCode.RECENT_SPORTS_ACTIVITY; break;
             case "youth-red-cross-activities": typeCode = EstbTypeCode.RECENT_YRC_ACTIVITY; break;
@@ -33,7 +34,7 @@ export default function ActivitiesContent({ page }) {
         };
         return estb.establishments
             .filter(e => e.EstbTypeCode === typeCode)
-            .map(establishment => <ActivityContentRow establishment={establishment} />)
+            .map(establishment => <ActivityContentRow key={establishment.EstbID} establishment={establishment} />)
     };
 
     // const showPageContent = () => {

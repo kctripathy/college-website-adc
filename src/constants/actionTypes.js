@@ -52,7 +52,7 @@ export const EstbTypeCode = {
     StudyMaterial: '6',
     Downloadable: '9',
     MinutesOfMeeting: 'MoM',
-    MediaRelease: 'M',
+    MEDIA: 'M',
     IMAGE: 'IMG',
     VIDEO: 'VDO',
     Publications: 'P',

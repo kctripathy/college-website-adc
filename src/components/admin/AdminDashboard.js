@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import LayoutDashboardAdmin from '../pages/LayoutDashboardAdmin';
 import CollegeSummary from '../pages/home/college-summary/CollegeSummary';
+import EstablishmentSummary from '../commons/EstablishmentSummary';
 
 export default function AdminDashboard() {
 
@@ -85,10 +86,13 @@ export default function AdminDashboard() {
     return (
         <LayoutDashboardAdmin title="Administrator's Dashboard" >
             <div className="row m-0 p-0">
-                <div className="col-4 m-0 p-0">
+                <div className="col-3 m-0 p-0">
                     <CollegeSummary />
                 </div>
-                <div className="col-8 m-0 p-0 text-center">
+                <div className="col-3 m-0 p-0">
+                    <EstablishmentSummary />
+                </div>
+                <div className="col-6 m-0 p-0 text-center">
                     {/* {countStudents()} */}
                     <div className="row m-2 p-0 font-weight-bold" style={{ height: "100px" }}>
                         <div className="list-group-item-success text-primary h-100 col-4 p-4 rounded-top border border-light">
@@ -116,7 +120,7 @@ export default function AdminDashboard() {
                             <h4><span className="badge badge-pill badge-secondary pl-4 pr-4">{total_non_teaching_staffs}</span></h4>
                         </div>
                     </div>
-                    <div className="card text-dark bg-white p-1 mt-3 border border-text-muted" style={{ maxWidth: "18rem;" }}>
+                    <div className="card text-dark bg-white p-1 mt-3 border border-text-muted" >
                         <div className="card-header bg-light text-dark">
                             <b>COUNT OF STUDENTS BY SUBJECT TAKEN</b>
                         </div>

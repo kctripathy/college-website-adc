@@ -8,17 +8,6 @@ import union from '../../../data/union.json'
 
 export default function StudentsUnion() {
     const portfolio = union.portfolio;
-    //console.log("union", union);
-    //console.log("portfolio", portfolio);
-    //debugger;
-    //const [union, setUnion] = useState(null);
-
-    // useEffect(() => {
-    //     // loadJsonData("students-union")
-    //     //     .then(data => {
-    //     //         setUnion(data);
-    //     //     })
-    // }, []);
 
     const showContent = () => (
         <ul className="list-group mb-4">

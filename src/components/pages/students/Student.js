@@ -14,7 +14,7 @@ export default function Student(props) {
                         <div className="row m-0 p-1 text-center">
                             <img src={`${API_URL}/user/photo/student/${StudentID}/${Math.random().toString(36).slice(2)}`}
                                 className="img-fluid img-thumbnail text-center"
-                                style={{ height: "150px", width: "100%" }} />
+                                style={{ height: "auto", width: "100%" }} />
                         </div>
                     </div>
                 </div>

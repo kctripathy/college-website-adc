@@ -1,4 +1,5 @@
 export default function titleCase(str) {
+    if (str === undefined || str.length === 0) return '';
     str = str.replace(/-/g).toLowerCase().split(' ');
     for (var i = 0; i < str.length; i++) {
         str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
@@ -15,17 +16,31 @@ function upperCase(str) {
 }
 
 function isAnImage(str) {
-    // str = str.toUpperCase().split('.');
-    // for (var i = 0; i < str.length; i++) {
-    //     str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
-    // }
-    // return str.join(' ');
+    //debugger;
+    if (str === undefined || str.length === 0) return false;
+
     if (str.toLowerCase().includes('jpg') || str.toLowerCase().includes('jpeg') || str.toLowerCase().includes('png'))
         return true;
     else
         return false;
 }
 
+function isPDF(str) {
+    if (str === undefined || str.length === 0) return false;
+
+    if (str.toLowerCase().includes('pdf'))
+        return true;
+    else
+        return false;
+}
+
+function isDocument(str) {
+    if (str === undefined || str.length === 0) return false;
+    if (str.toLowerCase().includes('doc') || str.toLowerCase().includes('docx'))
+        return true;
+    else
+        return false;
+}
 
 const getCurrentDate_YYYY_MM_DD = () => {
     // var today = new Date();
@@ -83,4 +98,11 @@ const getCurrentDateTime = () => {
     var dateTime = date + ' ' + time;
     return dateTime;
 }
-export { upperCase, getCurrentDate, getCurrentDateTime, getCurrentDate_MMDDYYYY, getCurrentDate_YYYY_MM_DD, isAnImage }
+export {
+    upperCase,
+    getCurrentDate,
+    getCurrentDateTime,
+    getCurrentDate_MMDDYYYY,
+    getCurrentDate_YYYY_MM_DD,
+    isDocument, isPDF, isAnImage
+}

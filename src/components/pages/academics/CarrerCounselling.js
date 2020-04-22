@@ -6,13 +6,19 @@ export default function CarrerCounselling() {
             <div className="col-lg-2 col-sm-12">&nbsp;</div>
             <div className="col-lg-8 col-sm-12">
                 <h4>
-                    <img src="https://www.mindler.com/assets/prelogin_new/seo-img/15.png" style={{ height: "50px" }} />What Is Career Counselling?
+                    <img src="https://www.mindler.com/assets/prelogin_new/seo-img/15.png"
+                        alt=">What Is Career Counselling?"
+                        style={{ height: "50px" }}
+                        className="img img-fluid img-responsive" />What Is Career Counselling?
                   </h4>
                 <p>
                     Career Counselling is a process that focuses on helping one understand one’s own self, as well as work trends, so that one can take an informed decision about career and education. Career Counselling helps manage a diverse range of problems such as low concentration levels to poor time management, trust issues with family to non-agreement between parents and children on which career to choose.
             </p>
                 <h4>
-                    <img src="https://www.mindler.com/assets/prelogin_new/seo-img/16.png" style={{ height: "50px" }} />Why Do I Need Career Counselling?
+                    <img src="https://www.mindler.com/assets/prelogin_new/seo-img/16.png"
+                        style={{ height: "50px" }}
+                        className="img img-fluid img-responsive"
+                        alt="Why Do I Need Career Counselling" />Why Do I Need Career Counselling?
                   </h4>
                 <p>All of us require career guidance at some point in our life. It helps us get insights about ourselves, our career and what we can do to improve it. Here are a few ways in which career counselling helps us:</p>
                 <p className="mg-10 f-17"><strong>Helps Pick The Right Career</strong></p>

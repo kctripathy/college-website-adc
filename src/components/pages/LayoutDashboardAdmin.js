@@ -37,7 +37,7 @@ function LayoutDashboardAdmin(props) {
     }, [props.refreshStatus]);
 
     const fetchStaffProfile = () => {
-        const theProfile = staff.staffs.filter(s => s.EmployeeCode === UserName)
+        const theProfile = staff && staff.staffs && staff.staffs.filter(s => s.EmployeeCode === UserName)
         setUserProfile(theProfile);
     };
 

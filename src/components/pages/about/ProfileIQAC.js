@@ -19,7 +19,7 @@ export default function ProfileIQAC({ title, willshowPhoto }) {
                             alt={m.name} /> */}
                         <PersonImage usertype="employee" id={m.id} photo_url={m.photo} />
                     </div>
-                    <div className="col-lg-9 col-sm-12 m-0 p-0 pt-3 pb-1 text-left">
+                    <div className="col-lg-9 col-sm-12 m-0 p-0 pt-3 pb-1 text-center">
                         {m.name} <br /> <small>{`${m.designation} - ${m.department}`}</small>
                     </div>
                     <div className="col-12 m-0 p-0"><hr /></div>
@@ -37,13 +37,15 @@ export default function ProfileIQAC({ title, willshowPhoto }) {
                     </li>
                     <li className="list-group-item">
                         <div className="row m-0 p-0">
-                            <div className="col-lg-4 col-sm-12 font-weight-bold p-2 pt-4">Principal-cum-Chairman</div>
+                            <div className="col-lg-4 col-sm-12 font-weight-bold p-2 pt-4 text-center">
+                                Principal-cum-Chairman
+                            </div>
                             <div className="col-lg-8 col-sm-12 p-2">
                                 <div className="row m-0 p-0">
                                     <div className="col-lg-3 col-ms-12 text-center">
                                         <PersonImage usertype="employee" id={IQAC.Principal.id} />
                                     </div>
-                                    <div className="col-lg-9 col-ms-12 text-left pt-3">
+                                    <div className="col-lg-9 col-ms-12 text-center pt-3">
                                         {IQAC.Principal.name} <br />
                                         <small>{`${IQAC.Principal.designation} - ${IQAC.Principal.department}`}</small>
                                     </div>
@@ -52,13 +54,13 @@ export default function ProfileIQAC({ title, willshowPhoto }) {
 
 
                             <div className="col-lg-12" style={{ height: "1px", border: "solid 1px #eee" }}>&nbsp;</div>
-                            <div className="col-lg-4 col-sm-12 font-weight-bold p-2 pt-4">Director</div>
+                            <div className="col-lg-4 col-sm-12 font-weight-bold p-2 pt-4 text-center">Director</div>
                             <div className="col-lg-8 col-sm-12 p-2">
                                 <div className="row m-0 p-0">
                                     <div className="col-lg-3 col-ms-12 text-center">
                                         <PersonImage usertype="employee" id={IQAC.Director.id} />
                                     </div>
-                                    <div className="col-lg-9 col-ms-12 text-left pt-3">
+                                    <div className="col-lg-9 col-ms-12 text-center pt-3">
                                         {IQAC.Director.name} <br />
                                         <small>{`${IQAC.Director.designation} - ${IQAC.Director.department}`}</small>
                                     </div>
@@ -66,7 +68,7 @@ export default function ProfileIQAC({ title, willshowPhoto }) {
                             </div>
 
                             <div className="col-lg-12" style={{ height: "1px", border: "solid 1px #eee" }}>&nbsp;</div>
-                            <div className="col-lg-4 col-sm-12 font-weight-bold p-2">Members</div>
+                            <div className="col-lg-4 col-sm-12 font-weight-bold p-2 text-center">Members</div>
                             <div className="col-lg-8 col-sm-12 p-2">
                                 <div className="row m-0 p-0 d-flex">
                                     {showMembers()}

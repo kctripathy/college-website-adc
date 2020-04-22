@@ -33,10 +33,12 @@ export default function EstablishmentsAdd({ title, code, description }) {
         setValues({
             ...values,
             EstbTypeCode: code,
+            EstbTitle: '',
+            EstbDescription: '',
             EstbTypeCodeDescription: titleCase(description)
         });
         //setShowUpload(false)
-    }, []);
+    }, [code]);
 
     const validateFormFields = () => {
         let isSuccess = true;
@@ -106,9 +108,10 @@ export default function EstablishmentsAdd({ title, code, description }) {
 
     const ShowAddFormControls = () => (
         <Fragment>
-            <form onSubmit={submitFormHandler} className="col-lg-12 col-sm-12 m-0 p-0 mt-4 w-100 ">
+            <form onSubmit={submitFormHandler} className="col-lg-12 col-sm-12 m-0 p-0 mt-4 w-100 text-left">
+
                 <div className="form-group">
-                    <label htmlFor="EstbDate" className="pt-2 mr-2 required">{EstbTypeCodeDescription} Date (mm/dd/yyyy):</label>
+                    <label htmlFor="EstbDate" className="pt-2 mr-2 required ">{EstbTypeCodeDescription} Date (mm/dd/yyyy):</label>
                     <input
                         type="date"
                         className="form-control"
@@ -183,15 +186,15 @@ export default function EstablishmentsAdd({ title, code, description }) {
     const showForm = () => {
         return <Fragment>
             <div className="row m-0 p-0">
-                <div className="col-2">&nbsp;</div>
-                <div className="col-8">
+                <div className="col-lg-2 col-sm-12 col-xs-12">&nbsp;</div>
+                <div className="col-lg-8 col-sm-12 col-xs-12">
                     {showUpload === false ?
                         (ShowAddFormControls()) :
                         (<UploadFile title={`Upload File for ${EstbTypeCodeDescription}`}
                             EstbID={newID}
                             onUploadSuccessOrFailure={(fileName, success, failure) => onUploadSuccessOrFailure(fileName, success, failure)} />)}
                 </div>
-                <div className="col-2">&nbsp;</div>
+                <div className="col-lg-2 col-sm-12 col-xs-12">&nbsp;</div>
             </div>
         </Fragment>
     };
@@ -211,8 +214,8 @@ export default function EstablishmentsAdd({ title, code, description }) {
     };
 
     return (
-        <div className="row d-flex text-left pl-4">
-            <div className="col-11 p-0 m-0 mb-2 mr-2 ml-5 bg-page-title w-50">
+        <div className="row m-0 p-0 ml-3">
+            <div className="col-lg-12 col-sm-12 p-0 ml-4 mr-2 bg-page-title">
                 <b>{title}</b>
                 {/* code={JSON.stringify(code, null, 5)} , EstbTypeCode={JSON.stringify(values.EstbTypeCode, null, 5)} */}
             </div>

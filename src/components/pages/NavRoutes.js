@@ -33,19 +33,19 @@ import UsefullDownloads from './downloads/Downloads';
 
 import PhotoGallery from './gallery/PhotoGallery';
 import VideoGallery from './gallery/VideoGallery';
+import MediaGallery from './gallery/MediaGallery';
 
 import Contact from './Contact';
 import Login from './users/Login';
 
 import AdminDashboard from '../admin/AdminDashboard';
 import AdminManageEstablishments from '../admin/AdminManageEstablishments';
-import AdminAddEstablishment from '../admin/AdminAddEstablishent';
+import AdminAddEstablishment from '../admin/AdminAddEstablishment';
 
 import StaffDashboard from '../pages/staffs/StaffDashboard';
 import StudentDashboard from '../pages/students/StudentDashboard';
 
 import UserProfile from '../pages/users/UserProfile';
-import MediaRelease from './MediaRelease';
 import RTI from './RTI';
 
 import UserAddActivity from './users/UserAddActivity';
@@ -88,7 +88,7 @@ function NavRoutes() {
                 <Route path="/downloads" component={UsefullDownloads} exact />
                 <Route path="/gallery/photo" component={PhotoGallery} exact />
                 <Route path="/gallery/video" component={VideoGallery} exact />
-                <Route path="/gallery/media" component={MediaRelease} exact />
+                <Route path="/gallery/media" component={MediaGallery} exact />
                 <Route path="/contact" component={Contact} />
                 <Route path="/rti" component={RTI} />
                 <Route path="/login" component={Login} />
@@ -96,6 +96,7 @@ function NavRoutes() {
                 <AdminRoute path="/administration/dashboard" component={AdminDashboard} exact />
                 <AdminRoute path="/administration/establishment/:page" component={AdminAddEstablishment} exact />
                 <AdminRoute path="/administration/establishments/manage" component={AdminManageEstablishments} exact />
+                <AdminRoute path="/administration/establishments/manage/:page" component={AdminManageEstablishments} exact />
 
                 <StaffRoute path="/staff/dashboard" component={StaffDashboard} exact />
 

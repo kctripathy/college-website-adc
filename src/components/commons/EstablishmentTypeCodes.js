@@ -14,7 +14,7 @@ export default function EstablishmentTypeCodes(props) {
     }
     const showRecentActivitiesDropdown = () => (
         <>
-            <option value="">--PLEASE SELECT A TYPE OF THE RECENT ACTIVITY --</option>
+            <option value="">-- PLEASE SELECT A TYPE OF THE RECENT ACTIVITY --</option>
             <option value={EstbTypeCode.RECENT_ACADEMIC_ACTIVITY}>ACADEMIC ACTIVITY</option>
             <option value={EstbTypeCode.RECENT_SPORTS_ACTIVITY}>SPORTS ACTIVITY</option>
             <option value={EstbTypeCode.RECENT_CULTURAL_ACTIVITY}>CULTURAL ACTIVITY</option>
@@ -22,12 +22,13 @@ export default function EstablishmentTypeCodes(props) {
             <option value={EstbTypeCode.RECENT_YRC_ACTIVITY}>YOUTH RED CROSS</option>
             <option value={EstbTypeCode.RECENT_RRC_ACTIVITY}>RED RIBBON CLUB</option>
             <option value={EstbTypeCode.RECENT_NSS_ACTIVITY}>NATIONAL SERVICE SCHEME</option>
-            <option value={EstbTypeCode.RECENT_OTHER_ACTIVITY}>RECENT OTHER ACTIVITY</option>
+            <option value={EstbTypeCode.RECENT_SCOUTE_GUIDE_ACTIVIY}>SCOUT AND GUIDE ACTIVITY</option>
+            <option value={EstbTypeCode.RECENT_OTHER_ACTIVITY}>RECENT OTHER MISC. ACTIVITY</option>
         </>
     )
     const showPublicationTypesDropdown = () => (
         <>
-            <option value="">--PLEASE SELECT A TYPE OF PUBLICATION --</option>
+            <option value="">-- PLEASE SELECT A TYPE OF PUBLICATION --</option>
             <option value={EstbTypeCode.PUBLICATION_ARTICLE_COLUMN}>ARTICLE / COLUMN</option>
             <option value={EstbTypeCode.PUBLICATION_BOOK_PROCEEDINGS}>BOOK / PROCEEDINGS</option>
             <option value={EstbTypeCode.PUBLICATION_PROJECT_PAPER}>PROJECT PAPER</option>

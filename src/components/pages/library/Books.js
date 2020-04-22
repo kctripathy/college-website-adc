@@ -135,11 +135,33 @@ function Books() {
         setSearchResult(filteredArray);
     };
 
+    const showLibraryContent = () => {
+        return <div className="row m-2 p-2">
+            <div className="col-lg-1 col-xs-12"></div>
+            <div className="col-lg-10 col-xs-12">
+                <p>
+                    Anchalika Degree College <b>Library</b> provides a large number of services to its community such as circulation of books, newspaper clippings, photocopying services, printing facility, information display, display of new arrivals etc.
+                </p>
+                <p>
+                    Current as well as back volumes of newspapers, magazines and periodicals are available in this section. Readers have open access to these materials for reading and reference only we have been preserving back issues of important dailies. Popular magazines are kept in the general section and subject journals in the reference hall.
+                </p>
+                <p>
+                    Reference section;The documents which are available in this section are meant for reference only.No books are lent out from this section.
+                </p>
+                <p>
+                    Internet facilities are also available in the library and are open to all the members of the library
+                </p>
+            </div>
+            <div className="col-lg-1 col-xs-12"></div>
+
+        </div>
+    }
     return (
-        <Layout title="College Library Books">
-            {/* <div className="row">
+        <Layout title="College Library">
+            {showLibraryContent()}
+            <div className="row">
                 <div className="col-lg-6 col-xs-12">
-                   
+
                 </div>
                 <div className="col-lg-6 col-xs-12">
                     {showSearchForm()}
@@ -150,10 +172,11 @@ function Books() {
             </div>
             <div className="row m-1 p-1 bg-adc" style={{ display: searchResult !== null && searchResult.length > 0 ? '' : 'none' }}>
                 {showSearchResult()}
-            </div> */}
+            </div>
             <div className="row m-1 p-1">
                 {view === 'list' ? (showCollegeBooksListView()) : (showCollegeBooksGridView())}
             </div>
+
         </Layout>
     );
 }

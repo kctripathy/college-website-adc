@@ -97,9 +97,11 @@ function Login() {
 
 
     const loginForm = () => (
-        <form onSubmit={handleFormSubmit}>
-            <div className="shadow-sm p-3 mt-5 mb-5 bg-white rounded">
-                <div className="card border-text-muted rounded-0 m-4 p-2 shadow-lg p-3 mb-5 bg-white rounded">
+        <form onSubmit={handleFormSubmit} className="col-lg-12 col-xs-12 col-sm-12">
+            {/* <div className="shadow-sm p-3 mt-5 mb-5 bg-white rounded col-xs-12 col-sm-12"> */}
+            <div className="row m-1 p-1 d-flex ">
+                <div className="col-lg-2 col-xs-12 col-sm-12">&nbsp;</div>
+                <div className="col-lg-8 col-xs-12 card border-text-muted m-0 p-0 shadow-sm ">
                     <div className="card-header p-0">
                         <div className="bg-card-header text-dark text-left ml-2 pt-2">
                             <h5>Login</h5>
@@ -144,7 +146,9 @@ function Login() {
                         </div>
                     </div>
                 </div>
+                <div className="col-lg-2 col-xs-12 col-sm-12">&nbsp;</div>
             </div>
+            {/* </div> */}
         </form>
     );
     return (
@@ -152,21 +156,21 @@ function Login() {
             <div className="row">
                 <div className="col-lg-3 col-sm-12">
                 </div>
-                <div className="col-lg-6 col-sm-12 col-xs-12">
-                    {loginForm()}
+                <div className="col-lg-6 col-sm-12 col-xs-12 pt-4">
                     {showError()}
                     {showLoading()}
+                    {loginForm()}
                     {redirectUser()}
                 </div>
                 <div className="col-lg-3 col-sm-12">
                 </div>
             </div>
-            <div className="row">
+            <div className="row mt-4">
                 <div className="col-lg-3 col-sm-12">&nbsp;</div>
-                <div className="col-lg-3 col-sm-12  text-center">
+                <div className="col-lg-3 col-sm-12  mt-1 text-center">
                     <Link className="p-4 m-1 p-1" to="/user/forgot-password">Forgot Password?</Link>
                 </div>
-                <div className="col-lg-3 col-sm-12 text-center">
+                <div className="col-lg-3 col-sm-12 mt-1 text-center">
                     <Link className="p-4 m-1 p-1" to="/register">New User? Register</Link>
                 </div>
                 <div className="col-lg-3 col-sm-12">&nbsp;</div>

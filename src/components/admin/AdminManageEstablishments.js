@@ -33,7 +33,7 @@ export default function AdminManageEstablishments() {
                 <div className="col-12 m-0 p-0 w-100">
                     {state.loading ? (<Loading text="Fetching establishments..." />) :
                         (<EstablishmentsApprove
-                            title="View/Approve/Reject/Delete Establishments"
+                            title="Manage Establishments"
                             description="Establishments"
                             onPageRefersh={onPageRefersh}
                             //run={willRefresh}

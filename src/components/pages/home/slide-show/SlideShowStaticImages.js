@@ -60,72 +60,26 @@ export default function SlideShowStaticImages() {
         setSlideImages(images);
     }, [])
     return (
-        <>
-            <Carousel>
-                {
-                    slideImages.map(i => {
-                        return <Carousel.Item key={i.id}>
-                            <img
-                                className="img-fluid d-block h-100 m-0 p-0 rounded"
-                                src={i.source}
-                                alt={i.captionHead}
-                            />
-                            <Carousel.Caption>
-                                <h3 className="caption-head text-light m-0 p-0">{i.captionHead}</h3>
-                                <p className="caption-label text-light m-0 p-0">{i.captionLabel}</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    })
-                }
-                {/* <Carousel.Item>
-                    <img
-                        className="img-fluid d-block w-100 m-0 p-0 rounded"
-                        src="./slides/slide_1_women_empowerment.jpg"
-                        alt="WEL-COME TO OUR COLLEGE WEBSITE"
-                    />
-                    <Carousel.Caption>
-                        <h3 className="caption-label text-light pt-4">WORKSHOP ON WOMEN EMPOWERMENT</h3>
-                        <p className="caption-sub-label text-dark">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="./slides/slide_2.jpg"
-                        alt="Second slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>INDEPENDENCE DAY CELEBRATION AT OUR COLLEGE</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="./slides/slide_3.jpg"
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>PARENT & TEACHER MEETING</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="./slides/slide_4.jpg"
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Fourth slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item> */}
-            </Carousel>
-        </>
+        <div className="row m-0 p-0 mt-2 mb-2 d-flex">
+            <div className="col-lg-12 col-sm-12 m-0 p-0 mt-2">
+                <Carousel>
+                    {
+                        slideImages.map(i => {
+                            return <Carousel.Item key={i.id}>
+                                <img
+                                    className="img-fluid d-block h-100 m-0 p-0 rounded"
+                                    src={i.source}
+                                    alt={i.captionHead}
+                                />
+                                <Carousel.Caption>
+                                    <h3 className="caption-head text-light m-0 p-0">{i.captionHead}</h3>
+                                    <p className="caption-label text-light m-0 p-0">{i.captionLabel}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        })
+                    }
+                </Carousel>
+            </div>
+        </div>
     );
 }

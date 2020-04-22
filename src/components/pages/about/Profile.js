@@ -10,7 +10,7 @@ function Profile() {
 
     const showData_Profile = () => (
         <div className="row m-0 p-0">
-            <div className="col-lg-4 col-sm-12">
+            <div className="col-lg-4 col-sm-12 mb-2">
                 <div className="card text-center">
                     <div className="card-header">
                         <h5 className="card-title">Principal cum Secratary</h5>
@@ -26,7 +26,7 @@ function Profile() {
                 </div>
             </div>
 
-            <div className="col-lg-4 col-sm-12">
+            <div className="col-lg-4 col-sm-12 mb-2">
                 <div className="card text-center">
                     <div className="card-header">
                         <h5 className="card-title">Academic Bursar</h5>
@@ -42,7 +42,7 @@ function Profile() {
                 </div>
             </div>
 
-            <div className="col-lg-4 col-sm-12">
+            <div className="col-lg-4 col-sm-12  mb-2">
                 <div className="card text-center">
                     <div className="card-header">
                         <h5 className="card-title">Account Bursar</h5>

@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { AgGridReact } from 'ag-grid-react';
+import { Document, Page, pdfjs } from "react-pdf";
+import Modal from 'react-modal';
+import moment from 'moment';
+
 import { isAuthenticated, updateEstablishments } from '../../api/user';
 import { CORS_URL, WEB_URL } from '../../config';
 import Loading from './Loading';
 
 import PDFImage from '../../assets/images/pdf_16x16.gif';
+import PcitureImage from '../../assets/images/img_16x16.png';
+import WordDocImage from '../../assets/images/word-icon.gif';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import './Establishments.css';
+import titleCase, { isAnImage, isPDF, isDocument } from '../commons/CommonFunctions'
 
-export default function EstablishmentsApprove({ title, establishments, onPageRefersh, run }) {
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+export default function EstablishmentsApprove({ title, establishments, onPageRefersh }) {
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
-    const [refresh, setRefresh] = useState(run);
+    const [isOpen, setIsOpen] = useState(false);
+    const [estblmt, setEstblmt] = useState([])
+    const [pageNumber, setPageNumber] = useState(1)
     const [columnDefs, setColumDefs] = useState([]);
     const [rowData, setRowData] = useState([]);
     const { UserID } = isAuthenticated();
@@ -23,7 +34,7 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
         suppressHorizontalScroll: true,
         suppressVertialScroll: true,
         scrollbarWidth: 0,
-        paginationPageSize: 15,
+        paginationPageSize: 12,
         pagination: true,
         onGridReady: params => {
             params.api.sizeColumnsToFit();
@@ -52,20 +63,31 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
     };
 
     const showEstablishment = (data) => {
-        var msg = `Date:${data.Date}\n\nTitle: ${data.Title}\n\nDescription: ${data.Description}\n\nUploaded File: ${data.FileName}\n\nAdded By: ${data.AddedBy}\n\nStatus: ${data.Status}\n\n`;
-        alert(msg);
-        //var x = document.getElementById("estbInfo");
-        //x.innerText = msg;
+
+        //alert(`Title: ${data.Title}\n\nDescription: ${data.Description}`);
+        //return <Redirect to="/" />
+        setEstblmt({
+            EstbID: data.ID,
+            EstbData: data.Date,
+            EstbTitle: data.Title,
+            EstbDescription: data.Description,
+            FileNameWithPath: data.FileName,
+            EstbTypeCodeDesc: data.Type,
+            AuthorOrContributorName: data.AddedBy,
+            EstbStatusFlagDesc: data.Status
+        });
+        setIsOpen(true);
+
+        //return <Redirect to={{ pathname: "/establishmentdetails", state: { establishment: data } }} />
+
     }
 
     useEffect(() => {
         const columns = [
             {
-                headerName: "#", field: "ID", sortable: true, filter: true, width: 35, checkboxSelection: true,
+                headerName: "#", field: "ID", sortable: true, filter: true, width: 35, checkboxSelection: true, pinned: 'left',
                 cellClass: function (params) {
-                    //console.log(params)
-                    return (params.data.Status === 'Pending' ?
-                        'pending-records' :
+                    return (params.data.Status === 'Pending' ? 'pending-records' :
                         (params.data.Status === 'Approved' ? ('approved-records') : ('rejected-records'))
                     );
                 }
@@ -73,32 +95,40 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
             { headerName: "Date", field: "Date", sortable: true, filter: true, width: 80 },
             { headerName: "Type", field: "Type", sortable: true, filter: true, width: 80 },
             {
-                headerName: "Title", field: "Title", sortable: false, filter: true, width: 220,
+                headerName: "Title", field: "Title", sortable: false, filter: true, width: 320,
                 cellRenderer: function (params) {
-                    return `<a href='javascript:showEstablishment(${params.data.ID})'> ${params.value}</a>`
+                    return `<a href='#'> ${params.value}</a>`
 
                 },
                 onCellClicked: function (params) {
-
                     showEstablishment(params.data)
                 }
             },
             {
-                headerName: "Description", field: "Description", sortable: false, filter: true, width: 400
+                headerName: "Description", field: "Description", sortable: false, filter: true, width: 250
             },
             {
-                headerName: "V",
-                field: "FileName", sortable: false, filter: false, width: 30,
+                headerName: "View",
+                field: "FileName", sortable: false, filter: false, width: 50,
                 cellRenderer: function (params) {
-                    //let url = `<a href='${CORS_URL}/${WEB_URL}/Documents/${params.value}' target='_blank'>View File</a>`
-                    var url;
-                    if (params.value.length > 0)
-                        url = `<a href='${WEB_URL}/Documents/${params.value}' target='_blank'> 
-                                    <img src='${PDFImage}' alt='${params.value}' />
-                                </a>`;
-                    else
-                        url = "";
-
+                    var url = "";
+                    if (params.value.length > 0) {
+                        if (isAnImage(params.value) === true) {
+                            url = `<a href='${WEB_URL}/Documents/${params.value}' target='_blank'>                                 
+                                <img src='${PcitureImage}' alt='${params.value}'  />
+                            </a>`;
+                        }
+                        else if ((isPDF(params.value) === true)) {
+                            url = `<a href='${WEB_URL}/Documents/${params.value}' target='_blank'> 
+                                <img src='${PDFImage}' alt='${params.value}'  />
+                            </a>`;
+                        }
+                        else if ((isDocument(params.value) === true)) {
+                            url = `<a href='${WEB_URL}/Documents/${params.value}' target='_blank'> 
+                            <img src='${WordDocImage}' alt='${params.value}' />
+                            </a>`;
+                        }
+                    }
                     return url
                 }
             },
@@ -114,10 +144,11 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
             { headerName: "Added By", field: "AddedBy", sortable: true, filter: true, width: 145 }
         ];
 
-        const rows = establishments.map(b => {
+        const rows = establishments && establishments.length > 0 && establishments.map(b => {
             return {
                 ID: b.EstbID,
-                Date: new Date(b.EstbDate).toISOString().replace(/T.*/, '').split('-').reverse().join('-'),
+                //Date: new Date(b.EstbDate).toISOString().replace(/T.*/, '').split('-').reverse().join('-'),
+                Date: moment(b.EstbDate).format("DD MMM YYYY"),
                 Type: b.EstbTypeCodeDesc,
                 Title: b.EstbTitle,
                 Description: b.EstbDescription,
@@ -135,7 +166,7 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
         e.preventDefault();
         // let rowsSelection = gridOptions.api.getSelectedRows();
         let selectedIDs = gridOptions.api.getSelectedRows().map(r => r.ID);
-        console.info(selectedIDs);
+        //console.info(selectedIDs);
         if (selectedIDs.length === 0) {
             alert("PLEAST SELECT AT LEAST ONE RECORD FOR " + e.target.name);
             return;
@@ -173,6 +204,46 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
             })
     };
 
+    const loadDocument = (type) => {
+        // debugger;
+        switch (type) {
+            case 'img': return (
+                <img
+                    src={`${WEB_URL}/Documents/${estblmt.FileNameWithPath}`}
+                    alt={estblmt.FileNameWithPath}
+                    className="img img-responsive img-fluid w-auto"
+                    style={{ maxHeight: "500px" }} />); break;
+            case 'pdf':
+                return (
+                    <Document
+                        file={{ url: `${CORS_URL}/${WEB_URL}/Documents/${estblmt.FileNameWithPath}` }}
+                    //onLoadSuccess={onDocumentLoadSuccess}
+                    //onLoadFailure={onDocumentLoadFailure}
+                    //onLoadError={console.error}
+                    >
+                        <Page size="A4" pageNumber={pageNumber} style={{ border: "solid 2px red", width: "100%" }}>
+
+                        </Page>
+                    </Document>
+                ); break;
+            case 'doc': return (
+                <a href={`${WEB_URL}/Documents/${estblmt.FileNameWithPath}`} target="_blank">
+                    View Documnent
+                </a>
+            ); break;
+            default: return "";
+        }
+    }
+
+    const printDescription = (text) => (
+
+        <div className="line-break">{text}</div>
+        //<div>{text.replace('\n', '<br/>')}</div>
+        // text.split("\n").map((i, key) => {
+        //     return <p key={key}>{i}</p>;
+        // })
+
+    )
     const showProcessingMessage = () => {
         return isProcessing === false ? ('') : (<div className="alert alert-info m-0 p-2 text-center w-60">
             <Loading text="Processing ....." />
@@ -188,8 +259,8 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
     };
 
     return (
-        <div className="row d-flex text-left pl-4">
-            <div className="col-11 p-0 m-0 mb-4 ml-5 bg-page-title">
+        <div className="row m-0 p-0 ml-2">
+            <div className="col-12 p-0 m-0 bg-page-title text-center">
                 <b>{title}</b>
             </div>
             <div className="col-12 p-0 mt-2 text-center">
@@ -197,7 +268,7 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                 {showErrorMessage()}
                 {showSuccessMessage()}
             </div>
-            <div className="ag-theme-balham" style={{ height: '500px', width: '100%', overflow: "hidden" }}>
+            <div className="col-12 p-0 m-0 ag-theme-balham text-left" style={{ height: '420px', width: '98%', marginLeft: "5px", overflow: "hidden" }}>
                 <AgGridReact
                     columnDefs={columnDefs}
                     rowData={rowData}
@@ -218,11 +289,56 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                     <i className="fas fa-times mr-1"></i>DELETE
                 </button>
             </div>
+            {/* <EstablishmentModal isOpen={isOpen} establishment={estblmt} /> */}
+            <Modal isOpen={isOpen}
+                shouldCloseOnOverlayClick={true}
+                onRequestClose={() => setIsOpen(false)}
+                style={
+                    {
+                        overlay: { background: "rgba(255, 203, 5, 0.8)" }
+                    }}>
+                <div className="row m-0 p-0 d-flex">
+                    <div className="col-lg-12 col-sm-12 bg-modal-page-title text-left text-uppercase">
+                        <h5>{estblmt.EstbTypeCodeDesc}</h5>
+                    </div>
+                    <div className="col-lg-12 col-sm-12">
+                        <div className="row">
+                            <div className="col-lg-6 col-sm-12 text-justify">
+                                <small className="mr-4"><b>Date:</b>&nbsp; {moment(estblmt.EstbDate).format('LLLL')} ({moment(estblmt.EstbDate).fromNow()})</small>
+                                <br />
+                                <small className="mr-4"><b>Added By:</b>&nbsp; {estblmt.AuthorOrContributorName}</small>
+                                <hr />
+                                <h6>{estblmt.EstbTitle}</h6>
 
-            {/* <div className="alert alert-info alert-dismissable" id="estbInfo">
-                <button type="button" className="close" data-dismiss="alert">×</button>
-                Message
-            </div> */}
+
+                                {estblmt.EstbTitle === estblmt.EstbDescription ? '' : (printDescription(estblmt.EstbDescription))}
+
+                            </div>
+
+
+                            <div className="col-lg-6 col-sm-12 text-center">
+
+                                {isAnImage(estblmt.FileNameWithPath) ?
+                                    (loadDocument('img')) :
+                                    (isPDF(estblmt.FileNameWithPath) ?
+                                        (loadDocument('pdf')) : (
+                                            isDocument(estblmt.FileNameWithPath) ?
+                                                loadDocument('doc') : ('')))}
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className="row m-0 p-0 fixed-bottom mb-5">
+                        <div className="col-12 m-0 p-0 text-center">
+                            <button type="button"
+                                className="btn btn-primary text-center p-1 m-1 btn-width-150"
+                                onClick={() => setIsOpen(false)}>
+                                <i className="fa fa-times mr-2"></i> CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
         </div>
     );
 }

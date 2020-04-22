@@ -47,12 +47,14 @@ const CollegeSummary = () => {
     return (
         <ul className="list-group">
             <li className="list-group-item list-group-item-success m-2 p-4">
-                <i className="fa fa-user-graduate fa-2x mr-2 p-2"></i>
-                <strong className="text-large">Students</strong>
-                <span className="badge badge-success total">
-                    {students && students.count === 0 ? (<Spinner />) : (<Counter value={students.count} />)}
-                    {/* <NumberCounter end={students.count} delay={4} /> */}
-                </span>
+                <Link to="/students" style={{ color: "#009900" }}>
+                    <i className="fa fa-user-graduate fa-2x mr-2 p-2"></i>
+                    <strong className="text-large">Students</strong>
+                    <span className="badge badge-success total">
+                        {students && students.count === 0 ? (<Spinner />) : (<Counter value={students.count} />)}
+                        {/* <NumberCounter end={students.count} delay={4} /> */}
+                    </span>
+                </Link>
             </li>
             <li className="list-group-item list-group-item-info  m-2 p-4">
                 <Link to="/staffs">
@@ -63,20 +65,23 @@ const CollegeSummary = () => {
                     </span>
                 </Link>
             </li>
-            <li className="list-group-item list-group-item-warning m-2 p-4">
-                <i className="fa fa-book  fa-2x  mr-2  p-2"></i>
-                <strong className="text-large">Books</strong>
-                <span className="badge badge-warning total">
-                    {books && books.count === 0 ? (<Spinner />) : (books.count)}
-                    {/* {books && books.count === 0 ? (<Spinner />) : (<Counter value={books.count} />)} */}
-                </span>
-            </li>
+            {/* <li className="list-group-item list-group-item-warning m-2 p-4">
+                <Link to="/library" style={{ color: "rgb(215, 132, 30)", fontWeight: "bold" }}>
+                    <i className="fa fa-book  fa-2x  mr-2  p-2"></i>
+                    <strong className="text-large">Books</strong>
+                    <span className="badge badge-warning total">
+                        {books && books.count === 0 ? (<Spinner />) : (books.count)}                       
+                    </span>
+                </Link>
+            </li> */}
             <li className="list-group-item list-group-item-danger  m-2 p-4">
-                <i className="fa fa-newspaper fa-2x mr-2 p-2"></i>
-                <strong className="text-large">Publications</strong>
-                <span className="badge badge-danger total">
-                    {showTotalPublications()}
-                </span>
+                <Link to="/academic/publications" style={{ color: "#dc3545", fontWeight: "bold" }}>
+                    <i className="fa fa-newspaper fa-2x mr-2 p-2"></i>
+                    <strong className="text-large">Publications</strong>
+                    <span className="badge badge-danger total">
+                        {showTotalPublications()}
+                    </span>
+                </Link>
             </li>
         </ul>
     )

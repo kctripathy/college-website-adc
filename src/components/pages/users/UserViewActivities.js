@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchEstablishments } from '../../../actionMethods/estbActionMethods';
+import { fetchEstablishments, fetchEstablishmentStarted } from '../../../actionMethods/estbActionMethods';
 import Loading from '../../commons/Loading';
 
 import DashboardLayout from '../LayoutDashboard';
@@ -13,7 +13,13 @@ export default function UserViewActivities() {
 
     React.useEffect(() => {
         dispatch(fetchEstablishments())
-    }, [state.loading])
+    }, [])
+
+
+    const onPageRefersh = () => {
+        dispatch(fetchEstablishmentStarted())
+        dispatch(fetchEstablishments())
+    };
 
     const show = () => {
         //debugger;
@@ -26,6 +32,7 @@ export default function UserViewActivities() {
                     title="View Recent Activities"
                     code="R"
                     description="Recent Activity"
+                    onPageRefersh={onPageRefersh}
                     establishments={myActivities} />
             </DashboardLayout>
         }
