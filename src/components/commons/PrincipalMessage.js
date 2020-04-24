@@ -49,7 +49,7 @@ const PrincipalMessage = (props) => {
             </p>
 
             {
-                props.fromHomePage ? (<Link to="/principal-message" className="text-wrap">Read more...</Link>)
+                props.fromHomePage ? (<Link to="/about/principal-message" className="text-wrap">Read more...</Link>)
                     :
                     (
                         showRestOfMessage()

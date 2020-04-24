@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment'
-import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import { WEB_URL } from '../../../../config';
 
 export default function LatestMediaRelease() {
@@ -9,7 +10,7 @@ export default function LatestMediaRelease() {
     const showLatestMedia = () => {
         if (state.loading === false && state.latest_media) {
             return (
-                <>
+                <Link to="/gallery/media">
                     <a href={`${WEB_URL}/Documents/${state.latest_media.FileNameWithPath}`} target="_blank">
                         <div className="col-12 p-1 m-0 text-center text-dark bg-light border border-rounded">
                             <b>Latest Media Release</b>
@@ -23,7 +24,7 @@ export default function LatestMediaRelease() {
                             <img src={`${WEB_URL}/Documents/${state.latest_media.FileNameWithPath}`} className="img img-responsive w-100" alt="" />
                         </div>
                     </a>
-                </>
+                </Link>
             )
         }
         else {

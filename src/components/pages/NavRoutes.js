@@ -31,7 +31,7 @@ import StudentsUnion from './students/StudentsUnion';
 import CollegeAdmin from './college-admin/Administration';
 import UsefullDownloads from './downloads/Downloads';
 
-import PhotoGallery from './gallery/ImageGallery';
+import ImageGallery from './gallery/ImageGallery';
 import VideoGallery from './gallery/VideoGallery';
 import MediaGallery from './gallery/MediaGallery';
 
@@ -86,7 +86,7 @@ function NavRoutes() {
                 <Route path="/library" component={Books} exact />
                 <Route path="/admin/:section" component={CollegeAdmin} exact />
                 <Route path="/downloads" component={UsefullDownloads} exact />
-                <Route path="/gallery/photo" component={PhotoGallery} exact />
+                <Route path="/gallery/photo" component={ImageGallery} exact />
                 <Route path="/gallery/video" component={VideoGallery} exact />
                 <Route path="/gallery/media" component={MediaGallery} exact />
                 <Route path="/contact" component={Contact} />

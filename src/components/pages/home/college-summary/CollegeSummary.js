@@ -14,7 +14,7 @@ import './CollegeSummary.css';
 const CollegeSummary = () => {
     const students = useSelector(state => state.student);
     const staffs = useSelector(state => state.staff);
-    const books = useSelector(state => state.book);
+    //const books = useSelector(state => state.book);
     const estb = useSelector(state => state.estb);
 
     const dispatch = useDispatch();
@@ -22,27 +22,25 @@ const CollegeSummary = () => {
     useEffect(() => {
         dispatch(fetchStudents());
         dispatch(fetchStaffs());
-        dispatch(fetchBooks());
+        //dispatch(fetchBooks());
         dispatch(fetchEstablishments());
     }, []);
 
-    const showTotalPublications = () => {
-        if (estb && estb.establishments.length === 0) {
-            return (<Spinner />);
-        };
-        //debugger;
-        //console.log("estb.establishments=", estb.establishments);
+    // const showTotalPublications = () => {
+    //     if (estb && estb.establishments.length === 0) {
+    //         return (<Spinner />);
+    //     };
 
-        const publCodes = ['1', '2', '3', '4', '5', '6'];
-        const filteredArray = estb.establishments
-            && estb.establishments.length > 0
-            && estb.establishments.filter(array =>
-                publCodes.some(filter => (filter === array.EstbTypeCode || array.EstbTypeCode.substring(0, 1) === 'P'))
-            );
-        //console.log('filteredArray=', filteredArray)
-        //debugger;
-        return <Counter value={filteredArray.length} />;
-    }
+    //     const publCodes = ['1', '2', '3', '4', '5', '6'];
+    //     const filteredArray = estb.establishments
+    //         && estb.establishments.length > 0
+    //         && estb.establishments.filter(array =>
+    //             publCodes.some(filter => (filter === array.EstbTypeCode || array.EstbTypeCode.substring(0, 1) === 'P'))
+    //         );
+
+    //     return <Counter value={filteredArray.length} />;
+    // }
+
     //console.log("state=", state);
     return (
         <div className="row m-0 p-0">
@@ -70,21 +68,21 @@ const CollegeSummary = () => {
                     <strong className="text-large">
                         STUDENTS:
                         <span className="total badge badge-success">
-                            {students && students.count === 0 ? (<Spinner />) : (<Counter value={students.count} />)}
+                            {students && students.count.total === 0 ? (<Spinner />) : (<Counter value={students.count.total} />)}
                         </span>
                     </strong>
                     <div className=" w-100 m-0 p-0 text-center text-dark-green">
-                        <span className="d-block f-left">Boys : <strong>{students.total_male}</strong></span>
-                        <span className="d-block f-right">Girls : <strong>{students.total_female}</strong></span>
+                        <span className="d-block f-left">Boys : <strong>{students.count.total_male}</strong></span>
+                        <span className="d-block f-right">Girls : <strong>{students.count.total_female}</strong></span>
                     </div>
                     <hr style={{ height: "1px", margin: "2px", padding: "0px" }} />
                     <div className="w-100 m-1 p-1 mt-2 d-grid text-dark-green">
                         <div className="sub-total-left">+3 Arts 1st Year</div>
-                        <div className="sub-total-right badge badge-success">{students.total_students_first_year}</div>
+                        <div className="sub-total-right badge badge-success">{students.count.total_students_first_year}</div>
                         <div className="sub-total-left">+3 Arts 2nd Year</div>
-                        <div className="sub-total-right  badge badge-success">{students.total_students_second_year}</div>
+                        <div className="sub-total-right  badge badge-success">{students.count.total_students_second_year}</div>
                         <div className="sub-total-left">+3 Arts 3rd Year</div>
-                        <div className="sub-total-right  badge badge-success">{students.total_students_third_year}</div>
+                        <div className="sub-total-right  badge badge-success">{students.count.total_students_third_year}</div>
                     </div>
 
 
@@ -93,15 +91,15 @@ const CollegeSummary = () => {
 
             <div className="col-lg-12 col-sm-12 total category m-0 p-0 mr-2 text-success">
                 <div className="category-label">General</div>
-                <div className="category-value">{students.total_category_general}</div>
+                <div className="category-value">{students.count.total_category_general}</div>
                 <div className="category-label">OBC</div>
-                <div className="category-value">{students.total_category_OBC}</div>
+                <div className="category-value">{students.count.total_category_OBC}</div>
                 <div className="category-label">SC</div>
-                <div className="category-value">{students.total_category_SC}</div>
+                <div className="category-value">{students.count.total_category_SC}</div>
                 <div className="category-label">ST</div>
-                <div className="category-value">{students.total_category_ST}</div>
+                <div className="category-value">{students.count.total_category_ST}</div>
                 <div className="category-label">Other</div>
-                <div className="category-value">{students.total_category_others}</div>
+                <div className="category-value">{students.count.total_category_others}</div>
             </div>
 
             {/* <li className="list-group-item list-group-item-warning m-2 p-4">

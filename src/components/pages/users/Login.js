@@ -13,8 +13,8 @@ import './Login.css'
 function Login() {
     const dispatch = useDispatch();
     const [values, setValues] = useState({
-        UserName: 'ADC0004',
-        UserPassword: '12345',
+        UserName: 'Admin',
+        UserPassword: 'maa@1234',
         loading: false,
         error: '',
         redirectToReferer: ''

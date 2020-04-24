@@ -1,6 +1,9 @@
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
 export default function EstablishmentSummary() {
+    const state = useSelector(state => state.estb);
+
     return (
         <>
             <table className="table table-bordered table-hover w-100 mt-2">
@@ -10,6 +13,7 @@ export default function EstablishmentSummary() {
                         <th scope="col" className="table-primary text-center">P</th>
                         <th scope="col" className="table-success text-center">A</th>
                         <th scope="col" className="table-danger text-center">R</th>
+                        <th scope="col" className="table-danger text-center">T</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,6 +22,7 @@ export default function EstablishmentSummary() {
                         <td className="text-center">-</td>
                         <td className="text-center">-</td>
                         <td className="text-center">-</td>
+                        <td className="text-center">{state.count.notice}</td>
                     </tr>
                     <tr>
                         <td>Tenders</td>

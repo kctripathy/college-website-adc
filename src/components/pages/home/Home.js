@@ -3,12 +3,8 @@ import { Link } from 'react-router-dom';
 import Layout from '../Layout';
 import Establishments from '../../commons/Establishments';
 import PrincipalMessage from '../../commons/PrincipalMessage';
-import HomePageLinks from './home-page-links/HomePageLinks';
 import CollegeSummary from './college-summary/CollegeSummary';
-import CollegeSummaryFitText from './college-summary/CollegeSummaryFitText';
 import SlideShow from './slide-show/SlideShowStaticImages';
-import LoadingConicGraident from '../../commons/LoadingConicGradient';
-import LastFourMediaReleases from './college-summary/LastFourMediaReleases';
 import LatestMediaRelease from './college-summary/LatestMediaRelease';
 import LatestPhotoInGallery from './college-summary/LatestPhotoInGallery';
 
