@@ -9,14 +9,29 @@ let initialState = {
     success: ''
 };
 
+function count(arr) {
+    return arr.reduce((a, b) => (a[b] = a[b] + 1 || 1) && a, {})
+}
+
 const staffReducer = (state = initialState, action) => {
     //debugger;
     switch (action.type) {
         case StaffActionTypes.fetchStaffSuccess:
+
+            //debugger;
+            //var x = count(action.payload)["TeachingOrNonTeaching"]
+            var count_teaching_staffs = action.payload.reduce(function (n, val) {
+                return n + (val.TeachingOrNonTeaching === 'T');
+            }, 0);
+
+            let count_non_teaching_staffs = action.payload.reduce((n, x) => n + (x.TeachingOrNonTeaching === 'N'), 0);
+
             return {
                 ...state,
                 count: action.payload.length,
                 staffs: action.payload,
+                total_teaching_staffs: count_teaching_staffs,
+                total_non_teaching_staffs: count_non_teaching_staffs,
                 loading: false
             }
         case StaffActionTypes.fetchStaffFailure:

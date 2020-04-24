@@ -32,15 +32,24 @@ export default function MediaGallery() {
                         <Fragment>
 
                             {media.map(m => {
-                                return <div className="card m-1" style={{ width: "18rem" }}>
-                                    <img className="card-img-top" src={`${WEB_URL}/Documents/${m.FileNameWithPath}`} alt="Card image cap" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{m.EstbTitle}</h5>
-                                        <p className="card-text">{m.EstbTitle}</p>
-                                        <a href={`${WEB_URL}/Documents/${m.FileNameWithPath}`} className="w-100 text-center float-right">View</a>
+                                return <div key={m.EstbID} className="col-lg-3 col-sm-12 col-xs-12 m-0 p-0">
+                                    <div className="card m-1" style={{ width: "18rem" }}>
+                                        <div className="card-body">
+                                            {/* <p className="card-text">{m.EstbDescription}</p> */}
+                                            <a href={`${WEB_URL}/Documents/${m.FileNameWithPath}`}
+                                                className="w-100 text-center float-right"
+                                                target="_blank">
+                                                <img className="card-img-top img img-responsive"
+                                                    src={`${WEB_URL}/Documents/${m.FileNameWithPath}`}
+                                                    alt={m.EstbTitle}
+                                                />
+                                            </a>
+                                        </div>
+                                        <div className="card-footer m-0 p-2 text-truncate">
+                                            <b>{m.EstbTitle}</b>
+                                        </div>
                                     </div>
                                 </div>
-
                                 // <li key={m.EstbID} className="list-group-item  m-0 p-1 pl-2">
                                 //     <ul className="list-inline col-12 m-0 p-0">
                                 //         <li className="list-inline-item col-1  m-0 p-0">{new Date(m.EstbDate).toShortFormat()}</li>
@@ -73,13 +82,9 @@ export default function MediaGallery() {
 
     return (
         <Layout title="Media / Press Release">
-            <div className="row">
-                <div className="col-lg-2 col-sm-12">&nbsp;</div>
-                <div className="col-lg-8 col-sm-12 d-flex">
-                    {estb.loading ? (<Loading text="Retriving media releases..." />) : ('')}
-                    {showPressRelease()}
-                </div>
-                <div className="col-lg-2 col-sm-12">&nbsp;</div>
+            <div className="row m-0 p-0 text-center">
+                {estb.loading ? (<Loading text="Retriving media releases..." />) : ('')}
+                {showPressRelease()}
             </div>
         </Layout>
     );

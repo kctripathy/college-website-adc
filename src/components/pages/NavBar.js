@@ -121,12 +121,16 @@ function NavBar({ history }) {
                             <i className="fa fa-info-circle"></i> About
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
+                            {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/about/crest">College Crest</Link>
+                            </li> */}
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/about">About College</Link>
                             </li>
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/about/profile">College Profile</Link>
                             </li>
+
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/about/principal-message">Principal's Message</Link>
                             </li>
@@ -199,6 +203,10 @@ function NavBar({ history }) {
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                                 <Link className="dropdown-item" to="/activities/national-service-scheme-activities">National Service Scheme (NSS)</Link>
                             </li>
+                            <li style={{ padding: "0px" }}><hr /></li>
+                            <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                                <Link className="dropdown-item" to="/activities/alumni-activities">Alumni Activities</Link>
+                            </li>
 
                         </ul>
                     </li>
@@ -240,6 +248,9 @@ function NavBar({ history }) {
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/staffs")} to="/staffs"><i className="fa fa-chalkboard-teacher"></i> Staffs</Link>
                     </li>
+                    {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
+                        <Link className={isActive(history, "/students/alumni")} to="/students/alumni"><i className="fa fa-users"></i> Alumni</Link>
+                    </li> */}
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/library")} to="/library"><i className="fa fa-book"></i> Library</Link>
                     </li>

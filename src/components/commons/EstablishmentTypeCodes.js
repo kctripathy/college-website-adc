@@ -23,6 +23,7 @@ export default function EstablishmentTypeCodes(props) {
             <option value={EstbTypeCode.RECENT_RRC_ACTIVITY}>RED RIBBON CLUB</option>
             <option value={EstbTypeCode.RECENT_NSS_ACTIVITY}>NATIONAL SERVICE SCHEME</option>
             <option value={EstbTypeCode.RECENT_SCOUTE_GUIDE_ACTIVIY}>SCOUT AND GUIDE ACTIVITY</option>
+            <option value={EstbTypeCode.RECENT_ALUMNI_ACTIVITY}>ALUMNI ACTIVITY</option>
             <option value={EstbTypeCode.RECENT_OTHER_ACTIVITY}>RECENT OTHER MISC. ACTIVITY</option>
         </>
     )

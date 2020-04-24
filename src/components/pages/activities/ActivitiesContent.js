@@ -30,6 +30,7 @@ export default function ActivitiesContent({ page }) {
             case "red-ribbon-club-activities": typeCode = EstbTypeCode.RECENT_RRC_ACTIVITY; break;
             case "national-service-scheme-activities": typeCode = EstbTypeCode.RECENT_NSS_ACTIVITY; break;
             case "the-bharat-scout-&-guide-activities": typeCode = EstbTypeCode.RECENT_SCOUTE_GUIDE_ACTIVIY; break;
+            case "alumni-activities": typeCode = EstbTypeCode.RECENT_ALUMNI_ACTIVITY_ACTIVIY; break;
             default: typeCode = 'R'; break;
         };
         return estb.establishments

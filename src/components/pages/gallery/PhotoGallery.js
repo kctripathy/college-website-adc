@@ -8,6 +8,7 @@ import { EstbTypeCode } from '../../../constants/actionTypes';
 
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
+import Gallery from 'react-photo-gallery'
 
 
 export default function PhotoGallery() {
@@ -67,18 +68,121 @@ export default function PhotoGallery() {
     }
     //console.log("images=", images);
 
+    const [photos] = useState([
+        {
+            src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+            width: 4,
+            height: 3
+        },
+        {
+            src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+            width: 1,
+            height: 1
+        },
+        {
+            src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
+            width: 3,
+            height: 4
+        },
+        {
+            src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
+            width: 3,
+            height: 4
+        },
+        {
+            src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
+            width: 3,
+            height: 4
+        },
+        {
+            src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+            width: 4,
+            height: 3
+        },
+        {
+            src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
+            width: 3,
+            height: 4
+        },
+        {
+            src: "https://source.unsplash.com/PpOHJezOalU/800x599",
+            width: 4,
+            height: 3
+        }, {
+            src: 'http://localhost/WebApp_ADC/Documents/177_BEST_VOLUNTEER_MR._BIBHUTI_BHUSAN_NAYAK.JPG',
+            width: 4,
+            height: 3
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/175_RECEIVE_BEST_YRC_COLLEGE.JPG',
+            width: 1,
+            height: 1
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/177_BEST_VOLUNTEER_MR._BIBHUTI_BHUSAN_NAYAK.JPG',
+            width: 4,
+            height: 3
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/175_RECEIVE_BEST_YRC_COLLEGE.JPG',
+            width: 1,
+            height: 1
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/177_BEST_VOLUNTEER_MR._BIBHUTI_BHUSAN_NAYAK.JPG',
+            width: 4,
+            height: 3
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/175_RECEIVE_BEST_YRC_COLLEGE.JPG',
+            width: 1,
+            height: 1
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/177_BEST_VOLUNTEER_MR._BIBHUTI_BHUSAN_NAYAK.JPG',
+            width: 4,
+            height: 3
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/175_RECEIVE_BEST_YRC_COLLEGE.JPG',
+            width: 1,
+            height: 1
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/177_BEST_VOLUNTEER_MR._BIBHUTI_BHUSAN_NAYAK.JPG',
+            width: 4,
+            height: 3
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/175_RECEIVE_BEST_YRC_COLLEGE.JPG',
+            width: 1,
+            height: 1
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/177_BEST_VOLUNTEER_MR._BIBHUTI_BHUSAN_NAYAK.JPG',
+            width: 4,
+            height: 3
+        },
+        {
+            src: 'http://localhost/WebApp_ADC/Documents/175_RECEIVE_BEST_YRC_COLLEGE.JPG',
+            width: 1,
+            height: 1
+        }
+    ]);
+
+
     return (
         <Layout>
             {
                 images && images.length === 0 ? (<Loading text="Retriving photos..." />) :
                     (
-                        <ImageGallery
-                            items={images}
-                            thumbnailPosition="top"
-                            disableThumbnailScroll={false}
-                            autoPlay={true}
-                            showBullets={true} />
-
+                        // <ImageGallery
+                        //     items={images}
+                        //     thumbnailPosition="top"
+                        //     disableThumbnailScroll={false}
+                        //     autoPlay={true}
+                        //     showBullets={true} />
+                        <Gallery photos={photos} />
                     )
             }
         </Layout>

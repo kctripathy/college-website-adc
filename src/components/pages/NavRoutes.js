@@ -31,7 +31,7 @@ import StudentsUnion from './students/StudentsUnion';
 import CollegeAdmin from './college-admin/Administration';
 import UsefullDownloads from './downloads/Downloads';
 
-import PhotoGallery from './gallery/PhotoGallery';
+import PhotoGallery from './gallery/ImageGallery';
 import VideoGallery from './gallery/VideoGallery';
 import MediaGallery from './gallery/MediaGallery';
 

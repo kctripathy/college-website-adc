@@ -24,6 +24,7 @@ const Establishments = (props) => {
     const estb = useSelector(state => state.estb);
     const dispatch = useDispatch();
 
+    //console.log("estb=", estb);
     useEffect(() => {
         if (estb.establishments.length === 0)
             dispatch(fetchEstablishments());
@@ -77,7 +78,7 @@ const Establishments = (props) => {
                                 <li key={estb.EstbID}>
                                     <ul className="list-group m-0 p-0">
                                         <li className="list-group-item m-1 p-1 pl-2 shadow-xs">
-                                            <div className="m-0 p-0 text-truncate" style={{ maxWidth: props.fromHomePage ? "500px" : "1000px" }}>
+                                            <div className="m-0 p-0 text-truncate" style={{ maxWidth: props.fromHomePage ? "99%" : "100%" }}>
                                                 <Link to={{
                                                     pathname: '/establishmentdetails',
                                                     state: {

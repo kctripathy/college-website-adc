@@ -27,15 +27,13 @@ Date.prototype.toShortFormat = function () {
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <ErrorBoundary>
-          <MainApp />
-        </ErrorBoundary>
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <Provider store={store}>
+      <ErrorBoundary>
+        <MainApp />
+      </ErrorBoundary>
+    </Provider>
+  </BrowserRouter>
   ,
   document.getElementById('root')
 );

@@ -161,8 +161,6 @@ function Students({ match }) {
             <div className="row">
                 <div className="col-lg-6 col-sm-12 col-xs-12 p-0 m-0">
                     <SelectClasses onChange={(v) => handleClassesOnChange(v)} students={state.students} />
-                    {/* <Link className="mr-2" onClick={() => setView('grid')} to="#">Grid View</Link>
-                    <Link className="ml-2" onClick={() => setView('list')} to="#">List View</Link> */}
                 </div>
                 <div className="col-lg-6 col-sm-12 col-xs-12 m-0 p-0">
                     {showSearchForm()}

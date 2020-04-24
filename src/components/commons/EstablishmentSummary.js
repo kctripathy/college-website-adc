@@ -61,6 +61,21 @@ export default function EstablishmentSummary() {
                         <td className="text-center">-</td>
                         <td className="text-center">-</td>
                     </tr>
+                    <tr>
+                        <td>Syllabus</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">-</td>
+                    </tr>
+                    <tr>
+                        <td>Minutes of Meetings</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">-</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="4">P: Pending  | A: Approved | R: Rejected  </td>
+                    </tr>
                 </tbody>
             </table>
 

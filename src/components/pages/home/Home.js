@@ -5,7 +5,12 @@ import Establishments from '../../commons/Establishments';
 import PrincipalMessage from '../../commons/PrincipalMessage';
 import HomePageLinks from './home-page-links/HomePageLinks';
 import CollegeSummary from './college-summary/CollegeSummary';
+import CollegeSummaryFitText from './college-summary/CollegeSummaryFitText';
 import SlideShow from './slide-show/SlideShowStaticImages';
+import LoadingConicGraident from '../../commons/LoadingConicGradient';
+import LastFourMediaReleases from './college-summary/LastFourMediaReleases';
+import LatestMediaRelease from './college-summary/LatestMediaRelease';
+import LatestPhotoInGallery from './college-summary/LatestPhotoInGallery';
 
 
 function Home() {
@@ -33,17 +38,28 @@ function Home() {
                 <div className="col-lg-4 col-sm-12 shadow-sm p-3 mb-5">
                     <Establishments fromHomePage={true} activeIndex="3" />
                 </div>
-                <div className="col-lg-4 col-sm-12 shadow-sm p-3 mb-5">
+                <div className="col-lg-2 col-sm-12 shadow-sm p-1 mb-5">
+                    <LatestMediaRelease />
+                    <LatestPhotoInGallery />
+                </div>
+                <div className="col-lg-2 col-sm-12 shadow-sm p-1 mb-5">
                     <CollegeSummary />
+                    {/* <LastFourMediaReleases /> */}
                 </div>
                 <div className="col-lg-4 col-sm-12 shadow-sm p-3 mb-5">
                     <PrincipalMessage fromHomePage={true} />
                 </div>
             </div>
             <div className="row">
-                <HomePageLinks />
+
             </div>
-        </Layout>
+            {/* <div className="row">
+                <LoadingConicGraident />
+            </div>
+            <div className="row">
+                <CollegeSummaryFitText />
+            </div> */}
+        </Layout >
     );
 }
 

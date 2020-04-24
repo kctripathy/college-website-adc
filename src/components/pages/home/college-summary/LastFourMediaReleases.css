@@ -1,0 +1,63 @@
+.box-row {
+    padding: 0.75vw;
+    display: grid;
+    grid-template-columns: repeat(64, 1fr);
+    grid-template-rows: 55vh 30vh;
+    grid-row-gap: 0.75vw;
+};
+
+
+.box a {
+    display: block;
+    width: 50%;
+    height: 50%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &:hover img {
+        opacity: 0.75;
+    }
+}
+
+.box__inner {
+    background-color: #005696;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+
+    img {
+        width: 50%;
+        height: 50%;
+
+        object-position: 50% 50%;
+        object-fit: cover;
+        
+        transition: opacity .2s ease-out;
+    }
+}
+
+.box--left {
+    clip-path: polygon(0 0, 98% 0, 83% 100%, 0 100%);
+    grid-row: 1;
+    grid-column: 1 / span 35;
+}
+
+.box--right {
+    clip-path: polygon(17% 0, 100% 0, 100% 100%, 2% 100%);
+    grid-row: 1;
+    grid-column: span 35 / -1;
+}
+
+.box--small {
+    grid-row: 2;
+    
+    &.box--left {
+        clip-path: polygon(0 0, 83% 0, 98% 100%, 0 100%);
+    }
+    
+    &.box--right {
+        clip-path: polygon(2% 0, 100% 0, 100% 100%, 17% 100%);
+    }
+}

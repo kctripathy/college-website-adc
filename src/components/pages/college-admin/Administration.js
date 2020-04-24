@@ -15,7 +15,7 @@ function Administration({ match }) {
         }
     }
     return (
-        <Layout title={`College Administration >> ${titleCase(match.params.section.replace("-", " "))}`}>
+        <Layout title={`${titleCase(match.params.section.replace("-", " "))}`}>
             <div className="row">
                 <div className="col-lg-2 col-sm-12">
                     &nbsp;
