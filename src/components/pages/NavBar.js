@@ -118,7 +118,7 @@ function NavBar({ history }) {
                             role="button"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <i className="fa fa-info-circle"></i> About
+                            <i className="fa fa-info-circle  menu-icon"></i> About
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -144,7 +144,7 @@ function NavBar({ history }) {
                             role="button"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <i className="fa fa-university"></i> Academic
+                            <i className="fa fa-university  menu-icon"></i> Academic
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -173,7 +173,7 @@ function NavBar({ history }) {
                             role="button"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <i className="fas fa-tasks"></i> Activity
+                            <i className="fas fa-tasks  menu-icon"></i> Activity
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -224,7 +224,7 @@ function NavBar({ history }) {
                             role="button"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <i className="fas fa-user-graduate"></i> Students
+                            <i className="fas fa-user-graduate  menu-icon"></i> Students
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -246,13 +246,17 @@ function NavBar({ history }) {
                     </li>
 
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className={isActive(history, "/staffs")} to="/staffs"><i className="fa fa-chalkboard-teacher"></i> Staffs</Link>
+                        <Link className={isActive(history, "/staffs")} to="/staffs">
+                            <i className="fa fa-chalkboard-teacher menu-icon"></i> Staffs
+                            </Link>
                     </li>
                     {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
                         <Link className={isActive(history, "/students/alumni")} to="/students/alumni"><i className="fa fa-users"></i> Alumni</Link>
                     </li> */}
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className={isActive(history, "/library")} to="/library"><i className="fa fa-book"></i> Library</Link>
+                        <Link className={isActive(history, "/library")} to="/library">
+                            <i className="fa fa-book menu-icon"></i> Library
+                            </Link>
                     </li>
 
                     {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -265,7 +269,7 @@ function NavBar({ history }) {
                             role="button"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <i className="fa fa-user-cog"></i> Admin
+                            <i className="fa fa-user-cog  menu-icon"></i> Admin
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item m-1" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -282,7 +286,9 @@ function NavBar({ history }) {
                     </li>
 
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className={isActive(history, "/downloads")} to="/downloads"><i className="fa fa-download"></i> Downloads</Link>
+                        <Link className={isActive(history, "/downloads")} to="/downloads">
+                            <i className="fa fa-download menu-icon"></i> Downloads
+                            </Link>
                     </li>
 
                     {/* <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -295,7 +301,7 @@ function NavBar({ history }) {
                             role="button"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <i className="fa fa-images"></i> Gallery
+                            <i className="fa fa-images  menu-icon"></i> Gallery
                         </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown" data-target=".navbar-collapse.show">
                             <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -311,7 +317,9 @@ function NavBar({ history }) {
                     </li>
 
                     <li className="nav-item  ml-2" data-toggle="collapse" data-target=".navbar-collapse.show">
-                        <Link className={isActive(history, "/conact")} to="/contact"><i className="fa fa-id-card"></i> Contact</Link>
+                        <Link className={isActive(history, "/conact")} to="/contact">
+                            <i className="fa fa-id-card  menu-icon"></i> Contact
+                            </Link>
                     </li>
 
                 </ul>

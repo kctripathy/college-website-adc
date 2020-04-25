@@ -244,3 +244,29 @@ export const updateEstablishments = (establishments) => {
             return err;
         })
 };
+
+//===================================
+// editEstablishmentRecord
+//===================================
+export const editEstablishmentRecord = (establishment) => {
+    const url = `${API_URL}/establishment/edit`;
+    //debugger;
+    console.log("editEstablishmentRecord > establishment=", establishment)
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(establishment)
+    })
+        .then(response => {
+            //console.log('response=', response);
+            //debugger;
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+            return err;
+        })
+};

@@ -18,6 +18,10 @@
         text-transform: uppercase;
     }
 
+    .menu-icon {
+        display: block;
+      }
+      
     .estb > li:first-child,
     .estb > li:nth-child(2),
     .publications > li:first-child,

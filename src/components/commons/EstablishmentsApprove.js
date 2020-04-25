@@ -4,7 +4,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import Modal from 'react-modal';
 import moment from 'moment';
 
-import { isAuthenticated, updateEstablishments } from '../../api/user';
+import { isAuthenticated, editEstablishmentRecord, updateEstablishments } from '../../api/user';
 import { CORS_URL, WEB_URL } from '../../config';
 import Loading from './Loading';
 
@@ -16,6 +16,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import './Establishments.css';
 import titleCase, { isAnImage, isPDF, isDocument } from '../commons/CommonFunctions'
+import UploadFile from './UploadFile';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -24,7 +25,11 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
     const [error, setError] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isEditMode, setIsEditMode] = useState(false);
     const [estblmt, setEstblmt] = useState([])
+    const [estblmt2Edit, setEstblmt2Edit] = useState([]);
+    const [EstbTitle, setEstbTitle] = useState('');
+    const [EstbDescription, setEstbDescription] = useState('')
     const [pageNumber, setPageNumber] = useState(1)
     const [columnDefs, setColumDefs] = useState([]);
     const [rowData, setRowData] = useState([]);
@@ -85,12 +90,12 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
     useEffect(() => {
         const columns = [
             {
-                headerName: "#", field: "ID", sortable: true, filter: true, width: 35, checkboxSelection: true, pinned: 'left',
-                cellClass: function (params) {
-                    return (params.data.Status === 'Pending' ? 'pending-records' :
-                        (params.data.Status === 'Approved' ? ('approved-records') : ('rejected-records'))
-                    );
-                }
+                headerName: "#", field: "", sortable: true, filter: true, width: 40, checkboxSelection: true, pinned: 'left'
+                // ,cellClass: function (params) {
+                //     return (params.data.Status === 'Pending' ? 'pending-records' :
+                //         (params.data.Status === 'Approved' ? ('approved-records') : ('rejected-records'))
+                //     );
+                // }
             },
             { headerName: "Date", field: "Date", sortable: true, filter: true, width: 80 },
             { headerName: "Type", field: "Type", sortable: true, filter: true, width: 80 },
@@ -133,7 +138,7 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                 }
             },
             {
-                headerName: "Status", field: "Status", sortable: true, filter: true, width: 65,
+                headerName: "Status", field: "Status", sortable: true, filter: true, width: 80,
                 cellClass: function (params) {
                     return (params.value === 'Pending' ?
                         'pending-records-text' :
@@ -141,13 +146,23 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                     );
                 }
             },
-            { headerName: "Added By", field: "AddedBy", sortable: true, filter: true, width: 145 }
+            { headerName: "Added By", field: "AddedBy", sortable: true, filter: true, width: 125 },
+
+            {
+                headerName: "", field: "", sortable: false, filter: false, width: 60,
+                cellRenderer: function (params) {
+                    return `<a href='#'> <i class="fa fa-edit mr-1"></i>edit</a>`
+
+                },
+                onCellClicked: function (params) {
+                    editEstb(params.data)
+                }
+            }
         ];
 
         const rows = establishments && establishments.length > 0 && establishments.map(b => {
             return {
                 ID: b.EstbID,
-                //Date: new Date(b.EstbDate).toISOString().replace(/T.*/, '').split('-').reverse().join('-'),
                 Date: moment(b.EstbDate).format("DD MMM YYYY"),
                 Type: b.EstbTypeCodeDesc,
                 Title: b.EstbTitle,
@@ -162,25 +177,17 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
         setRowData(rows);
     }, []);
 
+
     const getSelectedRowsAndUpdateEstablishment = (e) => {
         e.preventDefault();
-        // let rowsSelection = gridOptions.api.getSelectedRows();
         let selectedIDs = gridOptions.api.getSelectedRows().map(r => r.ID);
-        //console.info(selectedIDs);
         if (selectedIDs.length === 0) {
             alert("PLEAST SELECT AT LEAST ONE RECORD FOR " + e.target.name);
             return;
         }
         else {
             var msg = `DO YOU WANT TO "${e.target.name}",  SELECTED (${selectedIDs.length}) RECORD${selectedIDs.length > 0 ? 'S' : ''}?`
-            //alert(msg)
-            if (window.confirm(msg)) {
-                //alert('okay')
-            }
-            else {
-                //alert('not okay')
-                return;
-            }
+            if (!(window.confirm(msg))) return;
 
         }
         setIsProcessing(true);
@@ -205,7 +212,6 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
     };
 
     const loadDocument = (type) => {
-        // debugger;
         switch (type) {
             case 'img': return (
                 <img
@@ -215,12 +221,7 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                     style={{ maxHeight: "500px" }} />); break;
             case 'pdf':
                 return (
-                    <Document
-                        file={{ url: `${CORS_URL}/${WEB_URL}/Documents/${estblmt.FileNameWithPath}` }}
-                    //onLoadSuccess={onDocumentLoadSuccess}
-                    //onLoadFailure={onDocumentLoadFailure}
-                    //onLoadError={console.error}
-                    >
+                    <Document file={{ url: `${CORS_URL}/${WEB_URL}/Documents/${estblmt.FileNameWithPath}` }} >
                         <Page size="A4" pageNumber={pageNumber} style={{ border: "solid 2px red", width: "100%" }}>
 
                         </Page>
@@ -235,15 +236,38 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
         }
     }
 
-    const printDescription = (text) => (
+    const editEstb = (data) => {
+        console.log(data)
+        //alert(data);
+        setIsEditMode(true);
+        setEstblmt2Edit(data);
+        setEstbTitle(data.Title);
+        setEstbDescription(data.Description);
+    };
 
-        <div className="line-break">{text}</div>
-        //<div>{text.replace('\n', '<br/>')}</div>
-        // text.split("\n").map((i, key) => {
-        //     return <p key={key}>{i}</p>;
-        // })
 
-    )
+    const updateEstablishment = () => {
+        //alert('updateEstablishment')
+        editEstablishmentRecord({
+            EstbID: estblmt2Edit.ID,
+            Title: EstbTitle,
+            Description: EstbDescription
+        })
+            .then(response => {
+                if (response.status.message === "SUCCESS") {
+                    onPageRefersh();
+                    setSuccess('Successfully updated the record')
+                }
+                else
+                    setError('Failed to update the record')
+            })
+            .catch(err => {
+                setSuccess('');
+                setError(`Failed to update the record : ${err}`)
+            })
+        setIsEditMode(false);
+    };
+
     const showProcessingMessage = () => {
         return isProcessing === false ? ('') : (<div className="alert alert-info m-0 p-2 text-center w-60">
             <Loading text="Processing ....." />
@@ -278,20 +302,20 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                 </AgGridReact>
             </div>
             <div className="col-12 p-0 mt-2 text-center">
-                <button className="btn btn-primary m-2 btn-width-150" type="button" name="APPROVE" onClick={getSelectedRowsAndUpdateEstablishment}>
+                <button className="btn btn-success m-2 btn-width-150" type="button" name="APPROVE" onClick={getSelectedRowsAndUpdateEstablishment}>
                     <i className="fas fa-check-circle mr-1"></i>APPROVE
                 </button>
                 {/* <button className="btn btn-primary m-2" type="button" name="PENDING" onClick={getSelectedRowsAndUpdateEstablishment}>PENDING</button> */}
-                <button className="btn btn-primary m-2 btn-width-150" type="button" name="REJECT" onClick={getSelectedRowsAndUpdateEstablishment}>
+                <button className="btn btn-warning m-2 btn-width-150" type="button" name="REJECT" onClick={getSelectedRowsAndUpdateEstablishment}>
                     <i className="fas fa-ban mr-1"></i> REJECT
                 </button>
-                <button className="btn btn-primary m-2 btn-width-150" type="button" name="DELETE" onClick={getSelectedRowsAndUpdateEstablishment}>
+                <button className="btn btn-danger m-2 btn-width-150" type="button" name="DELETE" onClick={getSelectedRowsAndUpdateEstablishment}>
                     <i className="fas fa-times mr-1"></i>DELETE
                 </button>
             </div>
-            {/* <EstablishmentModal isOpen={isOpen} establishment={estblmt} /> */}
+
             <Modal isOpen={isOpen}
-                shouldCloseOnOverlayClick={true}
+                shouldCloseOnOverlayClick={false}
                 onRequestClose={() => setIsOpen(false)}
                 style={
                     {
@@ -299,7 +323,7 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                     }}>
                 <div className="row m-0 p-0 d-flex">
                     <div className="col-lg-12 col-sm-12 bg-modal-page-title text-left text-uppercase">
-                        <h5>{estblmt.EstbTypeCodeDesc}</h5>
+                        <h5>View {estblmt.EstbTypeCodeDesc}</h5>
                     </div>
                     <div className="col-lg-12 col-sm-12">
                         <div className="row">
@@ -309,24 +333,16 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                                 <small className="mr-4"><b>Added By:</b>&nbsp; {estblmt.AuthorOrContributorName}</small>
                                 <hr />
                                 <h6>{estblmt.EstbTitle}</h6>
-
-
-                                {estblmt.EstbTitle === estblmt.EstbDescription ? '' : (printDescription(estblmt.EstbDescription))}
-
+                                <p>{estblmt.EstbTitle === estblmt.EstbDescription ? '' : (estblmt.EstbDescription)}</p>
                             </div>
-
-
                             <div className="col-lg-6 col-sm-12 text-center">
-
                                 {isAnImage(estblmt.FileNameWithPath) ?
                                     (loadDocument('img')) :
                                     (isPDF(estblmt.FileNameWithPath) ?
                                         (loadDocument('pdf')) : (
                                             isDocument(estblmt.FileNameWithPath) ?
                                                 loadDocument('doc') : ('')))}
-
                             </div>
-
                         </div>
                     </div>
                     <div className="row m-0 p-0 fixed-bottom mb-5">
@@ -339,6 +355,75 @@ export default function EstablishmentsApprove({ title, establishments, onPageRef
                     </div>
                 </div>
             </Modal>
-        </div>
+
+            <Modal isOpen={isEditMode}
+                shouldCloseOnOverlayClick={false}
+                onRequestClose={() => setIsEditMode(false)}
+                style={
+                    {
+                        overlay: { background: "rgba(255, 203, 5, 0.8)" }
+                    }}>
+                <div className="row m-0 p-0 d-flex">
+                    <div className="col-lg-12 col-sm-12 bg-modal-page-title text-left text-uppercase">
+                        <h5>Edit Establishment:</h5>
+                        <h5>{estblmt2Edit.EstbTypeCodeDesc}</h5>
+                    </div>
+                    <div className="col-lg-12 col-sm-12">
+                        <div className="row">
+                            <div className="col-lg-12 col-sm-12 text-justify">
+                                <small className="mr-4"><b>Date:</b>&nbsp; {moment(estblmt2Edit.EstbDate).format('LLLL')} ({moment(estblmt2Edit.EstbDate).fromNow()})</small>
+                                <br />
+                                <small className="mr-4"><b>Added By:</b>&nbsp; {estblmt2Edit.AddedBy}</small>
+                                <br />
+                                <span className="float-right text-uppercase" style={{ marginTop: "-50px" }}>
+                                    <b>STATUS:-&nbsp; {estblmt2Edit.Status}</b>
+                                </span>
+                            </div>
+                            <div className="col-lg-12 col-sm-12 text-justify">
+                                <div className="form-group mt-2">
+                                    <label htmlFor="EstbTitle" className="required">
+                                        Title:</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="EstbTitle"
+                                        value={EstbTitle}
+                                        placeholder={`Enter the title`}
+                                        onChange={(e) => setEstbTitle(e.target.value)} required />
+                                </div>
+
+                                <div className="form-group mt-2">
+                                    <label htmlFor="EstbDescription" className="required">Description: </label>
+                                    <textarea type="text"
+                                        className="form-control"
+                                        id="EstbDescription"
+                                        value={EstbDescription}
+                                        rows="5"
+                                        placeholder={`Enter the description`}
+                                        onChange={(e) => setEstbDescription(e.target.value)} required />
+                                </div>
+
+                                <div className="form-group mt-2">
+                                    <UploadFile mode="edit" EstbID={estblmt2Edit.ID} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row m-0 p-0 fixed-bottom mb-5">
+                        <div className="col-12 m-0 p-0 text-center">
+                            <button type="button"
+                                className="btn btn-success text-center p-1 m-1 btn-width-150"
+                                onClick={updateEstablishment}>
+                                <i className="fas fa-save mr-2"></i>UPDATE</button>
+
+                            <button type="button"
+                                className="btn btn-warning text-center p-1 m-1 btn-width-150"
+                                onClick={() => setIsEditMode(false)}>
+                                <i className="fa fa-times mr-2"></i> CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
+        </div >
     );
 }

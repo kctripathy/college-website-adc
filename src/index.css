@@ -17,6 +17,10 @@ code {
 /*****    MENU ACTIVE INACTIVE                    ****/
 /*****************************************************/
 
+.menu-icon {
+  display: none;
+}
+
 .active {
   color: darkred !important;
   font-weight: 500;

@@ -15,7 +15,9 @@ class UploadFile extends React.Component {
             error: '',
             success: ''
         };
+        console.log('upload file props -', this.props)
     }
+
 
     validateForm = () => {
         if (this.state.file.length === 0) {
@@ -36,7 +38,8 @@ class UploadFile extends React.Component {
         }
 
         const url = `${API_URL}/user/UploadFile/${this.props.EstbID}`;
-        //console.log('url - estbid', this.props)
+
+        console.log('upload file url -', url)
         const formData = new FormData();
         formData.append('body', this.state.file);
         const config = {
@@ -55,7 +58,10 @@ class UploadFile extends React.Component {
                     processing: false
                 })
                 //console.log(data);
-                this.props.onUploadSuccessOrFailure(response.data.Message, 'File uploaded successfully', '');
+                if (!(this.props.mode === 'edit'))
+                    this.props.onUploadSuccessOrFailure(response.data.Message, 'File uploaded successfully', '');
+                else
+                    alert('File updated successfully');
             })
             .catch(err => {
                 this.setState({
@@ -64,7 +70,10 @@ class UploadFile extends React.Component {
                     //error: 'unable to upload the file',
                     processing: false
                 })
-                this.props.onUploadSuccessOrFailure('', '', 'Failed to upload the file: ' + err);
+                if (!(this.props.mode === 'edit'))
+                    this.props.onUploadSuccessOrFailure('', '', 'Failed to upload the file: ' + err);
+                else
+                    alert("Some error occured while updating the file ...")
                 console.log(err);
             });
     }
@@ -98,7 +107,7 @@ class UploadFile extends React.Component {
             <div className="container-fluid">
                 <form onSubmit={e => this.submitFileToUpload(e)}>
                     <div className="row" style={{ display: this.state.processing ? 'block' : 'none' }}>
-                        <div className="col-12 bg-page-title mt-4 mb-4">
+                        <div className="col-12 bg-page-title mt-4 mb-4" style={{ display: this.props.title ? 'block' : 'none' }}>
                             <b>{this.props.title}</b>
                         </div>
                         <div className="col-12 mb-2">
@@ -106,17 +115,19 @@ class UploadFile extends React.Component {
                         </div>
                         <div className="col-12 mb-2">
                             <button className="btn btn-primary m-2" type="submit">UPLOAD FILE</button>
-                            <button className="btn btn-primary m-2" type="button" onClick={this.cancelUpload}>CANCEL</button>
+                            <button className="btn btn-primary m-2" type="button" onClick={this.cancelUpload}
+                                style={{ display: this.props.mode && this.props.mode === 'edit' ? 'none' : '' }}
+                            >CANCEL</button>
                         </div>
                         <div className="col-12 m-2">
                             {this.showSuccessMessage()}
                             {this.showFailureMessage()}
                         </div>
-                        <div className="alert alert-warning mt-2 text-left">
+                        <div className="alert alert-warning mt-2 text-left" style={{ display: this.props.mode && this.props.mode === 'edit' ? 'none' : '' }}>
                             Note:
                         <ul>
                                 <li>
-                                    <em>Please upload a pdf/jpg/png file related to the recently added record</em>
+                                    <em>Please upload a pdf/doc/jpg/gif/png file related to the recently added record</em>
                                 </li>
                                 <li>
                                     <em>Please try to avoid large files. If you wish it so, please zip it and upload</em>

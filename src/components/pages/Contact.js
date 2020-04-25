@@ -39,13 +39,16 @@ function Contact() {
                 if (res.status === 200) {
                     setSuccess('Successfully sent the mail');
                     setError('');
+                    setName('');
+                    setSubject('');
+                    setEmail('');
+                    setMessage('');
                 }
                 else {
                     setSuccess('');
                     setError(`Failed to send email! ${res.text}`);
                 }
                 setIsProcessing(false);
-
             })
             .catch(err => {
                 //debugger;
@@ -54,36 +57,6 @@ function Contact() {
                 setError(`Failed to send email because: ${err}`);
             });
     };
-
-    // const sendEmail = (templateId, templateParams) => {
-    //     //debugger;
-    //     //emailjs.send('gmail', templateId, templateParams,'user_Gy471SZKGgbwVNvzqjYeq')
-    //     //    .then(res => {
-    //     //        debugger;
-    //     //        setSuccess('Email successfully sent!')
-    //     //    })         
-    //     //    .catch(err => {
-    //     //        debugger;
-    //     //        setError('Oh well, you failed. Here some thoughts on the error that occured:', err)
-    //     //    })
-
-    //     // try {
-    //     //     debugger;
-    //     //     emailjs.send('gmail', templateId, templateParams, 'user_Gy471SZKGgbwVNvzqjYeq')
-    //     //         .then(res => {
-    //     //             debugger;
-    //     //             setSuccess('Email successfully sent!')
-    //     //         })
-    //     //         .catch(err => {
-    //     //             debugger;
-    //     //             setError('Oh well, you failed. Here some thoughts on the error that occured:', err)
-    //     //         })
-    //     // }
-    //     // catch (e) {
-    //     //     alert(e);
-    //     // }
-    // };
-
 
     const contactForm = () => {
         return (
@@ -183,7 +156,7 @@ function Contact() {
         return (
             <div className="card bg-light mb-3">
                 <div className="card-header bg-light text-dark text-uppercase">
-                    <i className="fa fa-home"></i> SNAIL MAIL (POSTAL) Address
+                    <i className="fa fa-home"></i> POSTAL ADDRESS:
 				</div>
                 <div className="card-body" style={{ backgroundColor: "#fff" }}>
                     <p className="address-text">
@@ -261,8 +234,8 @@ function Contact() {
 
     return (
         <Layout>
-            <div className="row" style={{ paddingBottom: "20px" }}>
-                <div className="col-lg-6 col-sm-12">
+            <div className="row" style={{ padding: "20px 0px" }}>
+                <div className="col-lg-6 col-sm-12 ">
                     {contactForm()}
                     {showSuccess()}
                     {showError()}
