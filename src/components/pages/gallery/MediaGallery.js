@@ -13,7 +13,6 @@ export default function MediaGallery() {
 
   useEffect(() => {
     if (estb.establishments.length === 0) {
-      //debugger;
       dispatch(fetchEstablishments());
     }
 
@@ -29,7 +28,9 @@ export default function MediaGallery() {
     return (
       <>
         {media && media.length === 0 ? (
-          <li className="list-group-item">No press release</li>
+          <li className="list-group-item w-100">
+            <Loading text="Loading media releases..." />
+          </li>
         ) : (
           <Fragment>
             {media.map((m) => {
