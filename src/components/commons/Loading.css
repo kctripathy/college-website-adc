@@ -6,30 +6,10 @@
   font-size: 16px;
 }
 
-/* body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 300px;
-  perspective-origin: center center;
-  overflow: hidden;
-  background: #000;
-} */
-
 .side,
 .container {
   width: var(--side);
   height: var(--side);
-}
-
-.container {
-  transform-style: preserve-3d;
-  animation: rotate 10s infinite linear;
-
-  &:hover {
-    animation-play-state: paused;
-  }
 }
 
 .side {

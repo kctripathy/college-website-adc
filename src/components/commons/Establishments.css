@@ -22,7 +22,7 @@
   width: 19%;
   text-align: center;
 }
-.estb > li:nth-child(2){
+.estb > li:nth-child(2) {
   /* background-color: red; */
   width: 80%;
   padding-left: 10px;
@@ -34,7 +34,6 @@
   width: 10%;
 }
 
-
 .estb-head {
   min-height: 400px;
   height: 100%;
@@ -42,27 +41,26 @@
   /* border: solid 1px red; */
 }
 
-
-  .pending-records-text {
+.pending-records-text {
   color: blue;
-    /* font-weight: bold; */
-    /* text-transform: uppercase; */
-  }
-  .approved-records-text {
-    color: green;
-  }
-  .rejected-records-text {
-    color: red;
-  }
+  /* font-weight: bold; */
+  /* text-transform: uppercase; */
+}
+.approved-records-text {
+  color: green;
+}
+.rejected-records-text {
+  color: red;
+}
 
-  .pending-records-row {
-    background-color: yellow;
-      /* font-weight: bold; */
-      /* text-transform: uppercase; */
-    }
-    .approved-records-row {
-      background-color: lightgreen;
-    }
-    .rejected-records-row {
-      background-color: rosybrown;
-    }
+.pending-records-row {
+  background-color: yellow;
+  /* font-weight: bold; */
+  /* text-transform: uppercase; */
+}
+.approved-records-row {
+  background-color: lightgreen;
+}
+.rejected-records-row {
+  background-color: rosybrown;
+}

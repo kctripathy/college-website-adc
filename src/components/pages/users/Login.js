@@ -1,182 +1,197 @@
-import React, { useState } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Redirect, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Layout from "../Layout";
+import Loading from "../../commons/Loading";
+import { login, authenticate, isAuthenticated } from "../../../api/user";
+import {
+  userLoginSuccess,
+  userLoginFailure,
+} from "../../../actionMethods/userActionMethods";
 
-import Layout from '../Layout';
-import Loading from '../../commons/Loading';
-
-import { login, authenticate, isAuthenticated } from '../../../api/user';
-import { userLoginSuccess, userLoginFailure } from '../../../actionMethods/userActionMethods';
-
-import './Login.css'
+import "./Login.css";
 
 function Login() {
-    const dispatch = useDispatch();
-    const [values, setValues] = useState({
-        UserName: 'Admin',
-        UserPassword: 'maa@1234',
-        loading: false,
-        error: '',
-        redirectToReferer: ''
-    })
+  const dispatch = useDispatch();
+  const [values, setValues] = useState({
+    UserName: "Admin",
+    UserPassword: "maa@1234",
+    loading: false,
+    error: "",
+    redirectToReferer: "",
+  });
 
-    const user = isAuthenticated();
+  const user = isAuthenticated();
 
-    const { UserName, UserPassword, error, loading, redirectToReferer } = values;
+  const { UserName, UserPassword, error, loading, redirectToReferer } = values;
 
-    const handleOnChange = name => (e) => {
-        setValues({
-            ...values,
-            [name]: e.target.value
-        })
-    };
+  const handleOnChange = (name) => (e) => {
+    setValues({
+      ...values,
+      [name]: e.target.value,
+    });
+  };
 
-
-    const handleFormSubmit = e => {
-        e.preventDefault();
-        setValues({ ...values, error: false, loading: true });
-        login({ UserName, UserPassword })
-            .then(data => {
-                if (data === undefined) {
-                    dispatch(userLoginFailure());
-                    setValues({ ...values, error: 'Some error occured!', loading: false })
-                }
-                else if (data.error) {
-                    dispatch(userLoginFailure());
-                    setValues({ ...values, error: data.error, loading: false })
-                }
-                else {
-                    if (data.status && data.status.code && data.status.code < 0) {
-                        dispatch(userLoginFailure());
-                        setValues({ ...values, error: data.status.message, loading: false })
-                    }
-                    else {
-                        //debugger;
-                        authenticate(data.result, () => {
-                            //debugger;
-                            dispatch(userLoginSuccess(data.result));
-                            setValues({
-                                ...values,
-                                redirectToReferer: "/",
-                                error: '',
-                                loading: false
-                            })
-                        })
-                    }
-
-                }
-            })
-    };
-
-    const showError = () => (
-        <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
-            {error}
-        </div>
-    );
-
-    const showLoading = () => (
-        <div className="alert alert-info" style={{ display: loading ? '' : 'none' }}>
-            <Loading text="Processing login request.... please wait" />
-        </div>
-    );
-
-    const redirectUser = () => {
-        //debugger;
-        if (redirectToReferer) {
-            if (user && user.RoleID === 1) //admin
-                return <Redirect to="/administration/dashboard" />
-            else if (user && (user.RoleID === 2 || user.RoleID === 3)) //staffs
-                // return <Redirect to="/staff/dashboard" />
-                return <Redirect to="/user/profile" />
-            else if (user && user.RoleID === 4)
-                return <Redirect to="/user/profile" />
-            else
-                return <Redirect to="/" />
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setValues({ ...values, error: false, loading: true });
+    login({ UserName, UserPassword }).then((data) => {
+      if (data === undefined) {
+        dispatch(userLoginFailure());
+        setValues({ ...values, error: "Some error occured!", loading: false });
+      } else if (data.error) {
+        dispatch(userLoginFailure());
+        setValues({ ...values, error: data.error, loading: false });
+      } else {
+        if (data.status && data.status.code && data.status.code < 0) {
+          dispatch(userLoginFailure());
+          setValues({ ...values, error: data.status.message, loading: false });
+        } else {
+          //debugger;
+          authenticate(data.result, () => {
+            //debugger;
+            dispatch(userLoginSuccess(data.result));
+            setValues({
+              ...values,
+              redirectToReferer: "/",
+              error: "",
+              loading: false,
+            });
+          });
         }
+      }
+    });
+  };
+
+  const showError = () => (
+    <div
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      {error}
+    </div>
+  );
+
+  const showLoading = () => (
+    <div
+      className="alert alert-info"
+      style={{ display: loading ? "" : "none" }}
+    >
+      <Loading text="Processing login request.... please wait" />
+    </div>
+  );
+
+  const redirectUser = () => {
+    //debugger;
+    if (redirectToReferer) {
+      if (user && user.RoleID === 1)
+        //admin
+        return <Redirect to="/administration/dashboard" />;
+      else if (user && (user.RoleID === 2 || user.RoleID === 3))
+        //staffs
+        // return <Redirect to="/staff/dashboard" />
+        return <Redirect to="/user/profile" />;
+      else if (user && user.RoleID === 4)
+        return <Redirect to="/user/profile" />;
+      else return <Redirect to="/" />;
     }
+  };
 
+  const loginForm = () => (
+    <form onSubmit={handleFormSubmit} className="col-lg-12 col-xs-12 col-sm-12">
+      {/* <div className="shadow-sm p-3 mt-5 mb-5 bg-white rounded col-xs-12 col-sm-12"> */}
+      <div className="row m-1 p-1 d-flex ">
+        <div className="col-lg-2 col-xs-12 col-sm-12">&nbsp;</div>
+        <div className="col-lg-8 col-xs-12 card border-text-muted m-0 p-0 shadow-sm ">
+          <div className="card-header p-0">
+            <div className="bg-card-header text-dark text-left ml-2 pt-2">
+              <h5>Login</h5>
+            </div>
+          </div>
+          <div className="card-body p-3">
+            <div className="form-group">
+              <div className="input-group mb-2">
+                <div className="input-group-prepend">
+                  <div className="input-group-text user-additional-info-label">
+                    <i className="fa fa-user text-adc mr-2"></i>
+                    <span className="form-label">User Name</span>
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="UserName"
+                  name="UserName"
+                  value={UserName}
+                  onChange={handleOnChange("UserName")}
+                  placeholder="Enter your user name"
+                  required
+                />
+              </div>
+            </div>
 
-    const loginForm = () => (
-        <form onSubmit={handleFormSubmit} className="col-lg-12 col-xs-12 col-sm-12">
-            {/* <div className="shadow-sm p-3 mt-5 mb-5 bg-white rounded col-xs-12 col-sm-12"> */}
-            <div className="row m-1 p-1 d-flex ">
-                <div className="col-lg-2 col-xs-12 col-sm-12">&nbsp;</div>
-                <div className="col-lg-8 col-xs-12 card border-text-muted m-0 p-0 shadow-sm ">
-                    <div className="card-header p-0">
-                        <div className="bg-card-header text-dark text-left ml-2 pt-2">
-                            <h5>Login</h5>
-                        </div>
-                    </div>
-                    <div className="card-body p-3">
-                        <div className="form-group">
-                            <div className="input-group mb-2">
-                                <div className="input-group-prepend">
-                                    <div className="input-group-text user-additional-info-label">
-                                        <i className="fa fa-user text-adc mr-2"></i>
-                                        <span className="form-label">User Name</span>
-                                    </div>
-                                </div>
-                                <input type="text" className="form-control"
-                                    id="UserName"
-                                    name="UserName"
-                                    value={UserName}
-                                    onChange={handleOnChange('UserName')}
-                                    placeholder="Enter your user name" required />
-                            </div>
-                        </div>
-
-                        <div className="form-group">
-                            <div className="input-group mb-2">
-                                <div className="input-group-prepend">
-                                    <div className="input-group-text user-additional-info-label">
-                                        <i className="fa fa-key text-adc mr-2"></i>
-                                    Password:
-                                </div>
-                                </div>
-                                <input type="password" className="form-control"
-                                    id="UserPassword"
-                                    name="UserPassword"
-                                    value={UserPassword}
-                                    onChange={handleOnChange('UserPassword')}
-                                    placeholder="Enter your password" required />
-                            </div>
-                        </div>
-                        <div className="col-12 text-center">
-                            <input type="submit" value="LOGIN" className="btn btn-primary pl-4 pr-4 mr-2" />
-                        </div>
-                    </div>
+            <div className="form-group">
+              <div className="input-group mb-2">
+                <div className="input-group-prepend">
+                  <div className="input-group-text user-additional-info-label">
+                    <i className="fa fa-key text-adc mr-2"></i>
+                    Password:
+                  </div>
                 </div>
-                <div className="col-lg-2 col-xs-12 col-sm-12">&nbsp;</div>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="UserPassword"
+                  name="UserPassword"
+                  value={UserPassword}
+                  onChange={handleOnChange("UserPassword")}
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
             </div>
-            {/* </div> */}
-        </form>
-    );
-    return (
-        <Layout>
-            <div className="row">
-                <div className="col-lg-3 col-sm-12">
-                </div>
-                <div className="col-lg-6 col-sm-12 col-xs-12 pt-4">
-                    {showError()}
-                    {showLoading()}
-                    {loginForm()}
-                    {redirectUser()}
-                </div>
-                <div className="col-lg-3 col-sm-12">
-                </div>
+            <div className="col-12 text-center">
+              <input
+                type="submit"
+                value="LOGIN"
+                className="btn btn-primary pl-4 pr-4 mr-2"
+              />
             </div>
-            <div className="row mt-4">
-                <div className="col-lg-3 col-sm-12">&nbsp;</div>
-                <div className="col-lg-3 col-sm-12  mt-1 text-center">
-                    <Link className="p-4 m-1 p-1" to="/user/forgot-password">Forgot Password?</Link>
-                </div>
-                <div className="col-lg-3 col-sm-12 mt-1 text-center">
-                    <Link className="p-4 m-1 p-1" to="/register">New User? Register</Link>
-                </div>
-                <div className="col-lg-3 col-sm-12">&nbsp;</div>
-            </div>
-        </Layout>
-    );
+          </div>
+        </div>
+        <div className="col-lg-2 col-xs-12 col-sm-12">&nbsp;</div>
+      </div>
+      {/* </div> */}
+    </form>
+  );
+  return (
+    <Layout>
+      <div className="row">
+        <div className="col-lg-3 col-sm-12"></div>
+        <div className="col-lg-6 col-sm-12 col-xs-12 pt-4">
+          {showError()}
+          {showLoading()}
+          {loginForm()}
+          {redirectUser()}
+        </div>
+        <div className="col-lg-3 col-sm-12"></div>
+      </div>
+      <div className="row mt-4">
+        <div className="col-lg-3 col-sm-12">&nbsp;</div>
+        <div className="col-lg-3 col-sm-12  mt-1 text-center">
+          <Link className="p-4 m-1 p-1" to="/user/forgot-password">
+            Forgot Password?
+          </Link>
+        </div>
+        <div className="col-lg-3 col-sm-12 mt-1 text-center">
+          <Link className="p-4 m-1 p-1" to="/register">
+            New User? Register
+          </Link>
+        </div>
+        <div className="col-lg-3 col-sm-12">&nbsp;</div>
+      </div>
+    </Layout>
+  );
 }
 
 export default Login;
