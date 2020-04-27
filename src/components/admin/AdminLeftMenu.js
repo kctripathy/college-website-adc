@@ -4,7 +4,7 @@ import { isAuthenticated } from "../../api/user";
 
 const AdminLeftMenu = (props) => {
   const { UserReferenceID } = isAuthenticated();
-
+  console.log("....AdminLeftMenu");
   return (
     <>
       <MenuListItem
@@ -79,4 +79,4 @@ const AdminLeftMenu = (props) => {
   );
 };
 
-export default AdminLeftMenu;
+export default React.memo(AdminLeftMenu);

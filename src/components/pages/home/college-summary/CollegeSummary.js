@@ -87,31 +87,31 @@ const CollegeSummary = () => {
       <div className="col-lg-12 col-sm-12 total category m-0 p-0 mr-2 text-success">
         <div className="category-label">General</div>
         <div className="category-value">
-          <span className="badge badge-success p-2">
+          <span className="badge badge-success m-0 p-2">
             {students.count.total_category_general}
           </span>
         </div>
         <div className="category-label">OBC</div>
         <div className="category-value">
-          <span className="badge badge-success p-2">
+          <span className="badge badge-success m-0 p-2">
             {students.count.total_category_OBC}
           </span>
         </div>
         <div className="category-label">SC</div>
         <div className="category-value">
-          <span className="badge badge-success p-2">
+          <span className="badge badge-success m-0 p-2">
             {students.count.total_category_SC}
           </span>
         </div>
         <div className="category-label">ST</div>
         <div className="category-value">
-          <span className="badge badge-success p-2">
+          <span className="badge badge-success m-0 p-2">
             {students.count.total_category_ST}
           </span>
         </div>
         <div className="category-label">Other</div>
         <div className="category-value">
-          <span className="badge badge-success p-2">
+          <span className="badge badge-success m-0 p-2">
             {students.count.total_category_others}
           </span>
         </div>

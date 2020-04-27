@@ -5,7 +5,7 @@ import { WEB_URL } from "../../../config";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
-export default function ImageGallery() {
+function ImageGallery() {
   const state = useSelector((state) => state.estb);
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
@@ -53,3 +53,5 @@ export default function ImageGallery() {
     </div>
   );
 }
+
+export default ImageGallery;

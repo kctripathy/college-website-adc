@@ -1,80 +1,78 @@
 .total {
-    float: right;
-    font-weight: 400 !important;
-    font-size: 17px !important;
-    margin-top: 8px !important;
-    padding: 10px !important;
+  float: right;
+  font-weight: 400 !important;
+  font-size: 17px !important;
+  margin-top: 8px !important;
+  padding: 10px !important;
 }
 
 .text-large {
-    font-weight: 600 !important;
-    font-size: 21px !important;    
+  font-weight: 600 !important;
+  font-size: 21px !important;
 }
 
 .sub-total-left {
-    display: block;
-    float: left;
-    width: 75%;
-    padding: 1px 0px;
-    text-align: left;
-    padding-right: 5px;
+  display: block;
+  float: left;
+  width: 75%;
+  padding: 1px 0px;
+  text-align: left;
+  padding-right: 5px;
 }
 
 .sub-total-right {
-    display: block;
-    float: right;
-    font-weight: bold;
-    width: 25%;
-    text-align: right;
-    padding-top: 6px !important;
-    margin-top: 2px !important;
+  display: block;
+  float: right;
+  font-weight: bold;
+  width: 25%;
+  text-align: right;
+  padding-top: 6px !important;
+  margin-top: 2px !important;
 }
 
 .category {
-    position: relative;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    border-top: solid 1px #ddd !important;
-     
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  border-top: solid 1px #ddd !important;
 }
 .category > div {
-    display: block;
-    float: left;
-    width: 50%;
-    margin: 1px 0px;
-    padding: 1px 0px
+  display: block;
+  float: left;
+  width: 50%;
+  margin: 1px 0px;
+  padding: 1px 0px;
 }
 .category-label {
-    color: darkgreen;
-    font-weight: bold;
-    text-align: left;
-    padding-left: 11px !important;
+  color: darkgreen;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 11px !important;
 }
 .category-label::after {
-    content: "  : ";
+  content: "  : ";
 }
 .category-value {
-    color: darkgreen;
-    font-weight: bold;
-    text-align: right;
-    padding-right: 11px !important;
+  color: darkgreen;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 10px !important;
 }
 .text-dark-green {
-    color: darkgreen  !important;   
+  color: darkgreen !important;
 }
 [data-fit-text] {
-    /* Sized via the viewport, but the --width variable could be set by JS based on the element or parent's width. */
-    --width: 100vw;
-  
-    /* Adjust scale depending on your exact font.  */
-    --scale: 0.9;
-  
-    font-size: calc(var(--width) / (var(--length, 1) * 0.5) * var(--scale, 1));
-  
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    line-height: 1;
-    margin: 1rem 0;
-  }
-  
+  /* Sized via the viewport, but the --width variable could be set by JS based on the element or parent's width. */
+  --width: 100vw;
+
+  /* Adjust scale depending on your exact font.  */
+  --scale: 0.9;
+
+  font-size: calc(var(--width) / (var(--length, 1) * 0.5) * var(--scale, 1));
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  margin: 1rem 0;
+}

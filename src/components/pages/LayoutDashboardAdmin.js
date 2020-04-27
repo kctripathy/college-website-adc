@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated, logout } from "../../api/user";
 import { API_URL } from "../../config";
@@ -14,14 +14,14 @@ function LayoutDashboardAdmin(props) {
   const [userProfile, setUserProfile] = useState([]);
   const [run, setRun] = useState(true);
   const {
-    UserID,
+    //UserID,
     UserName,
-    UserType,
-    UserFirstName,
+    //UserType,
+    //UserFirstName,
     UserReferenceID,
     UserReferenceName,
     RoleID,
-    RoleDescription,
+    //RoleDescription,
   } = isAuthenticated();
 
   useEffect(() => {

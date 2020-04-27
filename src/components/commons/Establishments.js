@@ -15,9 +15,10 @@ import { WEB_URL } from "../../config";
 const Establishments = (props) => {
   const estb = useSelector((state) => state.estb);
   const dispatch = useDispatch();
-  const [totalRecordsToShow] = useState(7);
+  const [totalRecordsToShow] = useState(8);
 
   useEffect(() => {
+    //console.log("useEffect.....Establishments......");
     if (estb.establishments.length === 0) dispatch(fetchEstablishments());
   }, []);
 
@@ -48,6 +49,7 @@ const Establishments = (props) => {
   };
 
   const showEstablishment = (typecode) => {
+    //console.log("showEstablishment().....Establishments......");
     var counter = 1;
     return estb.loading ? (
       <Loading text="Retriving establishments..." />
@@ -130,4 +132,6 @@ const Establishments = (props) => {
   );
 };
 
-export default Establishments;
+const MemoizedEstablishments = React.memo(Establishments);
+
+export default MemoizedEstablishments;
