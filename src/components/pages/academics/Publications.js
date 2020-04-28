@@ -5,6 +5,8 @@ import moment from "moment";
 import { EstbTypeCode } from "../../../constants/actionTypes";
 import { fetchEstablishments } from "../../../actionMethods/estbActionMethods";
 import Loading from "../../commons/Loading";
+import PersonImage from "../../commons/PersonImage";
+
 import Tabs from "../../commons/Tabs";
 import "./Publications.css";
 import PDFImage from "../../../assets/images/pdf_16x16.gif";
@@ -44,8 +46,17 @@ const Publications = () => {
 
                     <small>
                       Published Date: {moment(estb.EstbDate).format("LLLL")} (
-                      {moment(estb.EstbDate).fromNow()}) &nbsp; &nbsp; |
-                      &nbsp;&nbsp; Added By: {estb.AuthorOrContributorName}
+                      {moment(estb.EstbDate).fromNow()}) &nbsp; | &nbsp; Added
+                      By: &nbsp;
+                      <PersonImage
+                        usertype="employee"
+                        id={estb.AddedBy}
+                        height="20px"
+                        width="20px"
+                      />
+                      <Link to={`/staffdetails/${estb.AddedBy}`}>
+                        {estb.AuthorOrContributorName}
+                      </Link>
                     </small>
 
                     {estb.FileNameWithPath.length === 0 ? (

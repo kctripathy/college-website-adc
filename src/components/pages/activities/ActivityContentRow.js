@@ -1,8 +1,10 @@
 import React from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 import ThumbnailImage from "../../commons/ThumbnailImage";
 import ThumbnailDocument from "../../commons/ThumbnailDocument";
 import titleCase, { isAnImage } from "../../commons/CommonFunctions";
+import PersonImage from "../../commons/PersonImage";
 
 export default function ActivityContentRow(props) {
   return (
@@ -11,21 +13,27 @@ export default function ActivityContentRow(props) {
       style={{ borderBottom: "double 3px #ccc" }}
     >
       <div className="col-lg-10 col-sm-12 m-0 p-1">
+        <b>{props.establishment.EstbTitle.toUpperCase()}</b>
+        <br />
+        <small>
+          <PersonImage
+            usertype="employee"
+            id={props.establishment.AddedBy}
+            height="20px"
+            width="20px"
+          />
+          <Link to={`/staffdetails/${props.establishment.AddedBy}`}>
+            {titleCase(props.establishment.AuthorOrContributorName)}
+          </Link>
+        </small>{" "}
+        &nbsp; . &nbsp;
         <small className="mr-1">
-          Activity Date: &nbsp;
-          {moment(props.establishment.EstbDate).format(
-            "DD MMM YYYY HH:MM"
-          )}{" "}
+          {moment(props.establishment.EstbDate).format("DD MMM YYYY HH:MM")}{" "}
           &nbsp; ({moment(props.establishment.EstbDate).fromNow()})
         </small>
-
-        <br />
-        <b>{props.establishment.EstbTitle.toUpperCase()}</b>
-        {props.establishment.EstbDescription}
-        <small>
-          Content Added By:{" "}
-          {titleCase(props.establishment.AuthorOrContributorName)}
-        </small>
+        <p className="text-first-letter">
+          {props.establishment.EstbDescription}
+        </p>
       </div>
       <div className="col-lg-2 col-sm-12 m-0 p-1">
         {props.establishment.FileNameWithPath.length > 0 &&

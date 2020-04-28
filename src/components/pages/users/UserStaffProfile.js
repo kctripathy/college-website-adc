@@ -250,10 +250,10 @@ export default function UserStaffProfile(props) {
 
             <UserProfileRow
               rowType="number"
-              rowID="PhoneNumber"
-              rowName="PhoneNumber"
+              rowID="Mobile"
+              rowName="Mobile"
               rowTitle="Mobile Phone Number"
-              rowValue={PhoneNumber}
+              rowValue={Mobile}
               isReadOnly={false}
               isDisabled={false}
               onUserProfileRowTextChanged={(e) => textBoxChangeHandler(e)}
@@ -261,15 +261,14 @@ export default function UserStaffProfile(props) {
 
             <UserProfileRow
               rowType="number"
-              rowID="Mobile"
-              rowName="Mobile"
+              rowID="PhoneNumber"
+              rowName="PhoneNumber"
               rowTitle="Alternate Phone Number"
-              rowValue={Mobile}
+              rowValue={PhoneNumber}
               isReadOnly={false}
               isDisabled={false}
               onUserProfileRowTextChanged={(e) => textBoxChangeHandler(e)}
             />
-
             {/* <UserProfileRow
                             rowType="text"
                             rowID="empRole"

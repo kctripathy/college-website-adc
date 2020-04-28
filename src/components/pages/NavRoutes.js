@@ -87,6 +87,7 @@ function NavRoutes() {
         <Route path="/students/:page" component={StudentPages} exact />
 
         <Route path="/staffs" component={Staffs} exact />
+        <Route path="/staffdetails/:emp_id" component={StaffDetails} exact />
 
         <Route path="/library" component={Books} exact />
         <Route path="/admin/:section" component={CollegeAdmin} exact />
