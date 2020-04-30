@@ -91,12 +91,16 @@ const Establishments = (props) => {
                       <div className="m-0 p-0">
                         <small>
                           <small className="text-muted">
-                            {moment(estb.EstbDate).format("DD MMM YYYY HH:MM")}
-                            <em> ({moment(estb.EstbDate).fromNow()}</em>) &nbsp;
-                            | &nbsp;
-                            <Link to={`/staffdetails/${estb.AddedBy}`}>
-                              {estb.AuthorOrContributorName}
-                            </Link>
+                            {moment(estb.EstbDate).format("llll")}
+                            {/*  ({moment(estb.EstbDate).fromNow()}</em>)  */}
+                            &nbsp; :: &nbsp;
+                            {estb.AddedBy > 2 ? (
+                              <Link to={`/staffdetails/${estb.AddedBy}`}>
+                                {estb.AuthorOrContributorName}
+                              </Link>
+                            ) : (
+                              ""
+                            )}
                           </small>
                         </small>
                         <span className="d-block float-right mr-1">

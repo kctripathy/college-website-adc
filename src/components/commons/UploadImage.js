@@ -148,7 +148,7 @@ class UploadImage extends React.Component {
                 }}
               />
             </div>
-            <pre>{JSON.stringify(this.state, null, 4)}</pre>
+            {/* <pre>{JSON.stringify(this.state, null, 4)}</pre> */}
           </div>
         </form>
       </div>

@@ -26,7 +26,9 @@ const Publications = () => {
     ) : (
       <ul className="publications-heading">
         {estb.establishments
-          .filter((e) => e.EstbTypeCode === typecode)
+          .filter(
+            (e) => e.EstbTypeCode === typecode && e.EstbStatusFlag === "A"
+          )
           .map((estb) => {
             return (
               <li key={estb.EstbID}>

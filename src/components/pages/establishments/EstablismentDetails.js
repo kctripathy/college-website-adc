@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import Iframe from "react-iframe";
+import { Link } from "react-router-dom";
 import WordDocImage from "../../../assets/images/word-icon.gif";
-//import { Document, Page, pdfjs } from "react-pdf";
-// import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import PersonImage from "../../commons/PersonImage";
+
 import moment from "moment";
 import Layout from "../Layout";
-import { CORS_URL, WEB_URL } from "../../../config";
-import titleCase, {
-  isAnImage,
-  isPDF,
-  isDocument,
-} from "../../commons/CommonFunctions";
+import { WEB_URL } from "../../../config";
+import { isAnImage, isPDF, isDocument } from "../../commons/CommonFunctions";
 
 //pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -70,17 +67,26 @@ const EstablishmentDetails = (props) => {
           <div className="row mt-2 ml-2">
             <div className="col-lg-6 col-xs-12 col-sm-12 text-justify">
               {/* <h5>{titleCase(establishment.EstbTypeCodeDesc)}</h5> */}
+              <h6>{establishment.EstbTitle}</h6>
               <small className="mr-4">
-                <b> Date:</b>&nbsp;{" "}
+                <PersonImage
+                  usertype="employee"
+                  id={establishment.AddedBy}
+                  height="20px"
+                  width="20px"
+                />
+                <Link to={`/staffdetails/${establishment.AddedBy}`}>
+                  {establishment.AuthorOrContributorName}
+                </Link>
+                &nbsp; : &nbsp;
                 {moment(establishment.EstbDate).format("LLLL")} (
                 {moment(establishment.EstbDate).fromNow()})
               </small>
-              <br />
-              <small className="mr-4">
-                <b>Added By:</b>&nbsp; {establishment.AuthorOrContributorName}
-              </small>
+
+              {/* <small className="mr-4">
+                <b>Added By:</b>&nbsp; {establishment.AuthorOrContributorName}                
+              </small> */}
               <hr />
-              <h6>{establishment.EstbTitle}</h6>
               <p className="line-break">
                 {establishment.EstbTitle === establishment.EstbDescription
                   ? ""

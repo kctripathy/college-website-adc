@@ -10,7 +10,7 @@ export default function StudentsUnion() {
   const showContent = () => (
     <ul className="list-group mb-4">
       <li className="list-group-item">
-        <h6> Aims and objects of the Students’ Union :</h6>
+        <h6> Aims and objectives of the Students’ Union :</h6>
         <ul style={{ listStyleType: "disc" }}>
           <li>To represent the welfare and interest of the Students.</li>
           <li>

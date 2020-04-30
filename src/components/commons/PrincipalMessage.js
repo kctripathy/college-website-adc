@@ -35,13 +35,13 @@ const PrincipalMessage = (props) => {
   );
 
   return (
-    <div>
+    <div style={{ paddingTop: "20px" }}>
       <h4 className="home-section-title">Principal's Message</h4>
-      <img className="text-wrap m-0 ml-2 pt-2" src={PrincipalPhoto}></img>
+      <img className="text-wrap m-0 ml-2 p-2" src={PrincipalPhoto}></img>
       <p className="text-justify">
-        It is with great pleasure that I welcome you to the official website of
-        our <strong>Anchalika Degree College</strong>, Jagannath Prasad, Ganjam
-        (Odisha)
+        Welcome you to the official website of our{" "}
+        <strong>Anchalika Degree College</strong>, Jagannath Prasad, Ganjam
+        (Odisha) - 761121
       </p>
       <p className="text-justify">
         Situating in the block head quarter and a peaceful area, the college has
