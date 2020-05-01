@@ -3,6 +3,7 @@ import { post } from "axios";
 import { Redirect } from "react-router-dom";
 import { API_URL } from "../../config";
 import { isAuthenticated } from "../../api/user";
+import { getFileSize } from "../commons/CommonFunctions";
 
 class UploadImage extends React.Component {
   constructor(props) {
@@ -20,7 +21,12 @@ class UploadImage extends React.Component {
   }
 
   validateForm = () => {
-    return true;
+    if (this.state.error.length > 0) {
+      alert(this.state.error);
+      return false;
+    } else {
+      return true;
+    }
   };
 
   async submit(e) {
@@ -32,6 +38,10 @@ class UploadImage extends React.Component {
         error: "Please choose a file",
       });
       return;
+    }
+
+    if (this.validateForm() === false) {
+      return false;
     }
 
     const url = `${API_URL}/user/UploadPhoto/${this.state.user.UserType}/${this.state.user.UserReferenceID}`;
@@ -67,9 +77,22 @@ class UploadImage extends React.Component {
   }
 
   setFile(e) {
+    // debugger;
+    // var error_message = "";
+    // if (e.target.files[0].size > 1024 * 512) {
+    //   var size_of_file = Number(
+    //     e.target.files[0].size / (1024 * 1024).toFixed(2)
+    //   );
+
+    //   error_message = `You selected a file with ${Number(size_of_file).toFixed(
+    //     2
+    //   )} MB. Please choose a file with in 512KB`;
+    // }
+
     this.setState({
       ...this.state,
       file: e.target.files[0],
+      file_size: e.target.files[0].size,
       previewFile: URL.createObjectURL(e.target.files[0]),
       error: "",
       success: "",
@@ -94,6 +117,7 @@ class UploadImage extends React.Component {
   };
 
   handleSize = (image) => {
+    //console.log(image);
     // debugger
     // if (image !== null) {
     //     //console.log(image.offsetWidth, image.offsetHeight)
@@ -108,6 +132,29 @@ class UploadImage extends React.Component {
     //     }
     // }
   };
+
+  onLoadImage = (e) => {
+    //console.log("on load image - e ", e);
+    //debugger;
+    var err = "";
+    if (
+      e.currentTarget.naturalHeight > 300 ||
+      e.currentTarget.naturalWidth > 300
+    ) {
+      err =
+        "Please choose a file with correct dimension (height and width between 300px X 300px) ";
+      if (this.state.file_size > 1024 * 50) {
+        err = err + " and Size with in 50 KB";
+      }
+    }
+    this.setState({
+      ...this.state,
+      file_height: e.currentTarget.naturalHeight,
+      file_width: e.currentTarget.naturalWidth,
+      error: err,
+    });
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -116,13 +163,22 @@ class UploadImage extends React.Component {
             className="row"
             style={{ display: this.state.processing ? "block" : "none" }}
           >
-            <div className="col-12 bg-page-title mb-4">
+            <div className="col-12 bg-page-title mb-4 pt-4">
               <b>{this.props.title}</b>
-              <em className="ml-4">
-                (please choose a profile photo with width of 200px to 250px and
-                height between 125px to 150px)
-              </em>
             </div>
+
+            <div className="col-12 m-2 alert alert-text-muted mt-2 text-center">
+              Note:
+              <ul style={{ listStyleType: "none" }}>
+                <li>Please upload a jpg/png/gif file with maximum 50 KB</li>
+                <li>
+                  Please choose a profile photo with height:width equals to 1:1
+                  ratio. (Preferably 300px height & 300px width)
+                  {/* <pre>{JSON.stringify(this.state, null, 4)}</pre> */}
+                </li>
+              </ul>
+            </div>
+
             <div className="col-12 mb-4">
               <input type="file" onChange={(e) => this.setFile(e)} />
               <button className="btn btn-primary m-2" type="submit">
@@ -133,6 +189,7 @@ class UploadImage extends React.Component {
               {this.showSuccessMessage()}
               {this.showFailureMessage()}
             </div>
+
             <div
               className="col-12 m-2"
               style={{
@@ -141,14 +198,32 @@ class UploadImage extends React.Component {
                 overflow: "auto",
               }}
             >
+              <p
+                style={{
+                  display: this.state.file_height ? "" : "none",
+                  borderTop: "solid 1px #ccc",
+                }}
+              >
+                <span>
+                  File Dimension:-{" "}
+                  <em>
+                    Height: {this.state.file_height} & Width:{" "}
+                    {this.state.file_width}
+                  </em>
+                </span>
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <span>
+                  File Size:- <em>{getFileSize(this.state.file_size)}</em>
+                </span>
+              </p>
               <img
                 src={this.state.previewFile}
                 ref={(image) => {
                   this.handleSize(image);
                 }}
+                onLoad={(e) => this.onLoadImage(e)}
               />
             </div>
-            {/* <pre>{JSON.stringify(this.state, null, 4)}</pre> */}
           </div>
         </form>
       </div>

@@ -3,6 +3,7 @@ import { post } from "axios";
 import { Redirect } from "react-router-dom";
 import { API_URL } from "../../config";
 import { isAuthenticated } from "../../api/user";
+import { Spinner } from "reactstrap";
 
 class UploadFile extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class UploadFile extends React.Component {
       file: "",
       user: isAuthenticated(),
       processing: true,
+      isUploading: false,
       error: "",
       success: "",
     };
@@ -25,7 +27,18 @@ class UploadFile extends React.Component {
         error: "Please choose a file",
       });
       return false;
+    } else if (this.state.file_size > 1024 * 1024 * 2) {
+      this.setState({
+        ...this.state,
+        error: "Please choose a file within 2MB",
+      });
+      return false;
     }
+    this.setState({
+      ...this.state,
+      isUploading: true,
+    });
+
     return true;
   };
 
@@ -82,6 +95,7 @@ class UploadFile extends React.Component {
     this.setState({
       ...this.state,
       file: e.target.files[0],
+      file_size: e.target.files[0].size,
       //previewFile: URL.createObjectURL(e.target.files[0]),
       error: "",
       success: "",
@@ -107,6 +121,15 @@ class UploadFile extends React.Component {
     );
   };
 
+  showUploadingMessage = () => {
+    return this.state.isUploading ? (
+      <div className="alert alert-primary">
+        <Spinner></Spinner>Uploading... please wait
+      </div>
+    ) : (
+      ""
+    );
+  };
   render() {
     return (
       <div className="container-fluid">
@@ -141,6 +164,7 @@ class UploadFile extends React.Component {
               </button>
             </div>
             <div className="col-12 m-2">
+              {this.showUploadingMessage()}
               {this.showSuccessMessage()}
               {this.showFailureMessage()}
             </div>
@@ -154,15 +178,12 @@ class UploadFile extends React.Component {
               Note:
               <ul>
                 <li>
-                  <em>
-                    Please upload a pdf/doc/jpg/gif/png file related to the
-                    recently added record
-                  </em>
+                  <em>Please upload a pdf/doc/jpg/gif/png file within 2MB</em>
                 </li>
                 <li>
                   <em>
-                    Please try to avoid large files. If you wish it so, please
-                    zip it and upload
+                    Please try to avoid large files. If you wish to do so,
+                    please zip it and upload
                   </em>
                 </li>
               </ul>

@@ -106,6 +106,18 @@ const getCurrentDateTime = () => {
   var dateTime = date + " " + time;
   return dateTime;
 };
+
+const getFileSize = (size) => {
+  //const OneMB = 1024 * 1024;
+  var ReturnValue = "";
+  if (size > 1024 * 1024) {
+    ReturnValue = ` ${(size / (1024 * 1024)).toFixed(2)} MB`;
+  } else {
+    ReturnValue = `${(size / 1024).toFixed(2)} KB`;
+  }
+  return ReturnValue;
+};
+
 export {
   upperCase,
   getCurrentDate,
@@ -115,4 +127,5 @@ export {
   isDocument,
   isPDF,
   isAnImage,
+  getFileSize,
 };
