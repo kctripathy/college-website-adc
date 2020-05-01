@@ -9,7 +9,7 @@ import { isAnImage, isPDF, isDocument } from "../commons/CommonFunctions";
 import Loading from "./Loading";
 import UploadFile from "./UploadFile";
 import PDFImage from "../../assets/images/pdf_16x16.gif";
-import PcitureImage from "../../assets/images/img_16x16.png";
+import PcitureImage from "../../assets/images/img_64x64.png";
 import WordDocImage from "../../assets/images/word-icon.gif";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
@@ -150,7 +150,7 @@ export default function EstablishmentsApprove({
           if (params.value.length > 0) {
             if (isAnImage(params.value) === true) {
               url = `<a href='${WEB_URL}/Documents/${params.value}' target='_blank'>                                 
-                                <img src='${PcitureImage}' alt='${params.value}'  />
+                                <img src='${PcitureImage}' alt='${params.value}' height="16px"  />
                             </a>`;
             } else if (isPDF(params.value) === true) {
               url = `<a href='${WEB_URL}/Documents/${params.value}' target='_blank'> 

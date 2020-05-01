@@ -5,7 +5,7 @@ import { isAuthenticated, updateEstablishments } from "../../api/user";
 import { CORS_URL, WEB_URL } from "../../config";
 
 import PDFImage from "../../assets/images/pdf_16x16.gif";
-import PcitureImage from "../../assets/images/img_16x16.png";
+import PcitureImage from "../../assets/images/img_64x64.png";
 import WordDocImage from "../../assets/images/word-icon.gif";
 
 import { isAnImage, isPDF, isDocument } from "./CommonFunctions";
