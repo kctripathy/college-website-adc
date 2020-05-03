@@ -5,7 +5,7 @@ export default function Spinner() {
     <>
       <span
         className="spinner-border spinner-border-sm"
-        style={{ width: "15px", height: "15px" }}
+        style={{ width: "35px", height: "35px" }}
         role="status"
         aria-hidden="true"
       ></span>

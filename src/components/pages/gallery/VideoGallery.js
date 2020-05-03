@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Layout from "../Layout";
-import ReactPlayer from "react-player";
+//import ReactPlayer from "react-player";
+import VideoCard from "./VideoCard";
 import Loading from "../../commons/Loading";
 import { EstbTypeCode } from "../../../constants/actionTypes";
 import { fetchEstablishments } from "../../../actionMethods/estbActionMethods";
@@ -13,31 +14,18 @@ export default function VideoGallery() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    debugger;
+    //debugger;
     if (!state.videos) {
       dispatch(fetchEstablishments());
     }
   }, []);
 
   const showVideoGallery = () => {
+    //setIsLoading(false);
     return (
       state.videos &&
       state.videos.map((vdo, i) => {
-        return (
-          <div key={i} className="col-lg-4 col-sm-12 m-0 p-1 text-center">
-            <div className="player-wrapper">
-              <ReactPlayer
-                className="react-player"
-                url={vdo.EstbTitle}
-                width="100%"
-                height="100%"
-                controls={true}
-                onReady={() => setIsLoading(false)}
-              />
-              {/* <video loop muted autoPlay src={vdo.url} /> */}
-            </div>
-          </div>
-        );
+        return <VideoCard key={i} video={vdo} />;
       })
     );
   };
@@ -53,7 +41,7 @@ export default function VideoGallery() {
         className="row m-0 p-0 text-center d-flex"
         style={{ overflow: "hidden" }}
       >
-        {showLoading()}
+        {/* {showLoading()} */}
         {showVideoGallery()}
       </div>
     </Layout>
