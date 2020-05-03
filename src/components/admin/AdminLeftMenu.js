@@ -19,60 +19,60 @@ const AdminLeftMenu = (props) => {
       />
       <MenuListItem
         destination="/administration/establishment/notice"
-        title="Notice"
+        title="Add Notice"
         addview={true}
       />
       <MenuListItem
         destination="/administration/establishment/tender"
-        title="Tender"
+        title="Add Tender"
         addview={true}
       />
       <MenuListItem
         destination="/administration/establishment/circular"
-        title="Circular"
+        title="Add Circular"
         addview={true}
       />
 
       <MenuListItem
         destination={`/user/add-activity/staff/${UserReferenceID}`}
-        title="Activity"
+        title="Add Activity"
         addview={true}
       />
       <MenuListItem
         destination={`/user/add-publication/staff/${UserReferenceID}`}
-        title="Publication"
+        title="Add Publication"
         addview={true}
       />
 
       <MenuListItem
         destination="/administration/establishment/photo"
-        title="Photo"
+        title="Add Photo to Gallery"
         addview={true}
       />
       <MenuListItem
         destination="/administration/establishment/video"
-        title="Video"
+        title="Add Video to Gallery"
         addview={true}
       />
       <MenuListItem
         destination="/administration/establishment/media"
-        title="Media"
+        title="Add Media to Gallery"
         addview={true}
       />
 
       <MenuListItem
         destination="/administration/establishment/syllabus"
-        title="Syllabus"
+        title="Add Syllabus"
         addview={true}
       />
       <MenuListItem
         destination="/administration/establishment/download"
-        title="Download"
+        title="Add to Download"
         addview={true}
       />
       <MenuListItem
         destination="/administration/establishment/meeting"
-        title="Meeting"
+        title="Add Minutes of Meeting"
         addview={true}
       />
     </>

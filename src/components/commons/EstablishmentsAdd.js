@@ -20,7 +20,7 @@ export default function EstablishmentsAdd({ title, code, description }) {
     EstbTitle: "",
     EstbDescription: "",
     EstbFile: "",
-    EstbShouldUpload: true,
+    EstbShouldUpload: null,
   });
 
   const { UserID } = isAuthenticated();
@@ -42,14 +42,21 @@ export default function EstablishmentsAdd({ title, code, description }) {
       EstbTitle: "",
       EstbDescription: "",
       EstbTypeCodeDescription: titleCase(description),
+      EstbShouldUpload: code !== "VDO",
     });
   }, [code]);
 
   const validateFormFields = () => {
     let isSuccess = true;
     let message = "";
+    if (code === "VDO") {
+      if (!EstbTitle.includes("http")) {
+        isSuccess = false;
+        message = "Please enter a video link in the Title";
+      }
+    }
     setSuccess("");
-    setError("");
+    setError(message);
 
     return isSuccess;
   };
@@ -149,7 +156,9 @@ export default function EstablishmentsAdd({ title, code, description }) {
             className="form-control"
             id="EstbTitle"
             value={EstbTitle}
-            placeholder={`Enter the title for new ${EstbTypeCodeDescription}`}
+            placeholder={`Enter the ${
+              code === "VDO" ? "YouTube / Facebook link" : "title"
+            } for new ${EstbTypeCodeDescription}`}
             onChange={handleChangeFormField}
             required
           />
@@ -168,7 +177,10 @@ export default function EstablishmentsAdd({ title, code, description }) {
             required
           />
         </div>
-        <div className="form-group mt-2">
+        <div
+          className="form-group mt-2"
+          style={{ display: code === "VDO" ? "none" : "" }}
+        >
           <input
             type="checkbox"
             className="form-control-1 mr-2"

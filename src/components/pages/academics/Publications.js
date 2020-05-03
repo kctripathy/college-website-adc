@@ -10,7 +10,11 @@ import PersonImage from "../../commons/PersonImage";
 import Tabs from "../../commons/Tabs";
 import "./Publications.css";
 import PDFImage from "../../../assets/images/pdf_16x16.gif";
+import PcitureImage from "../../../assets/images/img_64x64.png";
+import WordDocImage from "../../../assets/images/word-icon.gif";
+import { isAnImage, isPDF, isDocument } from "../../commons/CommonFunctions";
 import { CORS_URL, WEB_URL } from "../../../config";
+import DateAuthorSignature from "../../commons/DateAuthorSignature";
 
 const Publications = () => {
   const estb = useSelector((state) => state.estb);
@@ -19,6 +23,44 @@ const Publications = () => {
   useEffect(() => {
     if (estb.establishments.length === 0) dispatch(fetchEstablishments());
   }, []);
+
+  const showImageIcon = (filename) => {
+    var url = "";
+    if (filename.length > 0) {
+      if (isAnImage(filename) === true) {
+        return (
+          <a href={`${WEB_URL}/Documents/${filename}`} target="_blank">
+            <img
+              src={PcitureImage}
+              alt={filename}
+              style={{ height: "16px", float: "right" }}
+            />
+          </a>
+        );
+      } else if (isPDF(filename) === true) {
+        return (
+          <a href={`${WEB_URL}/Documents/${filename}`} target="_blank">
+            <img
+              src={PDFImage}
+              alt={filename}
+              style={{ height: "16px", float: "right" }}
+            />
+          </a>
+        );
+      } else if (isDocument(filename) === true) {
+        return (
+          <a href={`${WEB_URL}/Documents/${filename}`} target="_blank">
+            <img
+              src={WordDocImage}
+              alt={filename}
+              style={{ height: "16px", float: "right" }}
+            />
+          </a>
+        );
+      }
+    }
+    return url;
+  };
 
   const showPublication = (typecode) => {
     return estb.loading ? (
@@ -44,12 +86,18 @@ const Publications = () => {
                     >
                       {estb.EstbTitleZone}
                     </Link>
-                    <br />
-
-                    <small>
+                    {estb.FileNameWithPath.length > 0 &&
+                      showImageIcon(estb.FileNameWithPath)}
+                    <DateAuthorSignature
+                      date={estb.EstbDate}
+                      addedBy={estb.AddedBy}
+                      author={estb.AuthorOrContributorName}
+                    />
+                    {/* <small>
                       Published Date: {moment(estb.EstbDate).format("LLLL")} (
-                      {moment(estb.EstbDate).fromNow()}) &nbsp; | &nbsp; Added
-                      By: &nbsp;
+                      {moment(estb.EstbDate).fromNow()}) &nbsp;
+                      <i className="fas fa-circle fa-xs"></i> &nbsp; Added By:
+                      &nbsp;
                       <PersonImage
                         usertype="employee"
                         id={estb.AddedBy}
@@ -59,22 +107,7 @@ const Publications = () => {
                       <Link to={`/staffdetails/${estb.AddedBy}`}>
                         {estb.AuthorOrContributorName}
                       </Link>
-                    </small>
-
-                    {estb.FileNameWithPath.length === 0 ? (
-                      ""
-                    ) : (
-                      <a
-                        href={`${WEB_URL}/Documents/${estb.FileNameWithPath}`}
-                        target="_blank"
-                      >
-                        <img
-                          src={PDFImage}
-                          style={{ float: "right" }}
-                          alt={estb.EstbTitle}
-                        />
-                      </a>
-                    )}
+                    </small> */}
                   </li>
                 </ul>
               </li>

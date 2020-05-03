@@ -11,6 +11,8 @@ import UploadFile from "./UploadFile";
 import PDFImage from "../../assets/images/pdf_16x16.gif";
 import PcitureImage from "../../assets/images/img_64x64.png";
 import WordDocImage from "../../assets/images/word-icon.gif";
+import VideoImage from "../../assets/images/video-camera-icon.png";
+
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import "./Establishments.css";
@@ -60,9 +62,9 @@ export default function EstablishmentsApprove({
     //console.log(params)
     //debugger;
     if (params.data.Status === "Pending") {
-      return { background: "#eeeeee" };
+      return { background: "#ffff66", fontWeight: "bold" };
     } else if (params.data.Status === "Approved") {
-      return { background: "#ccffcc", color: "#009900" };
+      return { background: "#b3ff66", color: "#003300" };
     } else if (params.data.Status === "Rejected") {
       return {
         background: "#ffe6e6",
@@ -96,7 +98,7 @@ export default function EstablishmentsApprove({
         field: "",
         sortable: true,
         filter: true,
-        width: 40,
+        width: 50,
         checkboxSelection: true,
         pinned: "left",
         // ,cellClass: function (params) {
@@ -110,14 +112,14 @@ export default function EstablishmentsApprove({
         field: "Date",
         sortable: true,
         filter: true,
-        width: 80,
+        width: 100,
       },
       {
         headerName: "Type",
         field: "Type",
         sortable: true,
         filter: true,
-        width: 80,
+        width: 130,
       },
       {
         headerName: "Title",
@@ -137,7 +139,7 @@ export default function EstablishmentsApprove({
         field: "Description",
         sortable: false,
         filter: true,
-        width: 250,
+        width: 200,
       },
       {
         headerName: "View",
@@ -161,6 +163,13 @@ export default function EstablishmentsApprove({
                             <img src='${WordDocImage}' alt='${params.value}' />
                             </a>`;
             }
+          }
+          //console.log(params.data);
+
+          if (params.data.Type === "Video") {
+            url = `<a href='${params.data.Title}' target='_blank'>                                               
+                        <img src='${VideoImage}' alt='${params.value}' />              
+                    </a>`;
           }
           return url;
         },
@@ -188,11 +197,11 @@ export default function EstablishmentsApprove({
       },
 
       {
-        headerName: "",
+        headerName: "Edit",
         field: "",
         sortable: false,
         filter: false,
-        width: 60,
+        width: 80,
         cellRenderer: function (params) {
           return `<a href='#'> <i class="fa fa-edit mr-1"></i>edit</a>`;
         },
@@ -321,6 +330,7 @@ export default function EstablishmentsApprove({
   };
 
   const updateEstablishment = () => {
+    //debugger;
     //alert('updateEstablishment')
     editEstablishmentRecord({
       EstbID: estblmt2Edit.ID,
@@ -405,7 +415,7 @@ export default function EstablishmentsApprove({
         </button>
         {/* <button className="btn btn-primary m-2" type="button" name="PENDING" onClick={getSelectedRowsAndUpdateEstablishment}>PENDING</button> */}
         <button
-          className="btn btn-warning m-2 btn-width-150"
+          className="btn btn-danger m-2 btn-width-150"
           type="button"
           name="REJECT"
           onClick={getSelectedRowsAndUpdateEstablishment}
@@ -413,7 +423,7 @@ export default function EstablishmentsApprove({
           <i className="fas fa-ban mr-1"></i> REJECT
         </button>
         <button
-          className="btn btn-danger m-2 btn-width-150"
+          className="btn btn-info m-2 btn-width-150"
           type="button"
           name="DELETE"
           onClick={getSelectedRowsAndUpdateEstablishment}

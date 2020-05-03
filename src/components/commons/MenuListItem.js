@@ -20,8 +20,8 @@ function MenuListItem({
   const showAddViewLinks = () => {
     return (
       <div className="row m-0 p-0">
-        <div className="col-4 text-left m-0 p-0">{title}</div>
-        <div className="col-8 text-right m-0 p-0" style={{ fontSize: ".8em" }}>
+        <div className="col-8 text-left m-0 p-0">{title}</div>
+        <div className="col-4 text-right m-0 p-0" style={{ fontSize: ".8em" }}>
           <Link to={`${destination}`}>
             <i className="fa fa-plus mr-1"></i>Add New
           </Link>

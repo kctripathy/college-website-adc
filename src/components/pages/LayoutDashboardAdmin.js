@@ -111,7 +111,7 @@ function LayoutDashboardAdmin(props) {
                 {props.title ? props.title : ''}
             </h2> */}
       <div className="row m-0 p-0 mt-2">
-        <div className="col-lg-2 col-sm-12 col-xs-12 m-0 p-0 text-center">
+        <div className="col-lg-3 col-sm-12 col-xs-12 m-0 p-0 text-center">
           <ul className="list-group">
             <li className="list-group-item text-center list-group-item-secondary">
               <span className="font-weight-bolder">
@@ -142,7 +142,7 @@ function LayoutDashboardAdmin(props) {
             </li>
           </ul>
         </div>
-        <div className="col-lg-10 col-xs-12 col-sm-12 text-center m-0 p-0">
+        <div className="col-lg-9 col-xs-12 col-sm-12 text-center m-0 p-0">
           {props.children}
         </div>
       </div>
